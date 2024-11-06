@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
+import Link from 'next/link';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 
@@ -19,7 +19,33 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      <header>
+        <nav className="shadow-md w-full">
+          <div className="flex justify-between py-5 px-5 md:px-10 w-full">
+            <div className="text-2xl">Rumi Logo</div>
+            <div className="flex justify-center items-center gap-10">
+              <ul className="md:flex gap-5 hidden">
+                <li className="text-sm hover:text-green">
+                  <Link href={'/'}>Home</Link >
+                </li>
+                <li className="text-sm hover:text-green">
+                  <Link href={'/'}>Tipe Properti</Link >
+                </li>
+                <li className="text-sm hover:text-green">
+                  <Link href={'/'}>Blog</Link >
+                </li>
+                <li className="text-sm hover:text-green">
+                  <Link href={'/'}>About Us</Link >
+                </li>
+                <li className="text-sm hover:text-green">
+                  <Link href={'/'}>Contact</Link >
+                </li>
+              </ul>
+              <Link className="text-sm px-6 py-2 bg-green rounded-2xl text-white flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
+            </div>
+          </div>
+        </nav>
+      </header>
       <main>
         <div className="relative">
           <div className="component-a bg-gray-200 w-full h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
@@ -226,7 +252,28 @@ export default function Home() {
           </div>
         </div>
       </main >
-      <Footer />
+      <footer className="mt-[100px] bg-green text-white md: p-5 md:p-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
+          <div className="flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold">Rumi Logo</h2>
+              <p className="mt-2 text-sm">San Francisco, US</p>
+            </div>
+            <p className="mt-2 text-sm">Sosial media icon</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold">Hubungi Kami</h3>
+            <p className="mt-2 text-sm">Email: rumiproperti@gmail.com</p>
+            <p className="mt-2 text-sm">Phone: 081xxxxxxxx87</p>
+            <p className="mt-2 text-sm">Office: San Francisco, US</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold">Tentang Kami</h3>
+            <p className="mt-2 text-sm">Rumi Properti adalah ahaha hihihi huhuhu hehehe hohohoho</p>
+          </div>
+          <div className="w-48 h-32 bg-gray-300 rounded-md"></div>
+        </div>
+      </footer>
     </div >
   );
 }
