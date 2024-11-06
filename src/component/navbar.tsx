@@ -12,16 +12,16 @@ export default function Navbar() {
                                 <Link href={'/'}>Home</Link >
                             </li>
                             <li className="text-sm hover:text-green">
-                                <Link href={'/'}>Tipe Properti</Link >
+                                <Link href={'/properti'}>Tipe Properti</Link >
                             </li>
                             <li className="text-sm hover:text-green">
-                                <Link href={'/'}>Blog</Link >
+                                <Link href={'/blog'}>Blog</Link >
                             </li>
                             <li className="text-sm hover:text-green">
-                                <Link href={'/'}>About Us</Link >
+                                <Link href={'/about'}>About Us</Link >
                             </li>
                             <li className="text-sm hover:text-green">
-                                <Link href={'/'}>Contact</Link >
+                                <Link href={'/contact'}>Contact</Link >
                             </li>
                         </ul>
                         <Link className="text-sm px-6 py-2 bg-green rounded-2xl text-white flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
