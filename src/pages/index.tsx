@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Link from 'next/link';
-const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 
 export default function Home() {
