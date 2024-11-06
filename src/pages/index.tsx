@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Link from 'next/link';
+const CTA = dynamic(() => import('src/component/CTA'), { ssr: false });
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 
 export default function Home() {
@@ -250,6 +251,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <CTA />
       </main >
       <footer className="mt-[100px] bg-green text-white md: p-5 md:p-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
