@@ -40,7 +40,7 @@ interface Properti {
 }
 
 const myLoader = ({ src }: { src: string }) => {
-    return `http://localhost:1337${src}`;
+    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
 };
 
 export default function Property() {
@@ -50,9 +50,9 @@ export default function Property() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`http://localhost:1337/api/propertis?populate=*`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/propertis?populate=*`, {
                     headers: {
-                        Authorization: `Bearer 2e762088040cd576315579bdb600e232c9d7f433fc1402e1692560a90c3e68d9c3a586e38059aabb1e462fe52bc5fa9aa095ca5845e5439b57f27033ea7eff804b9e6a21484fe4caf800ecba9abcd68adbecebf3662d2e2c6c0e74fc5ce8006255db9392d9f04d16ef1ce9893569e61adb57ed68eceeb3156e850aa852b2a1e7`,
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
                 });
                 const data = await res.json();
