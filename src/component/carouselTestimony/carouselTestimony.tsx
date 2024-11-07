@@ -1,23 +1,23 @@
 import React from 'react'
-import home from "/public/asset/1.webp"
 import Image from 'next/image'
 import { EmblaOptionsType } from 'embla-carousel'
-import {
-    PrevButton,
-    NextButton,
-    usePrevNextButtons
-} from './carouselButtonTestimony'
+import { PrevButton, NextButton, usePrevNextButtons } from './carouselButtonTestimony'
 import useEmblaCarousel from 'embla-carousel-react'
+import { useTestimony } from 'src/lib/fetchCity'
+
+const myLoader = ({ src }: { src: string }) => {
+    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+};
 
 type PropType = {
-    slides: number[]
     options?: EmblaOptionsType
 }
 
 const CarouselTestimony: React.FC<PropType> = (props) => {
-    const { slides, options } = props
+    const { options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
+    const { testimony } = useTestimony();
 
     const {
         prevBtnDisabled,
@@ -26,24 +26,31 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
         onNextButtonClick
     } = usePrevNextButtons(emblaApi)
 
+    if (!testimony || testimony.length === 0) {
+        return <div>Loading...</div>;  // Handle the loading state
+    }
+
     return (
         <section className="embla-testimony">
             <div className="embla__viewport-testimony" ref={emblaRef}>
                 <div className="embla__container-testimony gap-5">
-                    {slides.map((index) => (
-                        <div className="embla__slide-testimony border border-black p-4" key={index}>
-                            <div className="flex items-center">
+                    {testimony.map((testi) => (
+                        <div className="embla__slide-testimony border border-black gap-5 flex flex-col p-5 rounded-lg shadow-lg" key={testi.id}>
+                            <div className="flex items-center mb-5">
                                 <Image
-                                    src={home}
+                                    src={testi.foto.formats.thumbnail.url}
                                     alt="Profile"
-                                    className="rounded-full w-12 h-12 mr-3"
+                                    className="rounded-full w-10 h-10 mr-3"
+                                    loader={myLoader}
+                                    width={100}
+                                    height={100}
                                 />
-                                <div className="flex-grow">
-                                    <h3 className="text-lg font-semibold">James</h3>
-                                    <p className="text-sm text-gray-600">Pembeli</p>
+                                <div>
+                                    <h3 className="text-base font-semibold">James</h3>
+                                    <p className="text-sm text-gray-500">Pembeli</p>
                                 </div>
                             </div>
-                            <p className="mt-2 text-gray-800">Bagus banget MasyaAllah</p>
+                            <p className="text-gray-800 text-sm">Bagus banget MasyaAllah</p>
                         </div>
                     ))}
                 </div>
@@ -59,4 +66,4 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
     )
 }
 
-export default CarouselTestimony
+export default CarouselTestimony;

@@ -24,7 +24,10 @@ export default function Navbar() {
                                 <Link href={'/contact'}>Contact</Link >
                             </li>
                         </ul>
-                        <Link className="text-sm px-6 py-2 bg-green rounded-2xl text-white flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
+                        <div className="flex gap-3">
+                            <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://bit.ly/SurveyRumi"} target='blank' role="button">Formulir</Link>
+                            <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://wa.me/6281291964488"} target='blank' role="button">Hubungi Kami</Link>
+                        </div>
                     </div>
                 </div>
             </nav>

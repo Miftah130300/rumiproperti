@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useCities } from 'src/lib/fetchCity';
+import { useCities, usePartner } from 'src/lib/fetchCity';
 
 import Link from 'next/link';
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
@@ -20,13 +20,9 @@ const myLoader = ({ src }: { src: string }) => {
 
 export default function Home() {
   const images = new Array(7).fill(home)
-  const slides = [0, 1, 2, 3, 4, 5]
 
-  const { properti, error } = useCities();
-
-  if (error) {
-    return error;
-  }
+  const { properti } = useCities();
+  const { partner } = usePartner();
 
   return (
     <div>
@@ -52,7 +48,10 @@ export default function Home() {
                   <Link href={'/contact'}>Contact</Link >
                 </li>
               </ul>
-              <Link className="text-sm px-6 py-2 bg-green rounded-2xl text-white flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
+              <div className="flex gap-3">
+                <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://bit.ly/SurveyRumi"} target='blank' role="button">Formulir</Link>
+                <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://wa.me/6281291964488"} target='blank' role="button">Hubungi Kami</Link>
+              </div>
             </div>
           </div>
         </nav>
@@ -211,29 +210,29 @@ export default function Home() {
               <a className="border border-green text-green cursor-pointer hover:bg-green hover:text-white rounded-lg px-6 py-3">Cari Artikel</a>
             </div>
             <div className="flex flex-col md:flex-row w-full gap-2">
-              <div className="relative w-full md:w-1/2">
+              <div className="relative w-full md:w-1/2 group">
                 <Image src={home} alt="Image 1" className="h-full w-full object-cover rounded-md" />
-                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md">
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md transition-opacity duration-300 opacity-0 group-hover:opacity-100 backdrop-blur-md">
                   <span className="text-white text-xl font-semibold">Rumah di Bekasi terjual 100 unit dalam satu bulan</span>
                 </div>
               </div>
               <div className="w-1/2 md:flex flex-col hidden gap-2">
-                <div className="relative w-full">
+                <div className="relative w-full group">
                   <Image src={home} alt="Image 2" className="h-full w-full object-cover rounded-md" />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md">
+                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100">
                     <span className="text-white text-xl font-semibold">Apartemen di Jakarta ludes terjual hanya dalam 2 minggu</span>
                   </div>
                 </div>
                 <div className="w-full flex gap-2">
-                  <div className="relative w-1/2">
+                  <div className="relative w-1/2 group">
                     <Image src={home} alt="Image 3" className="h-full w-full object-cover rounded-md" />
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100">
                       <span className="text-white text-xl font-semibold">Kos di Depok penuh sampai 2025</span>
                     </div>
                   </div>
-                  <div className="relative w-1/2">
+                  <div className="relative w-1/2 group">
                     <Image src={home} alt="Image 4" className="h-full w-full object-cover rounded-md" />
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-5 rounded-md backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100">
                       <span className="text-white text-xl font-semibold">Tanah strategis di Bandung mulai diminati investor</span>
                     </div>
                   </div>
@@ -243,16 +242,20 @@ export default function Home() {
           </div>
         </div>
         <div className="pt-[100px] px-5 md:px-10">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-xl font-semibold text-[#24221D]">Our Partner</h2>
+          <div>
+            <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
             <div className="flex gap-5">
-              {
-                images.map((image, id) => (
-                  <div key={id} className="rounded-lg h-[40px] w-[130px] bg-gray1">
-                    <Image className="rounded-lg" src={image} alt="partner" />
-                  </div>
-                ))
-              }
+              {partner.map((item) => (
+                <div key={item.id} className="border border-black h-[120px] w-[180px] rounded-lg flex items-center justify-center">
+                  <Image
+                    loader={myLoader}
+                    src={item.imagePartner.formats.thumbnail.url}
+                    alt={item.namePartner}
+                    width={100}
+                    height={100}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -267,7 +270,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <CarouselTestimony slides={slides} />
+              <CarouselTestimony myLoader={myLoader} />
             </div>
           </div>
         </div>

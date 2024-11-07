@@ -108,3 +108,10 @@ body {
   width: 35%;
   height: 35%;
 }
+
+.embla__slide-testimony img {
+  border-radius: 9999px;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
