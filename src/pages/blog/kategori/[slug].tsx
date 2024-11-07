@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import home from "/public/asset/1.webp"
 import dynamic from "next/dynamic";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
@@ -17,10 +16,21 @@ interface Article {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    cover: {
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    }
     category: {
         name: string;
     }
 }
+
+const myLoader = ({ src }: { src: string }) => {
+    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+};
 
 export default function Category() {
     const router = useRouter();
@@ -33,7 +43,7 @@ export default function Category() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:1337/api/articles?populate=*");
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*`);
                 const data = await res.json();
                 setArticles(data.data || []);
             } catch (error) {
@@ -96,7 +106,7 @@ export default function Category() {
                                     return (
                                         <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg max-w-xs">
                                             <div className="max-w-xs h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
-                                                <Image className="w-full" src={home} alt={article.title} />
+                                                <Image className="w-full" width={100} height={100} src={article.cover.formats.large.url} alt={article.title} loader={myLoader} />
                                                 <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                     <div className="text-green text-sm rounded">{article.category.name}</div>
                                                     <div className="text-black flex-grow">

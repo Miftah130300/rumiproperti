@@ -8,13 +8,25 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useCities } from 'src/lib/fetchCity';
 
 import Link from 'next/link';
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 
+
+const myLoader = ({ src }: { src: string }) => {
+  return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+};
+
 export default function Home() {
   const images = new Array(7).fill(home)
   const slides = [0, 1, 2, 3, 4, 5]
+
+  const { properti, error } = useCities();
+
+  if (error) {
+    return error;
+  }
 
   return (
     <div>
@@ -121,12 +133,21 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             <h2 className="text-xl font-semibold text-[#24221D]">Pilih kota hunian impianmu</h2>
             <div className="flex gap-5">
-              {images.map((image, id) => (
-                <div key={id} className="h-[60px] w-[150px] md:flex hidden flex-col items-center rounded-lg ">
-                  <div className="rounded-lg">
-                    <Image className="rounded-lg" src={image} alt="location" />
+              {properti.map((city) => (
+                <div key={city.id} className='flex flex-col items-center'>
+                  <div className="h-[120px] w-[180px] border border-black md:flex hidden flex-col items-center rounded-lg">
+                    <div className="relative w-full h-full overflow-hidden rounded-lg">
+                      <Image
+                        className="object-cover"
+                        loader={myLoader}
+                        width={300}
+                        height={225}
+                        src={city.imageCity.formats.thumbnail.url}
+                        alt="location"
+                      />
+                    </div>
                   </div>
-                  <div>Jakarta</div>
+                  <div>{city.nameCity}</div>
                 </div>
               ))}
             </div>

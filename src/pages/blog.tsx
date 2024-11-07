@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 import Image from "next/image"
-import home from "/public/asset/1.webp"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -15,10 +14,21 @@ interface Article {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    cover: {
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    }
     category: {
         name: string;
     }
 }
+
+const myLoader = ({ src }: { src: string }) => {
+    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+};
 
 export default function Blog() {
     // Ubah tipe state blog menjadi array Article[]
@@ -75,7 +85,6 @@ export default function Blog() {
                         </div>
                     </nav>
                 </div>
-
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-10">
                     <div className="flex flex-col gap-5">
                         <div className="flex justify-between w-full">
@@ -100,7 +109,7 @@ export default function Blog() {
                                     return (
                                         <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg max-w-xs">
                                             <div className="h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
-                                                <Image className="w-full" src={home} alt={article.title} />
+                                                <Image className="w-full" width={100} height={100} loader={myLoader} src={article.cover.formats.large.url} alt={article.title} />
                                                 <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                     <div className="text-green text-sm rounded">{article.category.name}</div>
                                                     <div className="text-black flex-grow">
@@ -139,7 +148,7 @@ export default function Blog() {
                                     return (
                                         <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg">
                                             <div className="max-w-xs h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
-                                                <Image className="w-full" src={home} alt={article.title} />
+                                                <Image className="w-full" loader={myLoader} height={100} width={100} src={article.cover?.formats?.large?.url} alt={article.title} />
                                                 <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                     <div className="text-green text-sm rounded">{article.category.name}</div>
                                                     <div className="text-black flex-grow">

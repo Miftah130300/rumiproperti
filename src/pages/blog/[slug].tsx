@@ -21,8 +21,12 @@ interface Article {
         name: string;
     }
     cover: {
-        url: string;
-    };
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    }
     author: {
         name: string;
     };
@@ -32,6 +36,10 @@ interface Article {
         body: string; // Assuming this is the rich text content
     }[];
 }
+
+const myLoader = ({ src }: { src: string }) => {
+    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+};
 
 export default function DetailBlog() {
     const router = useRouter();
@@ -112,7 +120,7 @@ export default function DetailBlog() {
                             <p className="text-sm text-black text-opacity-70">{new Date(article.createdAt).toLocaleDateString()}</p>
                         </div>
                         <div className="w-full text-center">
-                            <Image src={article.cover.url} width={100} height={100} alt='foto' className="h-[400px] w-full object-cover" />
+                            <Image loader={myLoader} src={article.cover.formats.large.url} width={100} height={100} alt='foto' className="h-[400px] w-full object-cover" />
                             <p className="text-sm text-black text-opacity-70">Source</p>
                         </div>
                         <div className="w-full">
