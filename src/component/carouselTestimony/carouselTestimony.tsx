@@ -35,7 +35,7 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
             <div className="embla__viewport-testimony" ref={emblaRef}>
                 <div className="embla__container-testimony gap-5">
                     {testimony.map((testi) => (
-                        <div className="embla__slide-testimony border border-black gap-5 flex flex-col p-5 rounded-lg shadow-lg" key={testi.id}>
+                        <div className="embla__slide-testimony bg-green text-white gap-5 flex flex-col p-5 rounded-lg shadow-lg" key={testi.id}>
                             <div className="flex items-center mb-5">
                                 <Image
                                     src={testi.foto.formats.thumbnail.url}

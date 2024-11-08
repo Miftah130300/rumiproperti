@@ -270,7 +270,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <CarouselTestimony myLoader={myLoader} />
+              <CarouselTestimony />
             </div>
           </div>
         </div>
