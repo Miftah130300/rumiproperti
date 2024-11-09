@@ -14,6 +14,7 @@ import Head from 'next/head';
 
 import Link from 'next/link';
 import { useState } from 'react';
+const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 
 
@@ -72,36 +73,7 @@ export default function Home() {
         <title>Rumi Properti: Jual & Sewa Rumah, Apartemen, Tanah, Kos</title>
       </Head>
       <div>
-        <header>
-          <nav className="shadow-md w-full">
-            <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-              <div className="text-2xl">Rumi Logo</div>
-              <div className="flex justify-center items-center gap-10">
-                <ul className="md:flex gap-5 hidden">
-                  <li className="text-sm hover:text-green">
-                    <Link href={'/'}>Home</Link >
-                  </li>
-                  <li className="text-sm hover:text-green">
-                    <Link href={'/properti'}>Tipe Properti</Link >
-                  </li>
-                  <li className="text-sm hover:text-green">
-                    <Link href={'/blog'}>Blog</Link >
-                  </li>
-                  <li className="text-sm hover:text-green">
-                    <Link href={'/about'}>About Us</Link >
-                  </li>
-                  <li className="text-sm hover:text-green">
-                    <Link href={'/contact'}>Contact</Link >
-                  </li>
-                </ul>
-                <div className="flex gap-3">
-                  <Link className="text-sm px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href={"https://bit.ly/SurveyRumi"} target='blank' role="button">Feedback</Link>
-                  <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://wa.me/6281291964488"} target='blank' role="button">Hubungi Kami</Link>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </header>
+        <Navbar />
         <main>
           <div className="relative">
             <div className="component-a bg-gray-200 w-full h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
