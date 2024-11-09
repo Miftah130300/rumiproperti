@@ -95,7 +95,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="flex gap-3">
-                  <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://bit.ly/SurveyRumi"} target='blank' role="button">Formulir</Link>
+                  <Link className="text-sm px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href={"https://bit.ly/SurveyRumi"} target='blank' role="button">Feedback</Link>
                   <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href={"https://wa.me/6281291964488"} target='blank' role="button">Hubungi Kami</Link>
                 </div>
               </div>
@@ -172,24 +172,48 @@ export default function Home() {
           <div className="pt-[150px] px-5 md:px-10">
             <div className="flex flex-col gap-4">
               <h2 className="text-xl font-semibold text-[#24221D]">Pilih kota hunian impianmu</h2>
-              <div className="flex gap-5">
-                {city.map((city) => (
-                  <div key={city.id} className='flex flex-col items-center'>
-                    <div className="h-[120px] w-[180px] border border-black md:flex hidden flex-col items-center rounded-lg">
-                      <div className="relative w-full h-full overflow-hidden rounded-lg">
-                        <Image
-                          className="object-cover"
-                          loader={myLoader}
-                          width={300}
-                          height={225}
-                          src={city.imageCity.formats.thumbnail.url}
-                          alt="location"
-                        />
+              <div className="flex">
+                <Swiper
+                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  spaceBetween={5}
+                  slidesPerView={6}
+                  navigation
+                  breakpoints={{
+                    340: {
+                      slidesPerView: 3,
+                      spaceBetween: 5,
+                    },
+                    768: {
+                      slidesPerView: 6,
+                      spaceBetween: 5,
+                    },
+                    1024: {
+                      slidesPerView: 6,
+                      spaceBetween: 5,
+                    },
+                  }}
+                  className="flex w-full"
+                >
+                  {city.map((city) => (
+                    <SwiperSlide key={city.id} className='w-full'>
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="h-[120px] w-[180px] md:flex hidden flex-col items-center rounded-lg overflow-hidden">
+                          <div className="relative w-full h-full">
+                            <Image
+                              className="object-cover"
+                              loader={myLoader}
+                              width={300}
+                              height={225}
+                              src={city.imageCity.formats.thumbnail.url}
+                              alt="location"
+                            />
+                          </div>
+                        </div>
+                        <div className="text-sm mt-1">{city.nameCity}</div>
                       </div>
-                    </div>
-                    <div>{city.nameCity}</div>
-                  </div>
-                ))}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
           </div>
@@ -348,19 +372,45 @@ export default function Home() {
           <div className="pt-[100px] px-5 md:px-10">
             <div>
               <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
-              <div className="flex gap-5">
-                {partner.map((item) => (
-                  <div key={item.id} className="border border-black h-[120px] w-[180px] rounded-lg flex items-center justify-center">
-                    <Image
-                      loader={myLoader}
-                      src={item.imagePartner.formats.thumbnail.url}
-                      alt={item.namePartner}
-                      width={100}
-                      height={100}
-                    />
+              <>
+                <Swiper
+                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  spaceBetween={5}
+                  slidesPerView={6}
+                  navigation
+                  breakpoints={{
+                    340: {
+                      slidesPerView: 3,
+                      spaceBetween: 5,
+                    },
+                    768: {
+                      slidesPerView: 6,
+                      spaceBetween: 5,
+                    },
+                    1024: {
+                      slidesPerView: 6,
+                      spaceBetween: 5,
+                    },
+                  }}
+                  className="flex w-full"
+                >
+                  <div className="flex gap-5">
+                    {partner.map((item) => (
+                      <SwiperSlide key={item.id}>
+                        <div className="border border-black h-[120px] w-[180px] rounded-lg flex items-center justify-center">
+                          <Image
+                            loader={myLoader}
+                            src={item.imagePartner.formats.thumbnail.url}
+                            alt={item.namePartner}
+                            width={100}
+                            height={100}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </Swiper>
+              </>
             </div>
           </div>
           <div className="pt-[100px] px-5 md:px-10">
@@ -393,7 +443,7 @@ export default function Home() {
                   <h2 className="text-white text-2xl font-semibold">Temukan Properti Idamanmu dengan Rumi</h2>
                   <p className="text-white text-md">Temukan properti idamanmu dengan langkah yang sangat mudah</p>
                 </div>
-                <Link className="px-6 py-2 bg-white hover:bg-opacity-90 rounded-2xl text-green flex justify-center items-center" target='blank' href={"https://wa.me/6281291964488"} role="button">Hubungi Kami</Link>
+                <Link className="px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] hover:bg-opacity-90 rounded-2xl text-green flex justify-center items-center" target='blank' href={"https://wa.me/6281291964488"} role="button">Hubungi Kami</Link>
               </div>
             </div>
           </div>

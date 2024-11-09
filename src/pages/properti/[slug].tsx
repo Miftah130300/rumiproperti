@@ -88,10 +88,14 @@ export default function DetailProperti() {
         <div>
             <Navbar />
             <main>
-                <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-5">
+                <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row justify-between gap-10 md:gap-10">
                     <EmblaCarousel slides={imageUrls} options={OPTIONS} loader={myLoader} />
-                    <div className="w-full md:w-1/2 flex items-center justify-center">
-                        <div className="flex flex-col items-center shadow py-5 px-10 border rounded-md gap-4 w-[300px]">
+                    <div className="w-full md:w-1/2 flex flex-col gap-5">
+                        <div className="text-start">
+                            <h1 className="text-2xl font-bold text-[#24221D]">{selectedProperti.title}</h1>
+                            <p className="text-black text-opacity-70">{selectedProperti.address}</p>
+                        </div>
+                        <div className="flex flex-col items-center shadow py-5 px-10 border rounded-md gap-4 w-[300px] h-[250px]">
                             <div className="text-center">
                                 <h2 className="text-xl font-bold text-[#24221D]">Rp {selectedProperti.price.toLocaleString()}</h2>
                                 <p className="text-xs text-black text-opacity-70">Cicilan mulai dari 2juta/bulan</p>
