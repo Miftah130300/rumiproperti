@@ -151,7 +151,7 @@ export default function Property() {
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row w-full gap-3">
-                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border w-full">
+                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
                                 <option value="">Tipe properti</option>
                                 {categories.map((category) => (
                                     <option key={category.id} value={category.nameCategory}>
@@ -159,12 +159,12 @@ export default function Property() {
                                     </option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border w-full">
+                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
                                 <option value="">Area</option>
                                 <option value="Jakarta">Jakarta</option>
                                 <option value="Bandung">Bandung</option>
                             </select>
-                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border w-full">
+                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
                                 <option value="">Harga</option>
                                 <option value="low">Dibawah 500 Juta</option>
                                 <option value="medium">500 Juta - 1 Miliar</option>
