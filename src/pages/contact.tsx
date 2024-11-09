@@ -13,8 +13,8 @@ export default function Contact() {
                         <div className="text-center md:text-start">
                             <h2 className="font-semibold">Hubungi kami melalui kontak di bawah ini:</h2>
                             <ul>
-                                <li>Email: rumiproperti@gmail.com</li>
-                                <li>Phone number: 6281xxxxx</li>
+                                <li>Email: rumamilenial@gmail.com</li>
+                                <li>Phone number: 081291964488</li>
                                 <li>Location: Gedung Sate, Bandung</li>
                             </ul>
                         </div>

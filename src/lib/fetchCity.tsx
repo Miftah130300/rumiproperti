@@ -38,8 +38,75 @@ interface Testimony {
     }
 }
 
+interface Banner {
+    id: number;
+    title: string;
+    bannerImage: {
+        formats: {
+            medium: {
+                url: string;
+            }
+        }
+    }
+}
+
+interface Properti {
+    id: number;
+    documentId: string;
+    title: string;
+    price: number;
+    address: string;
+    luasTanah: number | null;
+    luasBangunan: number | null;
+    jumlahKamarMandi: number | null;
+    jumlahKamarTidur: number | null;
+    jenisSertifikat: string | null;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    category: {
+        name: string;
+    }
+    imageProperty: {
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    }[];
+    bannerProperty: {
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    };
+}
+
+interface Article {
+    id: number;
+    documentId: string;
+    title: string;
+    description: string;
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    cover: {
+        formats: {
+            large: {
+                url: string;
+            }
+        }
+    }
+    category: {
+        name: string;
+    }
+}
+
 export const useCities = () => {
-    const [properti, setProperti] = useState<City[]>([]);
+    const [city, setCity] = useState<City[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -53,7 +120,7 @@ export const useCities = () => {
                     throw new Error("Failed to fetch cities");
                 }
                 const data = await res.json();
-                setProperti(data.data || []);
+                setCity(data.data || []);
             } catch (error) {
                 console.log(error)
             }
@@ -62,7 +129,7 @@ export const useCities = () => {
         fetchData();
     }, []);
 
-    return { properti };
+    return { city };
 };
 
 
@@ -119,3 +186,82 @@ export const useTestimony = () => {
 
     return { testimony };
 };
+
+
+export const useBanner = () => {
+    const [banner, setBanner] = useState<Banner[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/banner-heroes?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch banners");
+                }
+
+                const data = await res.json();
+                setBanner(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { banner };
+};
+
+export const useProperti = () => {
+    const [properti, setProperti] = useState<Properti[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/propertis?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                const data = await res.json();
+                setProperti(data.data || []);
+            } catch (error) {
+                console.error("Error fetching properties:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { properti }
+}
+
+export const useBlog = () => {
+    const [blog, setBlog] = useState<Article[]>([]); // <-- array of articles
+
+    // Fetch data using useEffect
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                const data = await res.json();
+                setBlog(data.data || []); // <-- set blog as an array
+            } catch (error) {
+                console.error("Error fetching properties:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { blog }
+}

@@ -7,21 +7,21 @@ export default function Footer() {
                         <h2 className="text-2xl font-bold">Rumi Logo</h2>
                         <p className="mt-2 text-sm">San Francisco, US</p>
                     </div>
-                    <p className="mt-2 text-sm">Sosial media icon</p>
+                    <div className="mt-2 text-sm">
+                    </div>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Hubungi Kami</h3>
-                    <p className="mt-2 text-sm">Email: rumiproperti@gmail.com</p>
-                    <p className="mt-2 text-sm">Phone: 081xxxxxxxx87</p>
+                    <p className="mt-2 text-sm">Email: rumamilenial@gmail.com</p>
+                    <p className="mt-2 text-sm">Phone: 081291964488</p>
                     <p className="mt-2 text-sm">Office: San Francisco, US</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Tentang Kami</h3>
-                    <p className="mt-2 text-sm">Rumi Properti adalah ahaha hihihi huhuhu hehehe hohohoho</p>
+                    <p className="mt-2 font-sans text-sm">Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda.</p>
                 </div>
                 <div className="w-48 h-32 bg-gray-300 rounded-md"></div>
             </div>
         </footer>
-
     )
 }

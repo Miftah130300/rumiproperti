@@ -146,9 +146,9 @@ export default function Blog() {
                                     });
 
                                     return (
-                                        <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg">
-                                            <div className="max-w-xs h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
-                                                <Image className="w-full" loader={myLoader} height={100} width={100} src={article.cover?.formats?.large?.url} alt={article.title} />
+                                        <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg max-w-xs">
+                                            <div className="h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
+                                                <Image className="w-full" width={100} height={100} loader={myLoader} src={article.cover.formats.large.url} alt={article.title} />
                                                 <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                     <div className="text-green text-sm rounded">{article.category.name}</div>
                                                     <div className="text-black flex-grow">
