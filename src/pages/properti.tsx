@@ -85,7 +85,7 @@ export default function Property() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/category-propertis`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/category-propertis?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
