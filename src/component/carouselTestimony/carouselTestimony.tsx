@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { EmblaOptionsType } from 'embla-carousel'
 import { PrevButton, NextButton, usePrevNextButtons } from './carouselButtonTestimony'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useTestimony } from 'src/lib/fetchCity'
+import { useTestimony } from 'src/pages/api/fetchAPI'
 
 const myLoader = ({ src }: { src: string }) => {
     return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
@@ -38,7 +38,7 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
                         <div className="embla__slide-testimony bg-green text-white gap-5 flex flex-col p-5 rounded-lg shadow-lg" key={testi.id}>
                             <div className="flex items-center mb-5">
                                 <Image
-                                    src={testi.foto.formats.thumbnail.url}
+                                    src={testi.imageClient.formats.thumbnail.url}
                                     alt="Profile"
                                     className="rounded-full w-10 h-10 mr-3"
                                     loader={myLoader}

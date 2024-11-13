@@ -29,7 +29,7 @@ interface Testimony {
     nama: string;
     pekerjaan: string;
     pesanTestimoni: string;
-    foto: {
+    imageClient: {
         formats: {
             thumbnail: {
                 url: string;
@@ -65,8 +65,8 @@ interface Properti {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    category: {
-        name: string;
+    category_properti: {
+        nameCategory: string;
     }
     imageProperty: {
         formats: {
@@ -100,8 +100,21 @@ interface Article {
             }
         }
     }
-    category: {
-        name: string;
+    category_article: {
+        nameCategory: string;
+    }
+}
+
+interface BannerHome {
+    id: number;
+    title: string;
+    imageBanner: {
+        height: number;
+        width: number;
+        formats: {
+            url: string;
+        }
+        url: string;
     }
 }
 
@@ -194,7 +207,7 @@ export const useBanner = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/banner-heroes?populate=*`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/banner-artikel?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
@@ -265,3 +278,33 @@ export const useBlog = () => {
 
     return { blog }
 }
+
+
+export const useBannerHome = () => {
+    const [bannerHome, setBannerHome] = useState<BannerHome[]>([]);
+
+    // Fetching banner data
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/banner-heroes?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                const data = await res.json();
+                console.log('Banner Data:', data); // Cek respons API
+                setBannerHome(data.data || []); // Menyimpan data banner jika ada
+            } catch (error) {
+                console.error('Error fetching banner data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { bannerHome };
+};

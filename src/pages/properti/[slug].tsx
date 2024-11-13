@@ -21,8 +21,8 @@ interface Properti {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    category: {
-        name: string;
+    category_properti: {
+        nameCategory: string;
     }
     imageProperty: {
         formats: {
@@ -31,6 +31,7 @@ interface Properti {
             }
         }
     }[];
+    detailDescription: string;
 }
 
 const OPTIONS: EmblaOptionsType = {};
@@ -110,13 +111,30 @@ export default function DetailProperti() {
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
                     <div className="flex flex-col gap-10">
                         <div className="flex flex-col"></div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D]">Informasi Properti</h2>
-                            <p>Luas Tanah: {selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
-                            <p>Luas Bangunan: {selectedProperti.luasBangunan ?? 'Tidak tersedia'}</p>
-                            <p>Kamar Tidur: {selectedProperti.jumlahKamarTidur ?? 'Tidak tersedia'}</p>
-                            <p>Kamar Mandi: {selectedProperti.jumlahKamarMandi ?? 'Tidak tersedia'}</p>
-                            <p>Jenis Sertifikat: {selectedProperti.jenisSertifikat ?? 'Tidak tersedia'}</p>
+                            <div className="flex gap-5">
+                                <div>
+                                    <p>{selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
+                                    <div>Luas Tanah</div>
+                                </div>
+                                <div>
+                                    <p>{selectedProperti.luasBangunan ?? 'Tidak tersedia'}</p>
+                                    <div>Luas Bangunan</div>
+                                </div>
+                                <div>
+                                    <p>{selectedProperti.jumlahKamarTidur ?? 'Tidak tersedia'}</p>
+                                    <div>Kamar Tidur</div>
+                                </div>
+                                <div>
+                                    <p>{selectedProperti.jumlahKamarMandi ?? 'Tidak tersedia'}</p>
+                                    <div>Kamar Mandi</div>
+                                </div>
+                                <div>
+                                    <p>{selectedProperti.jenisSertifikat ?? 'Tidak tersedia'}</p>
+                                    <div>Jenis Sertifikat</div>
+                                </div>
+                            </div>
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Deskripsi</h2>
