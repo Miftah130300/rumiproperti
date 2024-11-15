@@ -67,20 +67,20 @@ interface Properti {
     publishedAt: string;
     category_properti: {
         nameCategory: string;
-    }
+    };
     imageProperty: {
         formats: {
-            large: {
+            medium: {
                 url: string;
-            }
-        }
+            };
+        };
     }[];
     bannerProperty: {
         formats: {
-            large: {
+            medium: {
                 url: string;
-            }
-        }
+            };
+        };
     };
 }
 

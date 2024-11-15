@@ -2,11 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  swcMinify: false,
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://cms.rumiproperti.com/api/:path*', // Proxy to Strapi backend
+        destination: 'http://cms.rumiproperti.com/api/:path*',
       },
     ];
   },

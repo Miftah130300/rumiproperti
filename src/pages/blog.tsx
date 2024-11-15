@@ -184,6 +184,10 @@ export default function Blog() {
                                     .filter((article: Article) => article.category_article?.nameCategory === 'Tips & Trik')
                                     .slice(0, 4)
                                     .map((article: Article) => {
+                                        if (!article.cover?.formats?.large?.url) {
+                                            return null; // Skip this article if cover or image URL is missing
+                                        }
+
                                         const date = new Date(article.publishedAt);
                                         const formattedDate = date.toLocaleDateString('id-ID', {
                                             weekday: 'long',
@@ -197,14 +201,19 @@ export default function Blog() {
                                                 <Link href={`/blog/${article.slug}`} className="rounded-lg max-w-xs">
                                                     <div className="h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
                                                         <div className="h-40 overflow-hidden">
-                                                            <Image className="w-full h-full" width={100} height={100} loader={myLoader} src={article.cover.formats.large.url} alt={article.title} />
+                                                            <Image
+                                                                className="w-full h-full"
+                                                                width={100}
+                                                                height={100}
+                                                                loader={myLoader}
+                                                                src={article.cover.formats.large.url}
+                                                                alt={article.title}
+                                                            />
                                                         </div>
                                                         <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                             <div className="text-green text-sm rounded">{article.category_article.nameCategory}</div>
                                                             <div className="text-black flex-grow">
-                                                                <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis">
-                                                                    {article.title}
-                                                                </p>
+                                                                <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis">{article.title}</p>
                                                                 <p className="text-xs text-black text-opacity-70">{formattedDate}</p>
                                                             </div>
                                                         </div>

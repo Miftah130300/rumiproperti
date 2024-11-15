@@ -245,33 +245,33 @@ export default function Home() {
                   }}
                   className="flex w-full"
                 >
-                  {properti.slice(0, 4).map((home) => (
-                    <SwiperSlide key={home.id} className="max-w-xs w-full pr-3">
-                      <Link href={`/properti/${home.title}`} className="rounded-lg hover:shadow-lg">
+                  {properti.slice(0, 4).map((item) => (
+                    <SwiperSlide key={item.id} className="max-w-xs w-full pr-3">
+                      <Link href={`/properti/${item.title}`} className="rounded-lg hover:shadow-lg">
                         <div className="max-w-xs h-[450px] rounded-lg overflow-hidden shadow border transform transition-all duration-300">
                           <div className="w-full h-[200px] overflow-hidden">
                             <Image
                               className="w-full h-full object-cover hover:scale-110 transition"
-                              src={home.bannerProperty?.formats?.large?.url || '/default-image.jpg'}
+                              src={item.bannerProperty.formats.medium?.url || '/default-image.jpg'}
                               loader={myLoader}
-                              alt={home.title}
+                              alt={item.title}
                               width={300}
                               height={200}
                             />
                           </div>
                           <div className="px-4 py-4 gap-2 flex flex-col">
-                            <div className="bg-green text-white w-[5rem] text-center text-sm rounded">{home.category_properti.nameCategory}</div>
+                            <div className="bg-green text-white w-[5rem] text-center text-sm rounded">{item.category_properti.nameCategory}</div>
                             <div className="text-black">
-                              <div className="font-bold text-medium-bold mb-2">Rp {home.price.toLocaleString()}</div>
-                              <p className="text-sm">{home.title}</p>
-                              <p className="text-xs text-black text-opacity-70">{home.address}</p>
+                              <div className="font-bold text-medium-bold mb-2">Rp {item.price.toLocaleString()}</div>
+                              <p className="text-sm">{item.title}</p>
+                              <p className="text-xs text-black text-opacity-70">{item.address}</p>
                             </div>
                           </div>
                           <div className="text-xs mx-4 py-4 gap-2 flex flex-col border-t border-black border-opacity-70">
                             fasilitas
                           </div>
                           <div className="px-4 pt-4 pb-4 gap-5 flex items-center">
-                            <Link href={`/properti/${home.title}`}>
+                            <Link href={`/properti/${item.title}`}>
                               <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                 Lihat detail
                               </span>
@@ -296,7 +296,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col md:flex-row w-full gap-2">
                 <>
-                  {blog[blog.length - 1] && (
+                  {blog[blog.length - 1] && blog[blog.length - 1].cover && blog[blog.length - 1].cover.formats && blog[blog.length - 1].cover.formats.large && (
                     <Link className="relative w-full md:w-1/2 group" href={`/blog/${blog[blog.length - 1].slug}`}>
                       <Image
                         src={blog[blog.length - 1].cover.formats.large.url}

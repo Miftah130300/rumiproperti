@@ -46,11 +46,11 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
                                     height={100}
                                 />
                                 <div>
-                                    <h3 className="text-base font-semibold">James</h3>
-                                    <p className="text-sm text-gray-500">Pembeli</p>
+                                    <h3 className="text-base font-semibold">{testi.nama}</h3>
+                                    <p className="text-sm text-gray-500">{testi.pekerjaan}</p>
                                 </div>
                             </div>
-                            <p className="text-gray-800 text-sm">Bagus banget MasyaAllah</p>
+                            <p className="text-gray-800 text-sm">{testi.pesanTestimoni}</p>
                         </div>
                     ))}
                 </div>

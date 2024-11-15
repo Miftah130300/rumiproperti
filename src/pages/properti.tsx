@@ -26,14 +26,14 @@ interface Properti {
     };
     imageProperty: {
         formats: {
-            large: {
+            medium: {
                 url: string;
             };
         };
     }[];
     bannerProperty: {
         formats: {
-            large: {
+            medium: {
                 url: string;
             };
         };
@@ -223,7 +223,7 @@ export default function Property() {
                                     <div className="w-full h-[200px] overflow-hidden">
                                         <Image
                                             className="w-full h-full object-cover hover:scale-110 transition"
-                                            src={item.bannerProperty?.formats?.large?.url || '/default-image.jpg'}
+                                            src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
                                             loader={myLoader}
                                             alt={item.title}
                                             width={300}
