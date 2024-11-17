@@ -191,7 +191,7 @@ export default function Property() {
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row w-full gap-3">
-                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
+                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
                                 <option value="">Tipe properti</option>
                                 {categories.map((category) => (
                                     <option key={category.id} value={category.nameCategory}>
@@ -199,13 +199,13 @@ export default function Property() {
                                     </option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
+                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
                                 <option value="">Area</option>
                                 {city.map((city) => (
                                     <option key={city.id} value={city.nameCity}>{city.nameCity}</option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border">
+                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
                                 <option value="">Harga</option>
                                 <option value="low">Dibawah 500 Juta</option>
                                 <option value="medium">500 Juta - 1 Miliar</option>
