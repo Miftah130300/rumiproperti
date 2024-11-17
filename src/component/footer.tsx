@@ -13,7 +13,7 @@ export default function Footer() {
                         <h2 className="text-2xl font-bold">Rumi Properti</h2>
                         <p className="mt-2 text-sm">Jakarta, Indonesia</p>
                     </div>
-                    <div className="mt-2 text-sm">
+                    <div className="mt-2 text-sm flex gap-3">
                         <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
                             <InstagramIcon />
                         </Link>
