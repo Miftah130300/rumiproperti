@@ -17,6 +17,8 @@ import { useState } from 'react';
 import { useMediaQuery } from "@mui/material";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 const CarouselTestimony = dynamic(() => import('src/component/carouselTestimony/carouselTestimony'), { ssr: false });
 const DynamicHamburger = dynamic(() => import('hamburger-react').then(mod => mod.Sling), { ssr: false });
 
@@ -462,8 +464,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
             <div className="flex flex-col justify-between">
               <div>
-                <h2 className="text-2xl font-bold">Rumi Logo</h2>
-                <p className="mt-2 text-sm">San Francisco, US</p>
+                <h2 className="text-2xl font-bold">Rumi Properti</h2>
+                <p className="mt-2 text-sm">Jakarta, Indonesia</p>
               </div>
               <div className="mt-2 text-sm">
                 <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
@@ -471,6 +473,9 @@ export default function Home() {
                 </Link>
                 <Link href={'https://www.linkedin.com/company/rumiproperti/posts/?feedView=all'} target='blank' className='hover:shadow-sm'>
                   <LinkedInIcon />
+                </Link>
+                <Link href={'https://www.tiktok.com/@rumiproperti.id'} target='blank' className='hover:shadow-sm'>
+                  <FontAwesomeIcon icon={faTiktok} style={{ color: "#ffffff", }} />
                 </Link>
               </div>
             </div>

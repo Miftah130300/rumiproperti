@@ -1,5 +1,8 @@
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
     return (
@@ -7,16 +10,19 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
                 <div className="flex flex-col justify-between">
                     <div>
-                        <h2 className="text-2xl font-bold">Rumi Logo</h2>
-                        <p className="mt-2 text-sm">San Francisco, US</p>
+                        <h2 className="text-2xl font-bold">Rumi Properti</h2>
+                        <p className="mt-2 text-sm">Jakarta, Indonesia</p>
                     </div>
                     <div className="mt-2 text-sm">
-                        <>
+                        <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
                             <InstagramIcon />
-                        </>
-                        <>
+                        </Link>
+                        <Link href={'https://www.linkedin.com/company/rumiproperti/posts/?feedView=all'} target='blank' className='hover:shadow-sm'>
                             <LinkedInIcon />
-                        </>
+                        </Link>
+                        <Link href={'https://www.tiktok.com/@rumiproperti.id'} target='blank' className='hover:shadow-sm'>
+                            <FontAwesomeIcon icon={faTiktok} style={{ color: "#ffffff", }} />
+                        </Link>
                     </div>
                 </div>
                 <div>
