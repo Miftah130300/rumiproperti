@@ -97,15 +97,15 @@ export default function DetailProperti() {
                             <h1 className="text-2xl font-bold text-[#24221D]">{selectedProperti.title}</h1>
                             <p className="text-black text-opacity-70">{selectedProperti.address}</p>
                         </div>
-                        <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md gap-4 w-[300px] h-[250px]">
-                            <div className="flex flex-col">
+                        <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md w-[300px] h-[250px]">
+                            <div className="flex flex-col gap-4">
                                 <div className="text-center">
                                     <h2 className="text-xl font-bold text-[#24221D]">Rp {selectedProperti.price.toLocaleString()}</h2>
                                     <p className="text-xs text-black text-opacity-70">Cicilan mulai dari 2juta/bulan</p>
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <Link href={"https://wa.me/6281291964488"} target='blank'>
-                                        <span className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">Hubungi Kami</span>
+                                    <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                        <span>Hubungi Kami</span>
                                     </Link>
                                     <span className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">Lihat Brosur</span>
                                 </div>
