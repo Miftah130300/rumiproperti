@@ -408,7 +408,7 @@ export default function Home() {
                 <div className="flex gap-5">
                   {partner.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <div className="h-[120px] w-[180px] rounded-lg flex items-center justify-center">
+                      <div className="h-[120px] w-[180px] p-3 border shadow-sm rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
                           src={item.imagePartner.formats.thumbnail.url}
