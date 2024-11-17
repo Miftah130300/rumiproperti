@@ -15,7 +15,7 @@ export default function Navbar() {
         <header>
             <nav className="shadow-md w-full">
                 <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-                    <div>
+                    <Link href="/">
                         <Image
                             src={logo}
                             alt="Rumi Logo"
@@ -23,7 +23,7 @@ export default function Navbar() {
                             height={25}
                             objectFit="fill"
                         />
-                    </div>
+                    </Link>
                     {isMobile ? (
                         <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
                     ) : (

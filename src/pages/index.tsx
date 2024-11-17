@@ -52,7 +52,7 @@ export default function Home() {
         <header>
           <nav className="shadow-md w-full">
             <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-              <div>
+              <Link href="/">
                 <Image
                   src={logo}
                   alt="Rumi Logo"
@@ -60,7 +60,7 @@ export default function Home() {
                   height={25}
                   objectFit="fill"
                 />
-              </div>
+              </Link>
               {isMobile ? (
                 <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
               ) : (
@@ -466,12 +466,12 @@ export default function Home() {
                 <p className="mt-2 text-sm">San Francisco, US</p>
               </div>
               <div className="mt-2 text-sm">
-                <>
+                <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
                   <InstagramIcon />
-                </>
-                <>
+                </Link>
+                <Link href={'https://www.linkedin.com/company/rumiproperti/posts/?feedView=all'} target='blank' className='hover:shadow-sm'>
                   <LinkedInIcon />
-                </>
+                </Link>
               </div>
             </div>
             <div>
