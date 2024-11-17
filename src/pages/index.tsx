@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import home from "/public/asset/1.webp";
+import logo from '/public/asset/logo.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules"
 import { Autoplay } from "swiper/modules"
