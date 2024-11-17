@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import EmblaCarousel from "src/component/carouselProperti/carouselProperti";
 import type { EmblaOptionsType } from "embla-carousel";
 import dynamic from "next/dynamic";
+import { useProperti } from "../api/fetchAPI";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 
@@ -23,15 +24,21 @@ interface Properti {
     publishedAt: string;
     category_properti: {
         nameCategory: string;
-    }
+    };
     imageProperty: {
         formats: {
-            large: {
+            medium: {
                 url: string;
-            }
-        }
+            };
+        };
     }[];
-    detailDescription: string;
+    bannerProperty: {
+        formats: {
+            medium: {
+                url: string;
+            };
+        };
+    };
 }
 
 const OPTIONS: EmblaOptionsType = {};
@@ -46,21 +53,15 @@ export default function DetailProperti() {
     const [loading, setLoading] = useState(true);
     const [selectedProperti, setSelectedProperti] = useState<Properti | null>(null);
 
+    const { properti } = useProperti();
+
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/propertis?populate=*`, {
-                    headers: {
-                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-                    },
-                });
-                const data = await res.json();
-
-                // Filter based on slug after data is fetched
-                if (slug) {
-                    const filteredProperti = data.data.find((item: Properti) => {
-                        const itemSlug = item.title; // Ensure title matches the slug
-                        return itemSlug === slug;
+                if (slug && properti) {
+                    const filteredProperti = properti.find((item: Properti) => {
+                        return item.title === slug;
                     });
                     setSelectedProperti(filteredProperti || null);
                 }
@@ -72,7 +73,7 @@ export default function DetailProperti() {
         };
 
         fetchData();
-    }, [slug]);
+    }, [slug, properti]);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -82,8 +83,7 @@ export default function DetailProperti() {
         return <p>Property not found</p>;
     }
 
-    // Perbaikan: Cek apakah imageProperty ada sebelum melakukan map
-    const imageUrls = selectedProperti.imageProperty?.map(image => image.formats.large.url) || [];
+    const imageUrls = selectedProperti.imageProperty?.map(image => image.formats.medium.url) || [];
 
     return (
         <div>
