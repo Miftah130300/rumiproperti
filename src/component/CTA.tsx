@@ -20,7 +20,7 @@ export default function CTA() {
                         <h2 className="text-white text-2xl font-semibold">Temukan Properti Idamanmu dengan Rumi</h2>
                         <p className="text-white text-md">Temukan properti idamanmu dengan langkah yang sangat mudah</p>
                     </div>
-                    <Link className="px-6 py-2 bg-white rounded-2xl text-green flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
+                    <Link className="px-6 py-2 bg-white hover:bg-[#c1c1c1] rounded-2xl text-green flex justify-center items-center" href={"/contact"} role="button">Hubungi Kami</Link>
                 </div>
             </div>
         </div>

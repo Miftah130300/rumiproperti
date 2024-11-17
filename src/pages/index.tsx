@@ -160,7 +160,7 @@ export default function Home() {
                   onChange={(e) => setKeyword(e.target.value)}
                 />
                 <a
-                  className="bg-green text-white rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
+                  className="hover:bg-[#4b6645] bg-green text-white rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
                   onClick={handleSearch}
                 >
                   Cari Properti
@@ -288,7 +288,7 @@ export default function Home() {
                               </span>
                             </Link>
                             <Link href={"https://wa.me/6281291964488"} target='blank'>
-                              <span className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                              <span className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                 Hubungi kami
                               </span>
                             </Link>
@@ -457,7 +457,7 @@ export default function Home() {
                   <h2 className="text-white text-2xl font-semibold">Temukan Properti Idamanmu dengan Rumi</h2>
                   <p className="text-white text-md">Temukan properti idamanmu dengan langkah yang sangat mudah</p>
                 </div>
-                <Link className="px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] hover:bg-opacity-90 rounded-2xl text-green flex justify-center items-center" target='blank' href={"https://wa.me/6281291964488"} role="button">Hubungi Kami</Link>
+                <Link className="px-6 py-2 bg-white hover:bg-[#c1c1c1] hover:bg-opacity-90 rounded-2xl text-green flex justify-center items-center" target='blank' href={"https://wa.me/6281291964488"} role="button">Hubungi Kami</Link>
               </div>
             </div>
           </div>

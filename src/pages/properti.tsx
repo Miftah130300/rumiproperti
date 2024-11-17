@@ -184,7 +184,7 @@ export default function Property() {
                                 onChange={(e) => setKeyword(e.target.value)}
                             />
                             <button
-                                className="bg-green text-white rounded-xl px-6 py-2 md:flex hidden justify-center items-center cursor-pointer text-sm"
+                                className="hover:bg-[#4b6645] bg-green text-white rounded-xl px-6 py-2 md:flex hidden justify-center items-center cursor-pointer text-sm"
                                 onClick={handleFilter}
                             >
                                 Cari Properti
@@ -247,7 +247,7 @@ export default function Property() {
                                                 Lihat detail
                                             </span>
                                         </Link>
-                                        <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                        <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                             <span>
                                                 Hubungi kami
                                             </span>
