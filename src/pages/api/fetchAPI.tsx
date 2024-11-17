@@ -26,9 +26,9 @@ interface Partner {
 
 interface Testimony {
     id: number;
-    nama: string;
-    pekerjaan: string;
-    pesanTestimoni: string;
+    name: string;
+    occupation: string;
+    message: string;
     imageClient: {
         formats: {
             thumbnail: {

@@ -27,7 +27,7 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
     } = usePrevNextButtons(emblaApi)
 
     if (!testimony || testimony.length === 0) {
-        return <div>Loading...</div>;  // Handle the loading state
+        return <div>Loading...</div>;
     }
 
     return (
@@ -46,11 +46,11 @@ const CarouselTestimony: React.FC<PropType> = (props) => {
                                     height={100}
                                 />
                                 <div>
-                                    <h3 className="text-base font-semibold">{testi.nama}</h3>
-                                    <p className="text-sm text-gray-500">{testi.pekerjaan}</p>
+                                    <h3 className="text-black font-semibold">{testi.name}</h3>
+                                    <p className="text-sm text-gray-500">{testi.occupation}</p>
                                 </div>
                             </div>
-                            <p className="text-gray-800 text-sm">{testi.pesanTestimoni}</p>
+                            <p className="text-black text-sm">{testi.message}</p>
                         </div>
                     ))}
                 </div>
