@@ -19,9 +19,9 @@ export default function Navbar() {
                         <Image
                             src={logo}
                             alt="Rumi Logo"
-                            width={150}
-                            height={40}
-                            objectFit="contain"
+                            width={100}
+                            height={25}
+                            objectFit="fill"
                         />
                     </div>
                     {isMobile ? (

@@ -57,7 +57,7 @@ export default function Home() {
                   src={logo}
                   alt="Rumi Logo"
                   width={100}
-                  height={30}
+                  height={25}
                   objectFit="fill"
                 />
               </div>
