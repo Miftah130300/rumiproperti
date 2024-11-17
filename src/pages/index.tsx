@@ -384,45 +384,43 @@ export default function Home() {
           <div className="pt-[100px] px-5 md:px-10">
             <div>
               <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
-              <>
-                <Swiper
-                  modules={[Navigation, Pagination, Scrollbar, A11y]}
-                  spaceBetween={5}
-                  slidesPerView={6}
-                  navigation
-                  breakpoints={{
-                    340: {
-                      slidesPerView: 3,
-                      spaceBetween: 5,
-                    },
-                    768: {
-                      slidesPerView: 6,
-                      spaceBetween: 5,
-                    },
-                    1024: {
-                      slidesPerView: 6,
-                      spaceBetween: 5,
-                    },
-                  }}
-                  className="flex w-full"
-                >
-                  <div className="flex gap-5">
-                    {partner.map((item) => (
-                      <SwiperSlide key={item.id}>
-                        <div className="border border-black h-[120px] w-[180px] rounded-lg flex items-center justify-center">
-                          <Image
-                            loader={myLoader}
-                            src={item.imagePartner.formats.thumbnail.url}
-                            alt={item.namePartner}
-                            width={100}
-                            height={100}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </div>
-                </Swiper>
-              </>
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={5}
+                slidesPerView={6}
+                navigation
+                breakpoints={{
+                  340: {
+                    slidesPerView: 3,
+                    spaceBetween: 5,
+                  },
+                  768: {
+                    slidesPerView: 6,
+                    spaceBetween: 5,
+                  },
+                  1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 5,
+                  },
+                }}
+                className="flex w-full"
+              >
+                <div className="flex gap-5">
+                  {partner.map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <div className="h-[120px] w-[180px] rounded-lg flex items-center justify-center">
+                        <Image
+                          loader={myLoader}
+                          src={item.imagePartner.formats.thumbnail.url}
+                          alt={item.namePartner}
+                          width={100}
+                          height={100}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </div>
+              </Swiper>
             </div>
           </div>
           <div className="pt-[100px] px-5 md:px-10">
