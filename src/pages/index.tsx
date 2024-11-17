@@ -51,7 +51,15 @@ export default function Home() {
         <header>
           <nav className="shadow-md w-full">
             <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-              <div className="text-2xl">Rumi Logo</div>
+              <div>
+                <Image
+                  src={logo}
+                  alt="Rumi Logo"
+                  width={150}
+                  height={40}
+                  objectFit="contain"
+                />
+              </div>
               {isMobile ? (
                 <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
               ) : (
@@ -252,7 +260,7 @@ export default function Home() {
                           <div className="w-full h-[200px] overflow-hidden">
                             <Image
                               className="w-full h-full object-cover hover:scale-110 transition"
-                              src={item.bannerProperty.formats.medium?.url || '/default-image.jpg'}
+                              src={item.bannerProperty.formats.medium.url || '/default-image.jpg'}
                               loader={myLoader}
                               alt={item.title}
                               width={300}

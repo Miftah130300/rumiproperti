@@ -1,7 +1,9 @@
 import Link from "next/link";
 import dynamic from 'next/dynamic';
+import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { useState } from 'react';
+import logo from '/public/asset/logo.png'
 
 const DynamicHamburger = dynamic(() => import('hamburger-react').then(mod => mod.Sling), { ssr: false });
 
@@ -13,7 +15,15 @@ export default function Navbar() {
         <header>
             <nav className="shadow-md w-full">
                 <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-                    <div className="text-2xl">Rumi Logo</div>
+                    <div>
+                        <Image
+                            src={logo}
+                            alt="Rumi Logo"
+                            width={150}
+                            height={40}
+                            objectFit="contain"
+                        />
+                    </div>
                     {isMobile ? (
                         <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
                     ) : (

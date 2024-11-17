@@ -113,7 +113,7 @@ export default function DetailProperti() {
                         <div className="flex flex-col"></div>
                         <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D]">Informasi Properti</h2>
-                            <div className="flex gap-5">
+                            <div className="flex flex-col md:flex-row gap-5">
                                 <div>
                                     <p>{selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
                                     <div>Luas Tanah</div>
