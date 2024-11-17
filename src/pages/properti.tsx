@@ -242,14 +242,16 @@ export default function Property() {
                                         fasilitas
                                     </div>
                                     <div className="px-4 pt-4 pb-4 gap-5 flex items-center">
-                                        <Link href={`/properti/${item.title}`}>
-                                            <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                        <Link href={`/properti/${item.title}`} className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                            <span>
                                                 Lihat detail
                                             </span>
                                         </Link>
-                                        <span className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
-                                            Hubungi kami
-                                        </span>
+                                        <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                            <span>
+                                                Hubungi kami
+                                            </span>
+                                        </Link>
                                     </div>
                                 </div>
                             </Link>

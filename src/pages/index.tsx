@@ -287,9 +287,11 @@ export default function Home() {
                                 Lihat detail
                               </span>
                             </Link>
-                            <span className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
-                              Hubungi kami
-                            </span>
+                            <Link href={"https://wa.me/6281291964488"} target='blank'>
+                              <span className="inline-block bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                Hubungi kami
+                              </span>
+                            </Link>
                           </div>
                         </div>
                       </Link>
