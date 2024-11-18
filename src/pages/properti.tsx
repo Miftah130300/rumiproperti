@@ -218,12 +218,12 @@ export default function Property() {
                     <h2 className="text-xl font-medium text-[#24221D]">Rekomendasi hunian untukmu</h2>
                     <div className="result grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                         {filteredProperties.map((item) => (
-                            <Link key={item.id} href={`/properti/${item.title}`} className="rounded-lg hover:shadow-lg">
+                            <Link href={`/properti/${item.title}`} className="rounded-lg hover:shadow-lg">
                                 <div className="max-w-xs h-[450px] rounded-lg overflow-hidden shadow border transform transition-all duration-300">
                                     <div className="w-full h-[200px] overflow-hidden">
                                         <Image
                                             className="w-full h-full object-cover hover:scale-110 transition"
-                                            src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
+                                            src={item.bannerProperty.formats.medium.url || '/default-image.jpg'}
                                             loader={myLoader}
                                             alt={item.title}
                                             width={300}
@@ -238,17 +238,15 @@ export default function Property() {
                                             <p className="text-xs text-black text-opacity-70">{item.address}</p>
                                         </div>
                                     </div>
-                                    <div className="text-xs mx-4 py-4 gap-2 flex flex-col border-t border-black border-opacity-70">
-                                        fasilitas
-                                    </div>
-                                    <div className="px-4 pt-4 pb-4 gap-5 flex items-center">
-                                        <Link href={`/properti/${item.title}`} className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
-                                            <span>
+                                    {/* Updated Buttons Section */}
+                                    <div className="px-4 pt-4 pb-4 flex justify-between items-center">
+                                        <Link href={`/properti/${item.title}`}>
+                                            <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                                 Lihat detail
                                             </span>
                                         </Link>
-                                        <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
-                                            <span>
+                                        <Link href={"https://wa.me/6281291964488"} target="_blank">
+                                            <span className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                                 Hubungi kami
                                             </span>
                                         </Link>

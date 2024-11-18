@@ -280,13 +280,13 @@ export default function Home() {
                               <p className="text-xs text-black text-opacity-70">{item.address}</p>
                             </div>
                           </div>
-                          <div className="px-4 pt-4 pb-4 gap-5 flex items-center">
+                          <div className="px-4 pt-4 pb-4 flex justify-between items-center">
                             <Link href={`/properti/${item.title}`}>
                               <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                 Lihat detail
                               </span>
                             </Link>
-                            <Link href={"https://wa.me/6281291964488"} target='blank'>
+                            <Link href={"https://wa.me/6281291964488"} target="_blank">
                               <span className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                 Hubungi kami
                               </span>
