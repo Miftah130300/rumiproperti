@@ -23,7 +23,7 @@ export const Thumb: React.FC<PropType> = (props) => {
                 type="button"
                 className="embla-thumbs__slide__button w-full"
             >
-                <div className="w-16 h-16 relative overflow-hidden">
+                <div className="w-16 h-16 relative">
                     <Image
                         src={image}
                         width={100}
