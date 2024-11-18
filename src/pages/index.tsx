@@ -212,7 +212,7 @@ export default function Home() {
                 >
                   {city.map((city) => (
                     <SwiperSlide key={city.id} className="w-full">
-                      <div className="flex flex-col items-center gap-2">
+                      <Link href={`/properti?search=${city.nameCity}`} className="flex flex-col items-center gap-2">
                         <div className="h-[120px] w-[180px] md:flex hidden flex-col items-center rounded-lg overflow-hidden">
                           <div className="relative w-full h-full">
                             <Image
@@ -226,7 +226,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="text-sm mt-1">{city.nameCity}</div>
-                      </div>
+                      </Link>
                     </SwiperSlide>
                   ))}
                 </Swiper>
