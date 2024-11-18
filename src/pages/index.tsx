@@ -54,14 +54,15 @@ export default function Home() {
         <header>
           <nav className="shadow-md w-full">
             <div className="flex justify-between py-5 px-5 md:px-10 w-full">
-              <Link href="/">
+              <Link href="/" className="flex items-center">
                 <Image
                   src={logo}
                   alt="Rumi Logo"
-                  width={100}
+                  width={70}
                   height={25}
                   objectFit="fill"
                 />
+                <span className="ml-2 text-lg font-semibold">Rumi Properti</span>
               </Link>
               {isMobile ? (
                 <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
@@ -126,6 +127,7 @@ export default function Home() {
                   spaceBetween={30}
                   pagination={{ clickable: true }}
                   loop={true}
+                  navigation
                   autoplay={{
                     delay: 1000,
                     disableOnInteraction: false,
@@ -277,9 +279,6 @@ export default function Home() {
                               <p className="text-sm">{item.title}</p>
                               <p className="text-xs text-black text-opacity-70">{item.address}</p>
                             </div>
-                          </div>
-                          <div className="text-xs mx-4 py-4 gap-2 flex flex-col border-t border-black border-opacity-70">
-                            fasilitas
                           </div>
                           <div className="px-4 pt-4 pb-4 gap-5 flex items-center">
                             <Link href={`/properti/${item.title}`}>
