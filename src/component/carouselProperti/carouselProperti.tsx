@@ -47,14 +47,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 <div className="embla__container-property">
                     {slides.map((src, index) => (
                         <div className="embla__slide-property flex justify-center items-center" key={index}>
-                            <div className="relative max-w-full max-h-full flex items-center justify-center overflow-hidden">
-                                <Image
-                                    src={src}
-                                    alt={`Slide ${index}`}
-                                    loader={loader}
-                                    className="max-w-full max-h-full object-contain"
-                                />
-                            </div>
+                            <Image
+                                src={src}
+                                alt={`Slide ${index}`}
+                                loader={loader}
+                                layout="intrinsic"
+                                className="max-w-full max-h-full"
+                            />
                         </div>
                     ))}
                 </div>
