@@ -1,45 +1,15 @@
 import dynamic from "next/dynamic";
 import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useEffect, useState } from "react";
+import Button from '@mui/material/Button';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 const CTA = dynamic(() => import('src/component/CTA'), { ssr: false });
 
-interface AboutUs {
-    id: number;
-    whyRumi: string;
-    answerRumi: string;
-}
-
 export default function About() {
-    const [reason, setReason] = useState<AboutUs[]>([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses?populate=*`, {
-                    headers: {
-                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-                    },
-                });
-
-                if (!res.ok) {
-                    throw new Error("Failed to fetch banners");
-                }
-
-                const data = await res.json();
-                console.log(data);
-                setReason(data.data || []);
-            } catch (error) {
-                console.error('Error fetching banners:', error);
-            }
-        };
-
-        fetchData();
-    }, []);
     return (
         <div>
             <Navbar />
@@ -57,21 +27,55 @@ export default function About() {
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>
                     <div className="flex flex-col gap-5">
-                        {reason.map((reasons) => (
-                            <Accordion key={reasons.id} className="border-0 rounded-lg shadow-md">
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1-content"
-                                    id="panel1-header"
-                                    className="bg-[#D9D9D9] rounded-lg"
-                                >
-                                    {reasons.whyRumi}
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    {reasons.answerRumi}
-                                </AccordionDetails>
-                            </Accordion>
-                        ))}
+                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Platform digital untuk hunian terjangkau</div>
+                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Kolaborasi dengan developer lokal dan pemiliki properti</div>
+                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Layanan pengguna dan edukasi seputar properti</div>
+                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Membantu mencarikan hunian terjangkau yang Anda inginkan</div>
+                    </div>
+                    <div>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                            >
+                                Accordion 1
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel2-content"
+                                id="panel2-header"
+                            >
+                                Accordion 2
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion defaultExpanded>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel3-content"
+                                id="panel3-header"
+                            >
+                                Accordion Actions
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </AccordionDetails>
+                            <AccordionActions>
+                                <Button>Cancel</Button>
+                                <Button>Agree</Button>
+                            </AccordionActions>
+                        </Accordion>
                     </div>
                 </div>
                 <CTA />
