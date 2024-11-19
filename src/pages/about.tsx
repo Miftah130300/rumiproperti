@@ -23,58 +23,61 @@ export default function About() {
                     </div>
                 </div>
                 <div className="pt-[100px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10">
-                    <div>
+                    <div className="md:w-[500px]">
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>
                     <div className="flex flex-col gap-5">
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Platform digital untuk hunian terjangkau</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Kolaborasi dengan developer lokal dan pemiliki properti</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Layanan pengguna dan edukasi seputar properti</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Membantu mencarikan hunian terjangkau yang Anda inginkan</div>
-                    </div>
-                    <div>
-                        <Accordion>
+                        <Accordion className="border-0" defaultExpanded>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1-content"
                                 id="panel1-header"
+                                className="bg-[#D9D9D9]"
                             >
-                                Accordion 1
+                                Platform digital untuk hunian terjangkau
                             </AccordionSummary>
                             <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion>
+                        <Accordion className="border-0">
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel2-content"
-                                id="panel2-header"
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                                className="bg-[#D9D9D9]"
                             >
-                                Accordion 2
+                                olaborasi dengan developer lokal dan pemiliki properti
                             </AccordionSummary>
                             <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion defaultExpanded>
+                        <Accordion className="border-0">
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel3-content"
-                                id="panel3-header"
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                                className="bg-[#D9D9D9]"
                             >
-                                Accordion Actions
+                                Layanan pengguna dan edukasi seputar properti
                             </AccordionSummary>
                             <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                             </AccordionDetails>
-                            <AccordionActions>
-                                <Button>Cancel</Button>
-                                <Button>Agree</Button>
-                            </AccordionActions>
+                        </Accordion>
+                        <Accordion className="border-0">
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                                className="bg-[#D9D9D9]"
+                            >
+                                Membantu mencarikan hunian terjangkau yang Anda inginkan
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </AccordionDetails>
                         </Accordion>
                     </div>
                 </div>
