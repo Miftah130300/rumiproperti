@@ -1,9 +1,17 @@
 import dynamic from "next/dynamic";
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
+import { useAboutUs } from "./api/fetchAPI";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 const CTA = dynamic(() => import('src/component/CTA'), { ssr: false });
 
 export default function About() {
+    const { reason } = useAboutUs()
     return (
         <div>
             <Navbar />
@@ -21,10 +29,21 @@ export default function About() {
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>
                     <div className="flex flex-col gap-5">
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Platform digital untuk hunian terjangkau</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Kolaborasi dengan developer lokal dan pemiliki properti</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Layanan pengguna dan edukasi seputar properti</div>
-                        <div className="px-6 py-2 bg-[#D9D9D9] rounded-lg w-[100%]">Membantu mencarikan hunian terjangkau yang Anda inginkan</div>
+                        {reason.map((reasons) => (
+                            <Accordion key={reasons.id} className="border-0 rounded-lg shadow-md">
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1-content"
+                                    id="panel1-header"
+                                    className="bg-[#D9D9D9] rounded-lg"
+                                >
+                                    {reasons.whyRumi}
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    {reasons.answerRumi}
+                                </AccordionDetails>
+                            </Accordion>
+                        ))}
                     </div>
                 </div>
                 <CTA />

@@ -120,6 +120,12 @@ interface BannerHome {
     }
 }
 
+interface AboutUs {
+    id: number;
+    whyRumi: string;
+    answerRumi: string;
+}
+
 export const useCities = () => {
     const [city, setCity] = useState<City[]>([]);
 
@@ -309,4 +315,33 @@ export const useBannerHome = () => {
     }, []);
 
     return { bannerHome };
+};
+
+export const useAboutUs = () => {
+    const [reason, setReason] = useState<AboutUs[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch banners");
+                }
+
+                const data = await res.json();
+                setReason(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { reason };
 };
