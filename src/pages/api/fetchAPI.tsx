@@ -65,6 +65,8 @@ interface Properti {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    adressDetail: string;
+    mapsSource: string;
     category_properti: {
         nameCategory: string;
     };

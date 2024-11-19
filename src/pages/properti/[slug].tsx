@@ -23,6 +23,8 @@ interface Properti {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    adressDetail: string;
+    mapsSource: string;
     category_properti: {
         nameCategory: string;
     };
@@ -148,11 +150,11 @@ export default function DetailProperti() {
                     </div>
                 </div>
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
-                    <h2 className="text-xl font-bold text-[#24221D]">Lokasi test</h2>
-                    <p className="text-black text-opacity-70">alamat tes</p>
+                    <h2 className="text-xl font-bold text-[#24221D]">Lokasi {selectedProperti.title}</h2>
+                    <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
                     <div className="w-full h-[300px]">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.3203819208693!2d106.83008137355634!3d-6.352553162145459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec3a55522ac7%3A0x8b02476de77d3b63!2sRumah%20Kepemimpinan%20Pusat!5e0!3m2!1sid!2sid!4v1731996703099!5m2!1sid!2sid"
+                            src={selectedProperti.mapsSource}
                             className="w-full h-full rounded-lg shadow-lg"
                             allowFullScreen
                             loading="lazy"
