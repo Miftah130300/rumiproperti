@@ -323,7 +323,7 @@ export const useAboutUs = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
