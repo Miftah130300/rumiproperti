@@ -263,9 +263,8 @@ export const useProperti = () => {
 }
 
 export const useBlog = () => {
-    const [blog, setBlog] = useState<Article[]>([]); // <-- array of articles
+    const [blog, setBlog] = useState<Article[]>([]);
 
-    // Fetch data using useEffect
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -275,7 +274,7 @@ export const useBlog = () => {
                     },
                 });
                 const data = await res.json();
-                setBlog(data.data || []); // <-- set blog as an array
+                setBlog(data.data || []);
             } catch (error) {
                 console.error("Error fetching properties:", error);
             }
@@ -291,7 +290,6 @@ export const useBlog = () => {
 export const useBannerHome = () => {
     const [bannerHome, setBannerHome] = useState<BannerHome[]>([]);
 
-    // Fetching banner data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -304,8 +302,8 @@ export const useBannerHome = () => {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 const data = await res.json();
-                console.log('Banner Data:', data); // Cek respons API
-                setBannerHome(data.data || []); // Menyimpan data banner jika ada
+                console.log('Banner Data:', data);
+                setBannerHome(data.data || []);
             } catch (error) {
                 console.error('Error fetching banner data:', error);
             }
@@ -323,12 +321,7 @@ export const useAboutUs = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses?populate=*`, {
-                    headers: {
-                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-                    },
-                });
-
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses?populate=*`)
                 if (!res.ok) {
                     throw new Error("Failed to fetch banners");
                 }
