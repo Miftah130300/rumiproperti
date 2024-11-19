@@ -261,7 +261,7 @@ export default function Home() {
                   {properti.slice(0, 4).map((item) => (
                     <SwiperSlide key={item.id} className="max-w-xs w-full pr-3">
                       <Link href={`/properti/${item.title}`} className="rounded-lg hover:shadow-lg">
-                        <div className="max-w-xs h-[400px] rounded-lg overflow-hidden shadow border transform transition-all duration-300">
+                        <div className="max-w-xs rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
                           <div className="w-full h-[200px] overflow-hidden">
                             <Image
                               className="w-full h-full object-cover hover:scale-110 transition"
@@ -272,15 +272,21 @@ export default function Home() {
                               height={200}
                             />
                           </div>
-                          <div className="px-4 py-4 gap-2 flex flex-col">
-                            <div className="bg-green text-white w-[5rem] text-center text-sm rounded">{item.category_properti.nameCategory}</div>
+                          <div className="px-4 py-4 flex flex-col gap-2 flex-grow">
+                            <div className="bg-green text-white w-[5rem] text-center text-sm rounded">
+                              {item.category_properti.nameCategory}
+                            </div>
                             <div className="text-black">
-                              <div className="font-bold text-medium-bold mb-2">Rp {item.price.toLocaleString()}</div>
+                              <div className="font-bold text-medium-bold mb-2">
+                                Rp {item.price.toLocaleString()}
+                              </div>
                               <p className="text-sm">{item.title}</p>
-                              <p className="text-xs text-black text-opacity-70">{item.address}</p>
+                              <p className="text-xs text-black text-opacity-70">
+                                {item.address}
+                              </p>
                             </div>
                           </div>
-                          <div className="px-4 pt-4 pb-4 flex items-center">
+                          <div className="px-4 pt-4 pb-4 flex gap-5 items-center">
                             <Link href={`/properti/${item.title}`}>
                               <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                 Lihat detail
