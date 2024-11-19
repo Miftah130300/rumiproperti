@@ -47,7 +47,7 @@ export default function About() {
                                 id="panel1-header"
                                 className="bg-[#D9D9D9]"
                             >
-                                olaborasi dengan developer lokal dan pemiliki properti
+                                Kolaborasi dengan developer lokal dan pemiliki properti
                             </AccordionSummary>
                             <AccordionDetails>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
