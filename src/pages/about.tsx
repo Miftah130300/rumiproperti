@@ -3,13 +3,43 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useAboutUs } from "./api/fetchAPI";
+import { useEffect, useState } from "react";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 const CTA = dynamic(() => import('src/component/CTA'), { ssr: false });
 
+interface AboutUs {
+    id: number;
+    whyRumi: string;
+    answerRumi: string;
+}
+
 export default function About() {
-    const { reason } = useAboutUs()
+    const [reason, setReason] = useState<AboutUs[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/about-uses?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch banners");
+                }
+
+                const data = await res.json();
+                console.log(data);
+                setReason(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
     return (
         <div>
             <Navbar />
