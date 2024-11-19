@@ -26,7 +26,7 @@ export default function About() {
                     <div className="md:w-[500px]">
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col">
                         <Accordion className="border-0" defaultExpanded>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}

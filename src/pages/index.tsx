@@ -121,7 +121,7 @@ export default function Home() {
         </header>
         <main>
           <div className="relative">
-            <div className="component-a bg-gray-200 w-full h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
+            <div className="component-a bg-gray-200 w-full h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
               <div className="component-b w-full h-full">
                 <Swiper
                   spaceBetween={30}
@@ -152,7 +152,7 @@ export default function Home() {
                 </Swiper>
               </div>
             </div>
-            <div className="search-bar absolute bottom-[-3rem] left-1/2 transform -translate-x-1/2 w-[90%] max-w-[800px] bg-white shadow-lg rounded-lg p-5 z-10">
+            <div className="search-bar absolute sm:bottom-[-6em] md:bottom-[-3rem] left-1/2 transform -translate-x-1/2 w-[90%] max-w-[800px] bg-white shadow-lg rounded-lg p-5 z-10">
               <div className="flex flex-col md:flex-row gap-3 space-x-4 items-center">
                 <input
                   type="text"
@@ -170,7 +170,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-[150px] px-5 md:px-10">
+          <div className="pt-[200px] md:pt-[150px] px-5 md:px-10">
             <div className="flex flex-col gap-5 md:gap-0 md:flex-row md:h-[350px] mx-auto w-full">
               <div className="md:w-1/2 w-full h-full flex flex-col justify-center">
                 <div className="text-center md:text-start">
@@ -304,90 +304,92 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-[50px] px-5 md:px-10">
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between">
-                <h2 className="text-xl font-semibold text-[#24221D]">Artikel Rumi</h2>
-                <Link href={"/blog"} className="border border-green text-green cursor-pointer hover:bg-green hover:text-white rounded-lg px-6 py-3">Cari Artikel</Link>
-              </div>
-              <div className="flex flex-col md:flex-row w-full gap-2">
-                <>
-                  {blog[blog.length - 1] && blog[blog.length - 1].cover && blog[blog.length - 1].cover.formats && blog[blog.length - 1].cover.formats.large && (
-                    <Link className="relative w-full md:w-1/2 group" href={`/blog/${blog[blog.length - 1].slug}`}>
-                      <Image
-                        src={blog[blog.length - 1].cover.formats.large.url}
-                        loader={myLoader}
-                        width={100}
-                        height={100}
-                        alt="Image 1"
-                        className="h-full w-full object-cover rounded-md"
-                      />
-                      <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
-                        {blog[blog.length - 1].title}
-                      </span>
-                      <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
-                    </Link>
-                  )}
-                </>
-                <div className="w-1/2 md:flex flex-col hidden gap-2">
+          {blog.length >= 1 ? (
+            <div className="pt-[50px] px-5 md:px-10">
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between">
+                  <h2 className="text-xl font-semibold text-[#24221D]">Artikel Rumi</h2>
+                  <Link href={"/blog"} className="border border-green text-green cursor-pointer hover:bg-green hover:text-white rounded-lg px-6 py-3">Cari Artikel</Link>
+                </div>
+                <div className="flex flex-col md:flex-row w-full gap-2">
                   <>
-                    {blog[blog.length - 2] && (
-                      <Link className="relative w-full group" href={`/blog/${blog[blog.length - 2].slug}`}>
+                    {blog[blog.length - 1] && blog[blog.length - 1].cover && blog[blog.length - 1].cover.formats && blog[blog.length - 1].cover.formats.large && (
+                      <Link className="relative w-full md:w-1/2 group" href={`/blog/${blog[blog.length - 1].slug}`}>
                         <Image
-                          src={blog[blog.length - 2].cover.formats.large.url}
+                          src={blog[blog.length - 1].cover.formats.large.url}
                           loader={myLoader}
                           width={100}
                           height={100}
-                          alt="Image 2"
+                          alt="Image 1"
                           className="h-full w-full object-cover rounded-md"
                         />
-                        <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">{blog[blog.length - 2].title}</span>
+                        <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
+                          {blog[blog.length - 1].title}
+                        </span>
                         <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
                       </Link>
                     )}
                   </>
-                  <div className="w-full flex gap-2">
+                  <div className="w-1/2 md:flex flex-col hidden gap-2">
                     <>
-                      {blog[blog.length - 3] && (
-                        <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 3].slug}`}>
+                      {blog[blog.length - 2] && (
+                        <Link className="relative w-full group" href={`/blog/${blog[blog.length - 2].slug}`}>
                           <Image
-                            src={blog[blog.length - 3].cover.formats.large.url}
+                            src={blog[blog.length - 2].cover.formats.large.url}
                             loader={myLoader}
                             width={100}
                             height={100}
-                            alt="Image 3"
+                            alt="Image 2"
                             className="h-full w-full object-cover rounded-md"
                           />
-                          <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
-                            {blog[blog.length - 3].title}
-                          </span>
+                          <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">{blog[blog.length - 2].title}</span>
                           <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
                         </Link>
                       )}
                     </>
-                    <>
-                      {blog[blog.length - 4] && (
-                        <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 4].slug}`}>
-                          <Image
-                            src={blog[blog.length - 4].cover.formats.large.url}
-                            loader={myLoader}
-                            width={100}
-                            height={100}
-                            alt="Image 4"
-                            className="h-full w-full object-cover rounded-md"
-                          />
-                          <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
-                            {blog[blog.length - 4].title}
-                          </span>
-                          <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
-                        </Link>
-                      )}
-                    </>
+                    <div className="w-full flex gap-2">
+                      <>
+                        {blog[blog.length - 3] && (
+                          <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 3].slug}`}>
+                            <Image
+                              src={blog[blog.length - 3].cover.formats.large.url}
+                              loader={myLoader}
+                              width={100}
+                              height={100}
+                              alt="Image 3"
+                              className="h-full w-full object-cover rounded-md"
+                            />
+                            <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
+                              {blog[blog.length - 3].title}
+                            </span>
+                            <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
+                          </Link>
+                        )}
+                      </>
+                      <>
+                        {blog[blog.length - 4] && (
+                          <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 4].slug}`}>
+                            <Image
+                              src={blog[blog.length - 4].cover.formats.large.url}
+                              loader={myLoader}
+                              width={100}
+                              height={100}
+                              alt="Image 4"
+                              className="h-full w-full object-cover rounded-md"
+                            />
+                            <span className="absolute bottom-5 left-5 text-white text-xl font-semibold z-10">
+                              {blog[blog.length - 4].title}
+                            </span>
+                            <div className="absolute inset-0 bg-black bg-opacity-30 rounded-md transition-all duration-300 group-hover:backdrop-blur-sm group-hover:bg-opacity-50"></div>
+                          </Link>
+                        )}
+                      </>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (null)}
           <div className="pt-[100px] px-5 md:px-10">
             <div>
               <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
