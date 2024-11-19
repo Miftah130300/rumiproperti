@@ -219,7 +219,7 @@ export default function Property() {
                     <div className="result grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                         {filteredProperties.map((item) => (
                             <Link href={`/properti/${item.title}`} className="rounded-lg hover:shadow-lg">
-                                <div className="max-w-xs h-[450px] rounded-lg overflow-hidden shadow border transform transition-all duration-300">
+                                <div className="max-w-xs h-[400px] rounded-lg overflow-hidden shadow border transform transition-all duration-300">
                                     <div className="w-full h-[200px] overflow-hidden">
                                         <Image
                                             className="w-full h-full object-cover hover:scale-110 transition"
@@ -238,8 +238,7 @@ export default function Property() {
                                             <p className="text-xs text-black text-opacity-70">{item.address}</p>
                                         </div>
                                     </div>
-                                    {/* Updated Buttons Section */}
-                                    <div className="px-4 pt-4 pb-4 flex justify-between items-center">
+                                    <div className="px-4 pt-4 pb-4 flex items-center">
                                         <Link href={`/properti/${item.title}`}>
                                             <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                                 Lihat detail

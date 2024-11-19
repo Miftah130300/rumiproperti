@@ -26,7 +26,6 @@ export const Thumb: React.FC<PropType> = (props) => {
                     alt={`Thumbnail ${props.index}`}
                     className="w-16 h-16 object-cover"
                     loader={myload}
-                    layout='fill'
                 />
             </button>
         </div>
