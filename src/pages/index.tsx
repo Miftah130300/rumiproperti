@@ -121,7 +121,7 @@ export default function Home() {
         </header>
         <main>
           <div className="relative">
-            <div className="component-a bg-gray-200 w-full h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
+            <div className="component-a bg-gray-200 w-full aspect-[1920/600] sm:h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
               <div className="component-b w-full h-full">
                 <Swiper
                   spaceBetween={30}
@@ -141,8 +141,10 @@ export default function Home() {
                         <Image
                           src={banhome.imageBanner?.url || '/default-image.jpg'}
                           alt={"https://cms.rumiproperti.com" + banhome.imageBanner?.url || 'Banner Image'}
-                          layout='fill'
+                          layout="fill"
                           loader={myLoader}
+                          objectFit="cover"
+                          className="object-center"
                         />
                       </SwiperSlide>
                     ))
