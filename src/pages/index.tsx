@@ -121,7 +121,7 @@ export default function Home() {
         </header>
         <main>
           <div className="relative">
-            <div className="component-a bg-gray-200 w-full aspect-[1920/600] sm:h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
+            <div className="component-a bg-gray-200 w-full aspect-[1920/600] sm:aspect-[1920/600] md:aspect-[1920/600] lg:h-[400px] xl:h-[500px] flex items-center justify-center">
               <div className="component-b w-full h-full">
                 <Swiper
                   spaceBetween={30}
@@ -149,7 +149,7 @@ export default function Home() {
                       </SwiperSlide>
                     ))
                   ) : (
-                    <p>No banners available.</p>
+                    <p>No banners available</p>
                   )}
                 </Swiper>
               </div>
