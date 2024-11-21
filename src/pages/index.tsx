@@ -149,7 +149,7 @@ export default function Home() {
                       </SwiperSlide>
                     ))
                   ) : (
-                    <p>No banners available</p>
+                    <p>No banners available.</p>
                   )}
                 </Swiper>
               </div>
