@@ -138,12 +138,16 @@ export default function Home() {
                   {bannerHome.length > 0 ? (
                     bannerHome.map((banhome) => (
                       <SwiperSlide key={banhome.id} className="w-full h-full relative">
-                        <Image
-                          src={banhome.imageBanner?.url || '/default-image.jpg'}
-                          alt={"https://cms.rumiproperti.com" + banhome.imageBanner?.url || 'Banner Image'}
-                          layout='fill'
-                          loader={myLoader}
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={banhome.imageBanner?.url || '/default-image.jpg'}
+                            alt={"https://cms.rumiproperti.com" + banhome.imageBanner?.url || 'Banner Image'}
+                            layout="fill"
+                            loader={myLoader}
+                            objectFit="cover"
+                            className="object-center"
+                          />
+                        </div>
                       </SwiperSlide>
                     ))
                   ) : (

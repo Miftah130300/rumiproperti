@@ -26,8 +26,8 @@ export default function About() {
                     <div className="md:w-[500px]">
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>
-                    <div className="flex flex-col">
-                        <Accordion className="border-0" defaultExpanded>
+                    <div className="flex flex-col gap-5">
+                        <Accordion className="border-0">
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1-content"
