@@ -263,7 +263,7 @@ export default function Property() {
                                 </Link>
                             ))
                         ) : (
-                            <p className="text-center col-span-full">Tidak ada properti yang tersedia.</p>
+                            <p className="col-span-full text-black text-opacity-70 italic">Tidak ada properti yang tersedia.</p>
                         )}
                     </div>
                 </div>
