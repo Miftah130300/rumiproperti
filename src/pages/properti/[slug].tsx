@@ -95,7 +95,7 @@ export default function DetailProperti() {
                 <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row justify-between gap-10 md:gap-10">
                     <EmblaCarousel slides={imageUrls} options={OPTIONS} loader={myLoader} />
                 </div>
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
+                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
                     <div className="flex flex-col gap-10">
                         <div className="text-start">
                             <h1 className="text-2xl font-bold text-[#24221D]">{selectedProperti.title}</h1>
@@ -127,6 +127,10 @@ export default function DetailProperti() {
                             </div>
                         </div>
                         <div className="flex flex-col">
+                            <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
+                            <p>{selectedProperti.description}</p>
+                        </div>
+                        <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Deskripsi</h2>
                             <p>{selectedProperti.description}</p>
                         </div>
@@ -146,13 +150,15 @@ export default function DetailProperti() {
                         </div>
                     </div>
                 </div>
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-bold text-[#24221D]">Lokasi {selectedProperti.title}</h2>
                     <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
                     <div className="w-full h-[300px]">
                         <iframe
                             src={selectedProperti.mapsSource}
-                            className="w-full h-full rounded-lg shadow-lg"
+                            className="rounded-lg shadow-lg"
+                            width={600}
+                            height={450}
                             allowFullScreen
                             loading="lazy"
                         ></iframe>
