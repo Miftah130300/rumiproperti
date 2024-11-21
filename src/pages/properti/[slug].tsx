@@ -138,10 +138,10 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col gap-5">
                             <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
-                            <div className="w-full grid grid-rows-5">
+                            <div className="w-full grid grid-rows-5 gap-4">
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
-                                        <div key={index} className="flex flex-col justify-center gap-2">
+                                        <div key={index} className="flex flex-col justify-center items-center gap-2">
                                             {iconMap[perabot]}
                                             <p className="text-sm">{perabot}</p>
                                         </div>
