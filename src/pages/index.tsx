@@ -121,7 +121,7 @@ export default function Home() {
         </header>
         <main>
           <div className="relative">
-            <div className="component-a bg-gray-200 w-full max-h-[180px] md:max-h-[350px] lg:max-h-[400px] flex items-center justify-center">
+            <div className="component-a bg-gray-200 w-full h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
               <div className="component-b w-full h-full">
                 <Swiper
                   spaceBetween={30}
@@ -138,16 +138,12 @@ export default function Home() {
                   {bannerHome.length > 0 ? (
                     bannerHome.map((banhome) => (
                       <SwiperSlide key={banhome.id} className="w-full h-full relative">
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={banhome.imageBanner?.url || '/default-image.jpg'}
-                            alt={"https://cms.rumiproperti.com" + banhome.imageBanner?.url || 'Banner Image'}
-                            layout="fill"
-                            loader={myLoader}
-                            objectFit="cover"
-                            className="object-center"
-                          />
-                        </div>
+                        <Image
+                          src={banhome.imageBanner?.url || '/default-image.jpg'}
+                          alt={"https://cms.rumiproperti.com" + banhome.imageBanner?.url || 'Banner Image'}
+                          layout='fill'
+                          loader={myLoader}
+                        />
                       </SwiperSlide>
                     ))
                   ) : (
