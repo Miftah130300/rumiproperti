@@ -150,15 +150,14 @@ export default function DetailProperti() {
                         </div>
                     </div>
                 </div>
-                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
+                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-bold text-[#24221D]">Lokasi {selectedProperti.title}</h2>
                     <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
                     <div className="w-full h-[300px]">
                         <iframe
                             src={selectedProperti.mapsSource}
-                            className="rounded-lg shadow-lg"
+                            className="h-full rounded-lg shadow-lg"
                             width={600}
-                            height={450}
                             allowFullScreen
                             loading="lazy"
                         ></iframe>
