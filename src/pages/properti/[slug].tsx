@@ -141,11 +141,9 @@ export default function DetailProperti() {
                             <div className="w-full">
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
-                                        <div key={index}>
-                                            <>
-                                                {iconMap[perabot]}
-                                                <p>{perabot}</p>
-                                            </>
+                                        <div key={index} className="flex flex-col justify-center gap-2">
+                                            {iconMap[perabot]}
+                                            <p className="text-sm">{perabot}</p>
                                         </div>
                                     ))
                                 ) : (
