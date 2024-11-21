@@ -26,7 +26,7 @@ interface Properti {
     publishedAt: string;
     adressDetail: string;
     mapsSource: string;
-    fasilitasPerabot: string[];
+    fasilitasPerabot: string[] | null;
     category_properti: {
         nameCategory: string;
     };
@@ -131,11 +131,15 @@ export default function DetailProperti() {
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
                             <div>
-                                {selectedProperti.fasilitasPerabot.map((perabot, index) => (
-                                    <div key={index}>
-                                        <p>{perabot}</p>
-                                    </div>
-                                ))}
+                                {selectedProperti.fasilitasPerabot?.length ? (
+                                    selectedProperti.fasilitasPerabot.map((perabot, index) => (
+                                        <div key={index}>
+                                            <p>{perabot}</p>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p>Tidak ada fasilitas perabot yang tersedia.</p>
+                                )}
                             </div>
                         </div>
                         <div className="flex flex-col">
