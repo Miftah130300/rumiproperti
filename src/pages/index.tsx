@@ -121,7 +121,7 @@ export default function Home() {
         </header>
         <main>
           <div className="relative">
-            <div className="component-a bg-gray-200 w-full h-[180px] md:h-[350px] lg:h-[400px] flex items-center justify-center">
+            <div className="component-a bg-gray-200 w-full max-h-[180px] md:max-h-[350px] lg:max-h-[400px] flex items-center justify-center">
               <div className="component-b w-full h-full">
                 <Swiper
                   spaceBetween={30}
