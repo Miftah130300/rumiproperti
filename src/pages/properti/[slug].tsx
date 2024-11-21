@@ -130,7 +130,7 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
-                            <div>
+                            <div className="w-full">
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
                                         <div key={index}>

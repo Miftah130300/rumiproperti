@@ -217,46 +217,54 @@ export default function Property() {
                 <div className="pt-14 px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-medium text-[#24221D]">Rekomendasi hunian untukmu</h2>
                     <div className="result grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        {filteredProperties.map((item) => (
-                            <Link href={`/properti/${item.title}`} className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border transform transition-all duration-300 flex flex-col">
-                                <div className="w-full h-[200px] overflow-hidden">
-                                    <Image
-                                        className="w-full h-full object-cover hover:scale-110 transition"
-                                        src={item.bannerProperty.formats.medium.url || '/default-image.jpg'}
-                                        loader={myLoader}
-                                        alt={item.title}
-                                        width={300}
-                                        height={200}
-                                    />
-                                </div>
-                                <div className="px-4 py-4 flex flex-col gap-2 flex-grow">
-                                    <div className="bg-green text-white w-[5rem] text-center text-sm rounded">
-                                        {item.category_properti.nameCategory}
+                        {filteredProperties && filteredProperties.length > 0 ? (
+                            filteredProperties.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    href={`/properti/${item.title}`}
+                                    className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border transform transition-all duration-300 flex flex-col"
+                                >
+                                    <div className="w-full h-[200px] overflow-hidden">
+                                        <Image
+                                            className="w-full h-full object-cover hover:scale-110 transition"
+                                            src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
+                                            loader={myLoader}
+                                            alt={item.title}
+                                            width={300}
+                                            height={200}
+                                        />
                                     </div>
-                                    <div className="text-black">
-                                        <div className="font-bold text-medium-bold mb-2">
-                                            Rp {item.price.toLocaleString()}
+                                    <div className="px-4 py-4 flex flex-col gap-2 flex-grow">
+                                        <div className="bg-green text-white w-[5rem] text-center text-sm rounded">
+                                            {item.category_properti?.nameCategory || 'Kategori tidak tersedia'}
                                         </div>
-                                        <p className="text-sm">{item.title}</p>
-                                        <p className="text-xs text-black text-opacity-70">
-                                            {item.address}
-                                        </p>
+                                        <div className="text-black">
+                                            <div className="font-bold text-medium-bold mb-2">
+                                                Rp {item.price.toLocaleString()}
+                                            </div>
+                                            <p className="text-sm">{item.title}</p>
+                                            <p className="text-xs text-black text-opacity-70">
+                                                {item.address}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="px-4 pt-4 pb-4 flex gap-5 items-center">
-                                    <Link href={`/properti/${item.title}`}>
-                                        <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
-                                            Lihat detail
-                                        </span>
-                                    </Link>
-                                    <Link href={"https://wa.me/6281291964488"} target="_blank">
-                                        <span className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
-                                            Hubungi kami
-                                        </span>
-                                    </Link>
-                                </div>
-                            </Link>
-                        ))}
+                                    <div className="px-4 pt-4 pb-4 flex gap-5 items-center">
+                                        <Link href={`/properti/${item.title}`}>
+                                            <span className="inline-block bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                                Lihat detail
+                                            </span>
+                                        </Link>
+                                        <Link href={"https://wa.me/6281291964488"} target="_blank">
+                                            <span className="inline-block hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                                Hubungi kami
+                                            </span>
+                                        </Link>
+                                    </div>
+                                </Link>
+                            ))
+                        ) : (
+                            <p className="text-center col-span-full">Tidak ada properti yang tersedia.</p>
+                        )}
                     </div>
                 </div>
             </main>
