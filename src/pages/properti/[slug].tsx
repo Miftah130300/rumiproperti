@@ -6,9 +6,17 @@ import dynamic from "next/dynamic";
 import { useProperti } from "../api/fetchAPI";
 import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import BathtubIcon from '@mui/icons-material/Bathtub';
+import ShowerIcon from '@mui/icons-material/Shower';
+import HotTubIcon from '@mui/icons-material/HotTub';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 
+const iconMap: { [key: string]: JSX.Element } = {
+    'Bathub': <BathtubIcon />,
+    'Shower': <ShowerIcon />,
+    'Water Heater': <HotTubIcon />
+}
 interface Properti {
     id: number;
     documentId: string;
@@ -134,7 +142,10 @@ export default function DetailProperti() {
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
                                         <div key={index}>
-                                            <p>{perabot}</p>
+                                            <>
+                                                {iconMap[perabot]}
+                                                <p>{perabot}</p>
+                                            </>
                                         </div>
                                     ))
                                 ) : (
