@@ -67,6 +67,7 @@ interface Properti {
     publishedAt: string;
     adressDetail: string;
     mapsSource: string;
+    fasilitasPerabot: string[];
     category_properti: {
         nameCategory: string;
     };

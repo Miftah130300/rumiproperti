@@ -5,6 +5,7 @@ import type { EmblaOptionsType } from "embla-carousel";
 import dynamic from "next/dynamic";
 import { useProperti } from "../api/fetchAPI";
 import Link from "next/link";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 
@@ -25,6 +26,7 @@ interface Properti {
     publishedAt: string;
     adressDetail: string;
     mapsSource: string;
+    fasilitasPerabot: string[];
     category_properti: {
         nameCategory: string;
     };
@@ -128,7 +130,13 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
-                            <p>{selectedProperti.description}</p>
+                            <div>
+                                {selectedProperti.fasilitasPerabot.map((perabot, index) => (
+                                    <div key={index}>
+                                        <p>{perabot}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D]">Deskripsi</h2>
@@ -152,7 +160,10 @@ export default function DetailProperti() {
                 </div>
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-bold text-[#24221D]">Lokasi {selectedProperti.title}</h2>
-                    <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
+                    <div className="flex gap-3">
+                        <LocationOnIcon />
+                        <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
+                    </div>
                     <div className="w-full h-[300px]">
                         <iframe
                             src={selectedProperti.mapsSource}
