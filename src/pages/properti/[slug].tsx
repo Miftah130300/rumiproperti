@@ -136,9 +136,9 @@ export default function DetailProperti() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-5">
                             <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
-                            <div className="w-full">
+                            <div className="w-full grid grid-rows-5">
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
                                         <div key={index} className="flex flex-col justify-center gap-2">
