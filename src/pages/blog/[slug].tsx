@@ -18,7 +18,7 @@ interface Article {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    category_properti: {
+    category_article: {
         nameCategory: string;
     };
     cover: {
@@ -156,7 +156,7 @@ export default function DetailBlog() {
                         <div className="text-center gap-2 flex flex-col">
                             <h2 className="text-xl md:text-3xl font-semibold text-green">{article.title}</h2>
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
-                                {article.author.name} | Kategori: {article.category_properti?.nameCategory}
+                                {article.author.name} | Kategori: {article.category_article.nameCategory}
                             </p>
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{new Date(article.createdAt).toLocaleDateString()}</p>
                         </div>

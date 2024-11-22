@@ -159,12 +159,12 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Cari properti berdasarkan nama, kota, atau daerah"
-                  className="flex-1 block border rounded-lg p-2 w-full dark:bg-[#1E1E1E] dark:text-[#CCCCCC]"
+                  className="flex-1 block border dark:border-none rounded-lg p-2 w-full bg-[#D9D9D9] bg-opacity-50"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
                 />
                 <a
-                  className="hover:bg-[#4b6645] hover:text-white bg-green dark:bg-transparent text-white dark:text-green dark:border dark:border-[#307629] rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
+                  className="hover:bg-[#4b6645] hover:text-white bg-green text-white rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
                   onClick={handleSearch}
                 >
                   Cari Properti
@@ -423,7 +423,7 @@ export default function Home() {
                 <div className="flex gap-5">
                   {partner.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <div className="h-[120px] w-[180px] p-3 dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
+                      <div className="h-[120px] w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
                           src={item.imagePartner.formats.thumbnail.url}
@@ -453,7 +453,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-[50px] px-5 md:px-10">
+          <div className="py-[50px] px-5 md:px-10">
             <div className="flex justify-center items-center relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src={home}
@@ -473,7 +473,7 @@ export default function Home() {
             </div>
           </div>
         </main >
-        <footer className="mt-[50px] bg-green text-white p-5 md:p-8">
+        <footer className="bg-green text-white p-5 md:p-8">
           <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
             <div className="flex flex-col justify-between">
               <div>

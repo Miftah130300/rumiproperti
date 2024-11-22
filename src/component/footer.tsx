@@ -6,7 +6,7 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
     return (
-        <footer className="mt-[50px] bg-green text-white md: p-5 md:p-8">
+        <footer className="bg-green text-white md: p-5 md:p-8">
             <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
                 <div className="flex flex-col justify-between">
                     <div>

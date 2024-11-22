@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function CTA() {
 
     return (
-        <div className="pt-[50px] px-5 md:px-10">
+        <div className="py-[50px] px-5 md:px-10">
             <div className="flex justify-center items-center relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
                     src={home}
