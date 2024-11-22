@@ -46,7 +46,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
                 <div className="embla__container-property">
                     {slides.map((src, index) => (
-                        <div className="embla__slide-property flex justify-center items-center" key={index}>
+                        <div className="embla__slide-property" key={index}>
                             <Image
                                 src={src}
                                 alt={`Slide ${index}`}
