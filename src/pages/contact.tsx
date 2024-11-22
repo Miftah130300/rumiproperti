@@ -9,7 +9,7 @@ export default function Contact() {
             <main>
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5 items-center">
                     <h2 className="text-xl font-semibold">HUBUNGI KAMI</h2>
-                    <div className="flex flex-col md:flex-row md:gap-5 gap-10 pt-10 justify-between w-full">
+                    <div className="flex flex-col md:flex-row md:gap-5 gap-10 pt-[50px] justify-between w-full">
                         <div className="text-center md:text-start">
                             <h2 className="font-semibold">Hubungi kami melalui kontak di bawah ini:</h2>
                             <ul>

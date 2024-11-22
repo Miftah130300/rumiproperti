@@ -22,7 +22,7 @@ export default function About() {
                         sambil mendukung para pengembang yang ingin menawarkan properti mereka secara efisien. Adapun misi Rumi Properti adalah untuk mempermudah masyarakat memiliki hunian, Rumi Property juga menyediakan layanan konsultasi serta edukasi finansial bagi penggunanya.
                     </div>
                 </div>
-                <div className="pt-[100px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10">
+                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10">
                     <div className="md:w-[500px]">
                         <h2 className="text-xl font-semibold">Kenapa harus Rumi?</h2>
                     </div>

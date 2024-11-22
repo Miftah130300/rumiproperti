@@ -187,7 +187,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-[150px] px-5 md:px-10">
+          <div className="pt-[50px] px-5 md:px-10">
             <div className="flex flex-col gap-4">
               <h2 className="text-xl font-semibold text-[#24221D]">Pilih kota hunian impianmu</h2>
               <div className="flex">
@@ -392,8 +392,8 @@ export default function Home() {
               </div>
             </div>
           ) : (null)}
-          <div className="pt-[100px] px-5 md:px-10">
-            <div>
+          <div className="pt-[50px] px-5 md:px-10">
+            <div className='flex flex-col gap-4'>
               <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -434,7 +434,7 @@ export default function Home() {
               </Swiper>
             </div>
           </div>
-          <div className="pt-[100px] px-5 md:px-10">
+          <div className="pt-[50px] px-5 md:px-10">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex items-center w-full md:w-1/2">
                 <div className="text-center md:text-start">
@@ -449,7 +449,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-[100px] px-5 md:px-10">
+          <div className="pt-[50px] px-5 md:px-10">
             <div className="flex justify-center items-center relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src={home}
@@ -469,7 +469,7 @@ export default function Home() {
             </div>
           </div>
         </main >
-        <footer className="mt-[100px] bg-green text-white md: p-5 md:p-8">
+        <footer className="mt-[50px] bg-green text-white md: p-5 md:p-8">
           <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
             <div className="flex flex-col justify-between">
               <div>

@@ -85,7 +85,7 @@ export default function Blog() {
                         </ul>
                     </nav>
                 </div>
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-10">
+                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-10">
                     <div className="flex flex-col gap-5">
                         <div className="flex justify-between w-full">
                             <h2 className="text-xl font-semibold">Berita</h2>
