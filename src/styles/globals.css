@@ -32,12 +32,19 @@ main {
   --slide-spacing: 1rem;
   --slide-size: 100%;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .embla-property {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+@media (min-width: 1024px) {
   .embla-property {
     margin-left: 15rem;
     margin-right: 15rem;
   }
 }
+
 
 .embla__viewport-property {
   overflow: hidden;
