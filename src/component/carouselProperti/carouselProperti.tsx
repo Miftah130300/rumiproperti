@@ -42,7 +42,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, [emblaMainApi, onSelect])
 
     return (
-        <div className="embla embla-property">
+        <div className="embla embla-property mx-auto md:mx-40">
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
                 <div className="embla__container-property">
                     {slides.map((src, index) => (
