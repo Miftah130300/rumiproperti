@@ -100,7 +100,7 @@ export default function Category() {
                     </nav>
                 </div>
 
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="capitalize text-xl font-semibold">{slug}</h2>
 
                     {filteredArticles.length > 0 ? (
@@ -133,7 +133,7 @@ export default function Category() {
                             })}
                         </div>
                     ) : (
-                        <p>No articles found</p>
+                        <p className="col-span-full text-black text-opacity-70 italic">Belum tersedia artikel</p>
                     )}
                 </div>
             </main>
