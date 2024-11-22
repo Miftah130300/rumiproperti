@@ -191,7 +191,7 @@ export default function Blog() {
                                                     .slice(0, 4)
                                                     .map((article: Article) => {
                                                         if (!article.cover?.formats?.large?.url) {
-                                                            return null; // Skip this article if cover or image URL is missing
+                                                            return null;
                                                         }
 
                                                         const date = new Date(article.publishedAt);

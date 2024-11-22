@@ -6,60 +6,9 @@ import dynamic from "next/dynamic";
 import { useProperti } from "../api/fetchAPI";
 import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import BathtubIcon from '@mui/icons-material/Bathtub';
-import ShowerIcon from '@mui/icons-material/Shower';
-import HotTubIcon from '@mui/icons-material/HotTub';
-import BedIcon from '@mui/icons-material/Bed';
-import CheckroomIcon from '@mui/icons-material/Checkroom';
+import { iconMap } from "src/component/icon";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
-
-const iconMap: { [key: string]: JSX.Element | null } = {
-    'Bathub': <BathtubIcon />,
-    'Shower': <ShowerIcon />,
-    'Water Heater': <HotTubIcon />,
-    'Kasur': <BedIcon />,
-    'Lemari Pakaian': <CheckroomIcon />,
-    'Kitchen Set': null,
-    'Kompor': null,
-    'Kulkas': null,
-    'Microwave': null,
-    'Oven': null,
-    'AC': null,
-    'Akses 24/7': null,
-    'Akses Wifi': null,
-    'Balkon': null,
-    'CCTV': null,
-    'Gorden': null,
-    'Internet': null,
-    'Keamanan 24 jam': null,
-    'Kol. Renang Privat': null,
-    'Pompa Air': null,
-    'Tangki Air': null,
-    'Telepon': null,
-    'Tempat Parkir': null,
-    'Apotik': null,
-    'Area Umum': null,
-    'Area Bermain': null,
-    'ATM Center': null,
-    'Bank': null,
-    'Bilik Telepon': null,
-    'Elevator': null,
-    'Gym': null,
-    'Jogging Track': null,
-    'Kantin': null,
-    'Kantor Post': null,
-    'Kolam Publik': null,
-    'Laundry': null,
-    'Minimarket': null,
-    'Musholla': null,
-    'Restoran': null,
-    'Ruang Acara': null,
-    'Ruang Bermain': null,
-    'Ruangan Serbaguna': null,
-    'Salon': null,
-    'Taman': null,
-};
 
 interface Properti {
     id: number;
@@ -200,7 +149,7 @@ export default function DetailProperti() {
                             <p>{selectedProperti.description}</p>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md w-[300px] h-[250px]">
+                    <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px]">
                         <div className="flex flex-col gap-4">
                             <div className="text-center">
                                 <h2 className="text-xl font-bold text-[#24221D]">Rp {selectedProperti.price.toLocaleString()}</h2>
