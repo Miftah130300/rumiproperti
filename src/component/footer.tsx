@@ -11,7 +11,7 @@ export default function Footer() {
                 <div className="flex flex-col justify-between">
                     <div>
                         <h2 className="text-2xl font-bold">Rumi Properti</h2>
-                        <p className="mt-2 text-sm">Jakarta, Indonesia</p>
+                        <p className="mt-2 text-sm dark:text-[#CCCCCC]">Jakarta, Indonesia</p>
                     </div>
                     <div className="mt-2 text-sm flex gap-3">
                         <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
@@ -27,12 +27,12 @@ export default function Footer() {
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Hubungi Kami</h3>
-                    <p className="mt-2 text-sm">Email: rumamilenial@gmail.com</p>
-                    <p className="mt-2 text-sm">Phone: 081291964488</p>
+                    <p className="mt-2 text-sm dark:text-[#CCCCCC]">Email: rumamilenial@gmail.com</p>
+                    <p className="mt-2 text-sm dark:text-[#CCCCCC]">Phone: 081291964488</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Tentang Kami</h3>
-                    <p className="mt-2 font-sans text-sm">Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda.</p>
+                    <p className="mt-2 font-sans text-sm dark:text-[#CCCCCC]">Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda.</p>
                 </div>
                 <div className="w-full h-full bg-gray-300 rounded-md relative">
                     <iframe

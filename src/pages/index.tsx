@@ -149,7 +149,7 @@ export default function Home() {
                       </SwiperSlide>
                     ))
                   ) : (
-                    <p>No banners available.</p>
+                    <p className='dark:text-[#CCCCCC]'>No banners available.</p>
                   )}
                 </Swiper>
               </div>
@@ -164,7 +164,7 @@ export default function Home() {
                   onChange={(e) => setKeyword(e.target.value)}
                 />
                 <a
-                  className="hover:bg-[#4b6645] bg-green dark:bg-transparent text-white dark:text-green dark:border dark:border-[#307629] rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
+                  className="hover:bg-[#4b6645] hover:text-white bg-green dark:bg-transparent text-white dark:text-green dark:border dark:border-[#307629] rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
                   onClick={handleSearch}
                 >
                   Cari Properti
@@ -262,11 +262,15 @@ export default function Home() {
                 >
                   {properti.slice(0, 4).map((item) => (
                     <SwiperSlide key={item.id} className="max-w-xs w-full pr-3">
-                      <Link href={`/properti/${item.title}`} className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border dark:border-none dark:bg-[#252525] transform transition-all duration-300 flex flex-col">
+                      <Link
+                        key={item.id}
+                        href={`/properti/${item.title}`}
+                        className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border dark:border-none dark:bg-[#252525] transform transition-all duration-300 flex flex-col"
+                      >
                         <div className="w-full h-[200px] overflow-hidden">
                           <Image
                             className="w-full h-full object-cover hover:scale-110 transition"
-                            src={item.bannerProperty.formats.medium.url || '/default-image.jpg'}
+                            src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
                             loader={myLoader}
                             alt={item.title}
                             width={300}
@@ -275,7 +279,7 @@ export default function Home() {
                         </div>
                         <div className="px-4 py-4 flex flex-col gap-2 flex-grow">
                           <div className="bg-green text-white w-[5rem] text-center text-sm rounded">
-                            {item.category_properti.nameCategory}
+                            {item.category_properti?.nameCategory || 'Kategori tidak tersedia'}
                           </div>
                           <div className="text-black">
                             <div className="font-bold text-medium-bold mb-2">

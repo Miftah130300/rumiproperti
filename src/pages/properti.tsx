@@ -174,7 +174,7 @@ export default function Property() {
             <Navbar />
             <main>
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
-                    <h2 className="text-xl font-medium text-[#24221D]">Temukan propertimu</h2>
+                    <h2 className="text-xl font-medium text-[#24221D] dark:text-white">Temukan propertimu</h2>
                     <div className="search w-full flex flex-col gap-3">
                         <div className="flex gap-3 w-full md:w-[85%]">
                             <input
@@ -191,7 +191,7 @@ export default function Property() {
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row w-full gap-3">
-                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
                                 <option value="">Tipe properti</option>
                                 {categories.map((category) => (
                                     <option key={category.id} value={category.nameCategory}>
@@ -199,13 +199,13 @@ export default function Property() {
                                     </option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
                                 <option value="">Area</option>
                                 {city.map((city) => (
                                     <option key={city.id} value={city.nameCity}>{city.nameCity}</option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
                                 <option value="">Harga</option>
                                 <option value="low">Dibawah 500 Juta</option>
                                 <option value="medium">500 Juta - 1 Miliar</option>
@@ -215,14 +215,14 @@ export default function Property() {
                     </div>
                 </div>
                 <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
-                    <h2 className="text-xl font-medium text-[#24221D]">Rekomendasi hunian untukmu</h2>
+                    <h2 className="text-xl font-medium text-[#24221D] dark:text-white">Rekomendasi hunian untukmu</h2>
                     <div className="result grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                         {filteredProperties && filteredProperties.length > 0 ? (
                             filteredProperties.map((item) => (
                                 <Link
                                     key={item.id}
                                     href={`/properti/${item.title}`}
-                                    className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border transform transition-all duration-300 flex flex-col"
+                                    className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border dark:border-none dark:bg-[#252525] transform transition-all duration-300 flex flex-col"
                                 >
                                     <div className="w-full h-[200px] overflow-hidden">
                                         <Image
@@ -242,8 +242,8 @@ export default function Property() {
                                             <div className="font-bold text-medium-bold mb-2">
                                                 Rp {item.price.toLocaleString()}
                                             </div>
-                                            <p className="text-sm">{item.title}</p>
-                                            <p className="text-xs text-black text-opacity-70">
+                                            <p className="text-sm dark:text-[#CCCCCC]">{item.title}</p>
+                                            <p className="text-xs text-black dark:text-[#757575] text-opacity-70">
                                                 {item.address}
                                             </p>
                                         </div>
@@ -263,7 +263,7 @@ export default function Property() {
                                 </Link>
                             ))
                         ) : (
-                            <p className="col-span-full text-black text-opacity-70 italic">Tidak ada properti yang tersedia.</p>
+                            <p className="col-span-full text-black dark:text-[#CCCCCC] dark:text-opacity-100 text-opacity-70 italic">Tidak ada properti yang tersedia.</p>
                         )}
                     </div>
                 </div>
