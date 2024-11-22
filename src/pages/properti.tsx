@@ -172,7 +172,7 @@ export default function Property() {
     return (
         <div>
             <Navbar />
-            <main>
+            <main className="dark:bg-[#1E1E1E]">
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-medium text-[#24221D] dark:text-white">Temukan propertimu</h2>
                     <div className="search w-full flex flex-col gap-3">
@@ -191,7 +191,7 @@ export default function Property() {
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row w-full gap-3">
-                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedCategory(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1] hover:bg-slate-50">
                                 <option value="">Tipe properti</option>
                                 {categories.map((category) => (
                                     <option key={category.id} value={category.nameCategory}>
@@ -199,13 +199,13 @@ export default function Property() {
                                     </option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedArea(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1] hover:bg-slate-50">
                                 <option value="">Area</option>
                                 {city.map((city) => (
                                     <option key={city.id} value={city.nameCity}>{city.nameCity}</option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] hover:bg-slate-50">
+                            <select onChange={(e) => setSelectedPrice(e.target.value)} className="py-2 px-4 shadow-md text-sm rounded-md border cursor-pointer dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1] hover:bg-slate-50">
                                 <option value="">Harga</option>
                                 <option value="low">Dibawah 500 Juta</option>
                                 <option value="medium">500 Juta - 1 Miliar</option>
@@ -239,7 +239,7 @@ export default function Property() {
                                             {item.category_properti?.nameCategory || 'Kategori tidak tersedia'}
                                         </div>
                                         <div className="text-black">
-                                            <div className="font-bold text-medium-bold mb-2">
+                                            <div className="font-bold text-medium-bold mb-2 dark:text-white">
                                                 Rp {item.price.toLocaleString()}
                                             </div>
                                             <p className="text-sm dark:text-[#CCCCCC]">{item.title}</p>

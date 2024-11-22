@@ -12,7 +12,7 @@ export default function Navbar() {
     const [isOpen, setOpen] = useState(false);
 
     return (
-        <header>
+        <header className='dark:bg-[#1E1E1E]'>
             <nav className="shadow-md w-full">
                 <div className="flex justify-between py-5 px-5 md:px-10 w-full">
                     <Link href="/" className="flex items-center">
@@ -23,13 +23,13 @@ export default function Navbar() {
                             height={25}
                             objectFit="fill"
                         />
-                        <span className="ml-2 text-lg font-semibold">Rumi Properti</span>
+                        <span className="ml-2 text-lg font-semibold dark:text-[#CCCCCC]">Rumi Properti</span>
                     </Link>
                     {isMobile ? (
                         <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
                     ) : (
                         <div className="flex justify-center items-center gap-10">
-                            <ul className="md:flex gap-5 hidden">
+                            <ul className="md:flex gap-5 hidden dark:text-[#CCCCCC]">
                                 <li className="text-sm hover:text-green">
                                     <Link href="/">Home</Link>
                                 </li>
@@ -56,7 +56,7 @@ export default function Navbar() {
             </nav>
             {isOpen &&
                 <div className="top-0 left-0 w-full relative h-screen z-50 flex flex-col px-5 pb-5 gap-5">
-                    <ul className="flex flex-col gap-5 mt-10">
+                    <ul className="flex flex-col gap-5 mt-10 dark:text-[#CCCCCC]">
                         <li className="text-lg hover:text-green">
                             <Link href="/">Home</Link>
                         </li>

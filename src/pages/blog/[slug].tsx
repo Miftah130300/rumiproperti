@@ -129,7 +129,7 @@ export default function DetailBlog() {
     return (
         <div>
             <Navbar />
-            <main>
+            <main className="dark:bg-[#1E1E1E]">
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                     <nav className="flex flex-col md:flex-row justify-between gap-5">
                         <ul className="flex gap-5">
@@ -155,16 +155,16 @@ export default function DetailBlog() {
                     <div className="w-full md:w-3/4 flex flex-col gap-5 items-center">
                         <div className="text-center gap-2 flex flex-col">
                             <h2 className="text-xl md:text-3xl font-semibold text-green">{article.title}</h2>
-                            <p className="text-sm text-black text-opacity-70">
+                            <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
                                 {article.author.name} | Kategori: {article.category_properti?.nameCategory}
                             </p>
-                            <p className="text-sm text-black text-opacity-70">{new Date(article.createdAt).toLocaleDateString()}</p>
+                            <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{new Date(article.createdAt).toLocaleDateString()}</p>
                         </div>
                         <div className="w-full text-center">
                             <Image loader={myLoader} src={article.cover.formats.large.url} width={100} height={100} alt='foto' className="h-[400px] w-full object-cover" />
-                            <p className="text-sm text-black text-opacity-70">Source</p>
+                            <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Source</p>
                         </div>
-                        <div className="w-full">
+                        <div className="w-full dark:text-white">
                             {article.blocks.map(block => (
                                 block.__component === "description.description" && (
                                     <ReactMarkdown remarkPlugins={[remarkGfm]} key={block.id}>
@@ -174,7 +174,7 @@ export default function DetailBlog() {
                             ))}
                         </div>
                     </div>
-                    <div className="border w-full md:w-1/4 bg-[#D9D9D9] md:h-[500px] flex justify-center items-center relative">
+                    <div className="border dark:border-none w-full md:w-1/4 bg-[#D9D9D9] md:h-[500px] flex justify-center items-center relative">
                         {/* Render banner image if available */}
                         {banner && banner.bannerImage && (
                             <Image

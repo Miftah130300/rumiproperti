@@ -282,7 +282,7 @@ export default function Home() {
                             {item.category_properti?.nameCategory || 'Kategori tidak tersedia'}
                           </div>
                           <div className="text-black">
-                            <div className="font-bold text-medium-bold mb-2">
+                            <div className="font-bold text-medium-bold mb-2 dark:text-white">
                               Rp {item.price.toLocaleString()}
                             </div>
                             <p className="text-sm dark:text-[#CCCCCC]">{item.title}</p>

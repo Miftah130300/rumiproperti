@@ -94,19 +94,19 @@ export default function DetailProperti() {
     return (
         <div>
             <Navbar />
-            <main>
+            <main className="dark:bg-[#1E1E1E]">
                 <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row justify-between gap-10 md:gap-10">
                     <EmblaCarousel slides={imageUrls} options={OPTIONS} loader={myLoader} />
                 </div>
                 <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
                     <div className="flex flex-col gap-10">
                         <div className="text-start">
-                            <h1 className="text-2xl font-bold text-[#24221D]">{selectedProperti.title}</h1>
-                            <p className="text-black text-opacity-70">{selectedProperti.address}</p>
+                            <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>
+                            <p className="text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{selectedProperti.address}</p>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <h2 className="text-xl font-bold text-[#24221D]">Informasi Properti</h2>
-                            <div className="flex flex-col md:flex-row gap-5">
+                            <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Informasi Properti</h2>
+                            <div className="flex flex-col md:flex-row gap-5 dark:text-[#CCCCCC]">
                                 <div>
                                     <p>{selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
                                     <div>Luas Tanah</div>
@@ -130,7 +130,7 @@ export default function DetailProperti() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-5">
-                            <h2 className="text-xl font-bold text-[#24221D]">Fasilitas & Perabotan</h2>
+                            <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Fasilitas & Perabotan</h2>
                             <div className="w-full grid grid-cols-5 justify-center gap-5 shadow-sm border py-5 rounded-lg">
                                 {selectedProperti.fasilitasPerabot?.length ? (
                                     selectedProperti.fasilitasPerabot.map((perabot, index) => (
@@ -140,20 +140,20 @@ export default function DetailProperti() {
                                         </div>
                                     ))
                                 ) : (
-                                    <p>Tidak ada fasilitas perabot yang tersedia.</p>
+                                    <p className="col-span-full text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100 italic">Tidak ada fasilitas perabot yang tersedia.</p>
                                 )}
                             </div>
                         </div>
                         <div className="flex flex-col">
-                            <h2 className="text-xl font-bold text-[#24221D]">Deskripsi</h2>
-                            <p>{selectedProperti.description}</p>
+                            <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
+                            <p className="dark:text-[#CCCCCC]">{selectedProperti.description}</p>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px]">
+                    <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
                         <div className="flex flex-col gap-4">
                             <div className="text-center">
-                                <h2 className="text-xl font-bold text-[#24221D]">Rp {selectedProperti.price.toLocaleString()}</h2>
-                                <p className="text-xs text-black text-opacity-70">Cicilan mulai dari 2juta/bulan</p>
+                                <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Rp {selectedProperti.price.toLocaleString()}</h2>
+                                <p className="text-xs text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Cicilan mulai dari 2juta/bulan</p>
                             </div>
                             <div className="flex flex-col gap-3">
                                 <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
@@ -165,10 +165,10 @@ export default function DetailProperti() {
                     </div>
                 </div>
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
-                    <h2 className="text-xl font-bold text-[#24221D]">Lokasi {selectedProperti.title}</h2>
+                    <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Lokasi {selectedProperti.title}</h2>
                     <div className="flex gap-3">
                         <LocationOnIcon />
-                        <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
+                        <p className="text-black text-opacity-70 dark:text-[#CCCCCC]">{selectedProperti.adressDetail}</p>
                     </div>
                     <div className="w-full h-[300px]">
                         <iframe

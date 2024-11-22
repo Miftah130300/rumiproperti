@@ -69,7 +69,7 @@ export default function Blog() {
     return (
         <div>
             <Navbar />
-            <main>
+            <main className="dark:bg-[#1E1E1E]">
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                     <nav className="flex flex-col md:flex-row justify-between gap-5">
                         <ul className="flex gap-5">
