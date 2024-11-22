@@ -170,11 +170,10 @@ export default function DetailProperti() {
                         <LocationOnIcon />
                         <p className="text-black text-opacity-70">{selectedProperti.adressDetail}</p>
                     </div>
-                    <div className="w-full h-[300px]">
+                    <div className="w-full">
                         <iframe
                             src={selectedProperti.mapsSource}
-                            className="h-full rounded-lg shadow-lg"
-                            width={600}
+                            className="max-h-[350px] max-w-[600px] w-full h-full rounded-lg shadow-lg"
                             allowFullScreen
                             loading="lazy"
                         ></iframe>
