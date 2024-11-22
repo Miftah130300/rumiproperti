@@ -51,7 +51,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                 src={src}
                                 alt={`Slide ${index}`}
                                 loader={loader}
-                                className="w-full max-h-[500px] object-contain"
+                                className="w-full max-h-[350px] object-contain"
                             />
                         </div>
                     ))}
