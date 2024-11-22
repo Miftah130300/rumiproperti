@@ -51,7 +51,7 @@ export default function Home() {
         <title>Rumi Properti: Jual & Sewa Rumah, Apartemen, Tanah, Kos</title>
       </Head>
       <div>
-        <header>
+        <header className='dark:bg-[#1E1E1E]'>
           <nav className="shadow-md w-full">
             <div className="flex justify-between py-5 px-5 md:px-10 w-full">
               <Link href="/" className="flex items-center">
@@ -68,7 +68,7 @@ export default function Home() {
                 <DynamicHamburger toggled={isOpen} toggle={setOpen} size={20} />
               ) : (
                 <div className="flex justify-center items-center gap-10">
-                  <ul className="md:flex gap-5 hidden">
+                  <ul className="md:flex gap-5 hidden dark:text-[#CCCCCC]">
                     <li className="text-sm hover:text-green">
                       <Link href="/">Home</Link>
                     </li>
@@ -95,7 +95,7 @@ export default function Home() {
           </nav>
           {isOpen &&
             <div className="top-0 left-0 w-full relative h-screen z-50 flex flex-col px-5 pb-5 gap-5">
-              <ul className="flex flex-col gap-5 mt-10">
+              <ul className="flex flex-col gap-5 mt-10 dark:text-[#CCCCCC]">
                 <li className="text-lg hover:text-green">
                   <Link href="/">Home</Link>
                 </li>
@@ -113,13 +113,13 @@ export default function Home() {
                 </li>
               </ul>
               <div className="flex flex-col gap-5 mt-5">
-                <Link className="text-sm px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href="https://bit.ly/SurveyRumi" target="_blank" role="button">Formulir</Link>
+                <Link className="text-sm px-6 py-2 bg-[#D9D9D9] dark:bg-slate-700 hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href="https://bit.ly/SurveyRumi" target="_blank" role="button">Formulir</Link>
                 <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href="https://wa.me/6281291964488" target="_blank" role="button">Hubungi Kami</Link>
               </div>
             </div>
           }
         </header>
-        <main>
+        <main className='dark:bg-[#1E1E1E]'>
           <div className="relative">
             <div className="component-a bg-gray-200 w-full aspect-[1920/600] flex items-center justify-center">
               <div className="component-b w-full h-full">
@@ -154,17 +154,17 @@ export default function Home() {
                 </Swiper>
               </div>
             </div>
-            <div className="search-bar absolute sm:bottom-[-6em] md:bottom-[-3rem] left-1/2 transform -translate-x-1/2 w-[90%] max-w-[800px] bg-white shadow-lg rounded-lg p-5 z-10">
+            <div className="search-bar absolute sm:bottom-[-6em] md:bottom-[-3rem] left-1/2 transform -translate-x-1/2 w-[90%] max-w-[800px] bg-white dark:bg-[#252525] shadow-lg shadow-[rgba(0, 0, 0, 0.5)] rounded-lg p-5 z-10">
               <div className="flex flex-col md:flex-row gap-3 space-x-4 items-center">
                 <input
                   type="text"
                   placeholder="Cari properti berdasarkan nama, kota, atau daerah"
-                  className="flex-1 block border rounded-lg p-2 w-full"
+                  className="flex-1 block border rounded-lg p-2 w-full dark:bg-[#1E1E1E] dark:text-[#CCCCCC]"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
                 />
                 <a
-                  className="hover:bg-[#4b6645] bg-green text-white rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
+                  className="hover:bg-[#4b6645] bg-green dark:bg-transparent text-white dark:text-green dark:border dark:border-[#307629] rounded-lg px-5 py-2 cursor-pointer md:block w-[200px] text-center"
                   onClick={handleSearch}
                 >
                   Cari Properti
@@ -176,8 +176,8 @@ export default function Home() {
             <div className="flex flex-col gap-5 md:gap-0 md:flex-row md:h-[350px] mx-auto w-full">
               <div className="md:w-1/2 w-full h-full flex flex-col justify-center">
                 <div className="text-center md:text-start">
-                  <h2 className="text-2xl font-semibold text-[#24221D]">Temukan properti di Rumi</h2>
-                  <p className="mt-2 text-md">
+                  <h2 className="text-2xl font-semibold text-[#24221D] dark:text-white">Temukan properti di Rumi</h2>
+                  <p className="mt-2 text-md dark:text-[#CCCCCC]">
                     Kami memiliki puluhan rekomendasi terbaik, mulai dari rumah, apartemen, kos, hingga tanah.
                   </p>
                 </div>
@@ -189,7 +189,7 @@ export default function Home() {
           </div>
           <div className="pt-[50px] px-5 md:px-10">
             <div className="flex flex-col gap-4">
-              <h2 className="text-xl font-semibold text-[#24221D]">Pilih kota hunian impianmu</h2>
+              <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Pilih kota hunian impianmu</h2>
               <div className="flex">
                 <Swiper
                   modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -227,7 +227,7 @@ export default function Home() {
                             />
                           </div>
                         </div>
-                        <div className="text-sm mt-1">{city.nameCity}</div>
+                        <div className="text-sm mt-1 dark:text-[#CCCCCC]">{city.nameCity}</div>
                       </Link>
                     </SwiperSlide>
                   ))}
@@ -237,7 +237,7 @@ export default function Home() {
           </div>
           <div className="pt-[50px] px-5 md:px-10">
             <div className="flex flex-col gap-4">
-              <h2 className="text-xl font-semibold text-[#24221D]">Rekomendasi hunian untukmu</h2>
+              <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Rekomendasi hunian untukmu</h2>
               <div className="flex md:flex-row flex-col gap-5">
                 <Swiper
                   modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -262,7 +262,7 @@ export default function Home() {
                 >
                   {properti.slice(0, 4).map((item) => (
                     <SwiperSlide key={item.id} className="max-w-xs w-full pr-3">
-                      <Link href={`/properti/${item.title}`} className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border transform transition-all duration-300 flex flex-col">
+                      <Link href={`/properti/${item.title}`} className="max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg border dark:border-none dark:bg-[#252525] transform transition-all duration-300 flex flex-col">
                         <div className="w-full h-[200px] overflow-hidden">
                           <Image
                             className="w-full h-full object-cover hover:scale-110 transition"
@@ -281,8 +281,8 @@ export default function Home() {
                             <div className="font-bold text-medium-bold mb-2">
                               Rp {item.price.toLocaleString()}
                             </div>
-                            <p className="text-sm">{item.title}</p>
-                            <p className="text-xs text-black text-opacity-70">
+                            <p className="text-sm dark:text-[#CCCCCC]">{item.title}</p>
+                            <p className="text-xs text-black dark:text-[#757575] text-opacity-70">
                               {item.address}
                             </p>
                           </div>
@@ -310,7 +310,7 @@ export default function Home() {
             <div className="pt-[50px] px-5 md:px-10">
               <div className="flex flex-col gap-4">
                 <div className="flex justify-between">
-                  <h2 className="text-xl font-semibold text-[#24221D]">Artikel Rumi</h2>
+                  <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Artikel Rumi</h2>
                   <Link href={"/blog"} className="border border-green text-green cursor-pointer hover:bg-green hover:text-white rounded-lg px-6 py-3">Cari Artikel</Link>
                 </div>
                 <div className="flex flex-col md:flex-row w-full gap-2">
@@ -394,7 +394,7 @@ export default function Home() {
           ) : (null)}
           <div className="pt-[50px] px-5 md:px-10">
             <div className='flex flex-col gap-4'>
-              <h2 className="text-xl font-semibold text-[#24221D]">Partner Kami</h2>
+              <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Partner Kami</h2>
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={5}
@@ -419,7 +419,7 @@ export default function Home() {
                 <div className="flex gap-5">
                   {partner.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <div className="h-[120px] w-[180px] p-3 border shadow-sm rounded-lg flex items-center justify-center">
+                      <div className="h-[120px] w-[180px] p-3 border dark:border-none dark:bg-[#252525] shadow-sm rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
                           src={item.imagePartner.formats.thumbnail.url}
@@ -438,8 +438,8 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex items-center w-full md:w-1/2">
                 <div className="text-center md:text-start">
-                  <h2 className="text-xl font-semibold text-[#24221D]">Apa kata mereka tentang Rumi</h2>
-                  <p className="mt-2 text-md">
+                  <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Apa kata mereka tentang Rumi</h2>
+                  <p className="mt-2 text-md dark:text-[#CCCCCC]">
                     Sejak [tahun], kami telah membantu puluhan orang menemukan hunian impian mereka.
                   </p>
                 </div>
@@ -462,19 +462,19 @@ export default function Home() {
               <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center">
                 <div className="flex flex-col text-center md:text-start">
                   <h2 className="text-white text-2xl font-semibold">Temukan Properti Idamanmu dengan Rumi</h2>
-                  <p className="text-white text-md">Temukan properti idamanmu dengan langkah yang sangat mudah</p>
+                  <p className="text-white dark:text-[#CCCCCC] text-md">Temukan properti idamanmu dengan langkah yang sangat mudah</p>
                 </div>
                 <Link className="px-6 py-2 bg-white hover:bg-[#c1c1c1] hover:bg-opacity-90 rounded-2xl text-green flex justify-center items-center" target='blank' href={"https://wa.me/6281291964488"} role="button">Hubungi Kami</Link>
               </div>
             </div>
           </div>
         </main >
-        <footer className="mt-[50px] bg-green text-white md: p-5 md:p-8">
+        <footer className="mt-[50px] bg-green text-white p-5 md:p-8">
           <div className="max-w-7xl mx-auto grid md:grid-cols-4 grid-rows-1 gap-8">
             <div className="flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold">Rumi Properti</h2>
-                <p className="mt-2 text-sm">Jakarta, Indonesia</p>
+                <p className="mt-2 text-sm dark:text-[#CCCCCC]">Jakarta, Indonesia</p>
               </div>
               <div className="mt-2 text-sm flex gap-3">
                 <Link href={"https://www.instagram.com/rumiproperti.id/"} target='blank' className='hover:shadow-sm'>
@@ -490,12 +490,12 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-xl font-semibold">Hubungi Kami</h3>
-              <p className="mt-2 text-sm">Email: rumamilenial@gmail.com</p>
-              <p className="mt-2 text-sm">Phone: 081291964488</p>
+              <p className="mt-2 text-sm dark:text-[#CCCCCC]">Email: rumamilenial@gmail.com</p>
+              <p className="mt-2 text-sm dark:text-[#CCCCCC]">Phone: 081291964488</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold">Tentang Kami</h3>
-              <p className="mt-2 font-sans text-sm">Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda.</p>
+              <p className="mt-2 font-sans text-sm dark:text-[#CCCCCC]">Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda.</p>
             </div>
             <div className="w-full h-full bg-gray-300 rounded-md relative">
               <iframe
@@ -508,7 +508,6 @@ export default function Home() {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-
           </div>
         </footer>
       </div >
