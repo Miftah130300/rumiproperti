@@ -202,7 +202,7 @@ export default function Home() {
                       spaceBetween: 5,
                     },
                     768: {
-                      slidesPerView: 6,
+                      slidesPerView: 4,
                       spaceBetween: 5,
                     },
                     1024: {
@@ -423,7 +423,7 @@ export default function Home() {
                 <div className="flex gap-5">
                   {partner.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <div className="max-w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
+                      <div className="h-[120px] max-w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
                           src={item.imagePartner.formats.thumbnail.url}
