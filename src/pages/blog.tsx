@@ -114,11 +114,11 @@ export default function Blog() {
                                                 navigation
                                                 breakpoints={{
                                                     340: {
-                                                        slidesPerView: 3,
+                                                        slidesPerView: 1,
                                                         spaceBetween: 5,
                                                     },
                                                     768: {
-                                                        slidesPerView: 4,
+                                                        slidesPerView: 3,
                                                         spaceBetween: 5,
                                                     },
                                                     1024: {
@@ -138,7 +138,6 @@ export default function Blog() {
                                                             month: 'long',
                                                             day: 'numeric',
                                                         });
-
                                                         return (
                                                             <SwiperSlide key={article.id} className="w-full hover:shadow-lg">
                                                                 <Link href={`/blog/${article.slug}`} className="rounded-lg max-w-xs">
@@ -187,11 +186,11 @@ export default function Blog() {
                                                 navigation
                                                 breakpoints={{
                                                     340: {
-                                                        slidesPerView: 3,
+                                                        slidesPerView: 1,
                                                         spaceBetween: 5,
                                                     },
                                                     768: {
-                                                        slidesPerView: 4,
+                                                        slidesPerView: 3,
                                                         spaceBetween: 5,
                                                     },
                                                     1024: {
