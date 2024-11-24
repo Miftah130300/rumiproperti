@@ -117,6 +117,7 @@ export default function DetailProperti() {
     }
 
     const imageUrls = selectedProperti.imageProperty?.map(image => image.formats.medium.url) || [];
+    const brosurUrl = `${process.env.NEXT_PUBLIC_API_URL}${selectedProperti.brosur.url}`;
 
     return (
         <div>
@@ -211,7 +212,7 @@ export default function DetailProperti() {
                                     <span>Hubungi Kami</span>
                                 </Link>
                                 <a
-                                    href={selectedProperti.brosur.url}
+                                    href={brosurUrl}
                                     download={selectedProperti.brosur.name}
                                     className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
                                 >
