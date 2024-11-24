@@ -87,7 +87,11 @@ const DeveloperDetailPage = () => {
     const [currentDeveloper, setCurrentDeveloper] = useState<Developer | null>(null);
 
     const propertiDeveloper = properti?.filter((item: Properti) => {
-        return currentDeveloper?.nameDeveloper === item.developer.nameDeveloper;
+        return (
+            currentDeveloper?.nameDeveloper &&
+            item.developer?.nameDeveloper &&
+            currentDeveloper.nameDeveloper === item.developer.nameDeveloper
+        );
     });
 
     useEffect(() => {
@@ -111,14 +115,16 @@ const DeveloperDetailPage = () => {
                     <div className="max-w-2xl mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
                         {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
                             <div className="relative w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
-                                <Image
-                                    src={currentDeveloper.logoDeveloper.formats.thumbnail.url}
-                                    alt={currentDeveloper.nameDeveloper}
-                                    fill
-                                    className="object-cover"
-                                    loader={myLoader}
-                                    sizes="160px"
-                                />
+                                {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
+                                    <Image
+                                        src={currentDeveloper.logoDeveloper.formats.thumbnail.url}
+                                        alt={currentDeveloper.nameDeveloper}
+                                        fill
+                                        className="object-cover"
+                                        loader={myLoader}
+                                        sizes="160px"
+                                    />
+                                )}
                             </div>
                         )}
                         <h1 className="text-2xl font-bold text-center mb-4 dark:text-white">{currentDeveloper.nameDeveloper}</h1>
@@ -136,7 +142,7 @@ const DeveloperDetailPage = () => {
                                 <div className="w-full h-[200px] overflow-hidden">
                                     <Image
                                         className="w-full h-full object-cover hover:scale-110 transition"
-                                        src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
+                                        src={item.bannerProperty?.formats?.medium?.url ?? '/default-image.jpg'}
                                         loader={myLoader}
                                         alt={item.title}
                                         width={300}
