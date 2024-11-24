@@ -85,6 +85,23 @@ interface Properti {
             };
         };
     };
+    developer: {
+        nameDeveloper: string;
+        aboutDeveloper: string;
+    }
+}
+
+interface Developer {
+    id: number;
+    nameDeveloper: string;
+    aboutDeveloper: string;
+    logoDeveloper: {
+        formats: {
+            thumbnail: {
+                url: string;
+            }
+        }
+    }
 }
 
 interface Article {
@@ -308,4 +325,32 @@ export const useBannerHome = () => {
     }, []);
 
     return { bannerHome };
+};
+
+export const useDeveloper = () => {
+    const [developer, setDeveloper] = useState<Developer[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/developers?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                const data = await res.json();
+                console.log('Banner Data:', data);
+                setDeveloper(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banner data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { developer };
 };

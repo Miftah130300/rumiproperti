@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import EmblaCarousel from "src/component/carouselProperti/carouselProperti";
 import type { EmblaOptionsType } from "embla-carousel";
 import dynamic from "next/dynamic";
-import { useProperti } from "../api/fetchAPI";
+import { useProperti, useDeveloper } from "../api/fetchAPI";
 import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { iconMap } from "src/component/icon";
@@ -45,6 +45,23 @@ interface Properti {
             };
         };
     };
+    developer: {
+        nameDeveloper: string;
+        aboutDeveloper: string;
+    }
+}
+
+interface Developer {
+    id: number;
+    nameDeveloper: string;
+    aboutDeveloper: string;
+    logoDeveloper: {
+        formats: {
+            thumbnail: {
+                url: string;
+            }
+        }
+    }
 }
 
 const OPTIONS: EmblaOptionsType = {};
@@ -60,6 +77,10 @@ export default function DetailProperti() {
     const [selectedProperti, setSelectedProperti] = useState<Properti | null>(null);
 
     const { properti } = useProperti();
+    const { developer } = useDeveloper();
+    const developerProperti = developer?.find((item: Developer) => {
+        return selectedProperti?.developer?.nameDeveloper === item.nameDeveloper;
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,7 +123,7 @@ export default function DetailProperti() {
                     <div className="flex flex-col gap-10">
                         <div className="text-start">
                             <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>
-                            <p className="text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{selectedProperti.address}</p>
+                            <p className="text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</p>
                         </div>
                         <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Informasi Properti</h2>
