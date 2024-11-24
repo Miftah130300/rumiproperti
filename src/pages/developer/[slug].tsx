@@ -6,6 +6,10 @@ import dynamic from "next/dynamic";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 
+const myLoader = ({ src }: { src: string }) => {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    return `${baseUrl}${src}`;
+};
 interface Developer {
     id: number;
     nameDeveloper: string;
@@ -53,6 +57,7 @@ const DeveloperDetailPage = () => {
                                     width={160}
                                     height={160}
                                     className="object-cover"
+                                    loader={myLoader}
                                 />
                             </div>
                         )}
