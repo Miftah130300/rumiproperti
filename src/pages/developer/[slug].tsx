@@ -50,13 +50,14 @@ const DeveloperDetailPage = () => {
                 <div className="container mx-auto py-10 px-4">
                     <div className="max-w-2xl mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
                         {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
-                            <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
+                            <div className="relative w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                                 <Image
                                     src={currentDeveloper.logoDeveloper.formats.thumbnail.url}
                                     alt={currentDeveloper.nameDeveloper}
                                     fill
                                     className="object-cover"
                                     loader={myLoader}
+                                    sizes="160px"
                                 />
                             </div>
                         )}
