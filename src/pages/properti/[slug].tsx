@@ -67,7 +67,8 @@ interface Developer {
 
 const OPTIONS: EmblaOptionsType = {};
 const myLoader = ({ src }: { src: string }) => {
-    return `${process.env.NEXT_PUBLIC_API_URL}${src}`;
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    return `${baseUrl}${src}`;
 };
 
 export default function DetailProperti() {
@@ -132,6 +133,7 @@ export default function DetailProperti() {
                                         width={24}
                                         height={24}
                                         className="rounded-full"
+                                        loader={myLoader}
                                     />
                                 )}
                                 <span>{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</span>
