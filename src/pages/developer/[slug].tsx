@@ -111,8 +111,8 @@ const DeveloperDetailPage = () => {
         <div>
             <Navbar />
             <main className="dark:bg-[#1E1E1E]">
-                <div className="container mx-auto w-full flex flex-col gap-5 py-10 px-4">
-                    <div className="w-4xl mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
+                <div className="container mx-auto max-w-4xl flex flex-col gap-5 py-10 px-4">
+                    <div className="w-full mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
                         {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
                             <div className="relative w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                                 {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
@@ -130,7 +130,7 @@ const DeveloperDetailPage = () => {
                         <h1 className="text-2xl font-bold text-center mb-4 dark:text-white">{currentDeveloper.nameDeveloper}</h1>
                         <p className="text-gray-700 dark:text-[#757575] text-justify">{currentDeveloper.aboutDeveloper}</p>
                     </div>
-                    <div className="max-w-4xl mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
+                    <div className="w-full mx-auto bg-white dark:border-none dark:bg-[#252525] rounded-lg shadow-lg p-6">
                         <h2 className="font-medium text-[#24221D] dark:text-white">Tentang Developer</h2>
                         <p className="text-gray-700 dark:text-[#757575] text-justify">{currentDeveloper.aboutDeveloper}</p>
                     </div>
