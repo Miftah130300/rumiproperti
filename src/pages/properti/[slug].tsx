@@ -7,6 +7,7 @@ import { useProperti, useDeveloper } from "../api/fetchAPI";
 import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { iconMap } from "src/component/icon";
+import Image from "next/image";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 
@@ -123,7 +124,19 @@ export default function DetailProperti() {
                     <div className="flex flex-col gap-10">
                         <div className="text-start">
                             <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>
-                            <p className="text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</p>
+                            <div className="flex items-center gap-2 text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
+                                {developerProperti?.logoDeveloper?.formats?.thumbnail?.url && (
+                                    <Image
+                                        src={developerProperti.logoDeveloper.formats.thumbnail.url}
+                                        alt={developerProperti.nameDeveloper ?? "Logo Developer"}
+                                        width={24}
+                                        height={24}
+                                        className="rounded-full"
+                                    />
+                                )}
+                                <span>{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</span>
+                            </div>
+
                         </div>
                         <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Informasi Properti</h2>
