@@ -198,7 +198,7 @@ export default function Home() {
                   navigation
                   breakpoints={{
                     340: {
-                      slidesPerView: 2,
+                      slidesPerView: 1,
                       spaceBetween: 5,
                     },
                     768: {
@@ -410,7 +410,7 @@ export default function Home() {
                     spaceBetween: 5,
                   },
                   768: {
-                    slidesPerView: 2,
+                    slidesPerView: 6,
                     spaceBetween: 5,
                   },
                   1024: {
