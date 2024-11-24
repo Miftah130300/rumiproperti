@@ -127,18 +127,19 @@ export default function DetailProperti() {
                             <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>
                             <div className="flex items-center gap-2 text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
                                 {developerProperti?.logoDeveloper?.formats?.thumbnail?.url && (
-                                    <Image
-                                        src={developerProperti.logoDeveloper.formats.thumbnail.url}
-                                        alt={developerProperti.nameDeveloper ?? "Logo Developer"}
-                                        width={24}
-                                        height={24}
-                                        className="rounded-full"
-                                        loader={myLoader}
-                                    />
+                                    <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                                        <Image
+                                            src={developerProperti.logoDeveloper.formats.thumbnail.url}
+                                            alt={developerProperti.nameDeveloper ?? "Logo Developer"}
+                                            width={24}
+                                            height={24}
+                                            className="object-cover"
+                                            loader={myLoader}
+                                        />
+                                    </div>
                                 )}
-                                <span>{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</span>
+                                <Link href={`/developer/${developerProperti?.nameDeveloper.toLowerCase().replace(/\s+/g, "-")}`}>{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</Link>
                             </div>
-
                         </div>
                         <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Informasi Properti</h2>
@@ -200,7 +201,7 @@ export default function DetailProperti() {
                         </div>
                     </div>
                 </div>
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                <div className="py-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Lokasi {selectedProperti.title}</h2>
                     <div className="flex gap-3">
                         <LocationOnIcon />
