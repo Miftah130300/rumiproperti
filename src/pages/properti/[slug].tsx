@@ -132,14 +132,14 @@ export default function DetailProperti() {
                             <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>
                             <div className="flex items-center gap-2 text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
                                 {developerProperti?.logoDeveloper?.formats?.thumbnail?.url && (
-                                    <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                                    <div className="relative w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                                         <Image
                                             src={developerProperti.logoDeveloper.formats.thumbnail.url}
                                             alt={developerProperti.nameDeveloper || "Logo Developer"}
-                                            width={24}
-                                            height={24}
+                                            fill
                                             className="object-cover"
                                             loader={myLoader}
+                                            sizes="24px"
                                         />
                                     </div>
                                 )}
@@ -212,9 +212,9 @@ export default function DetailProperti() {
                                     <span>Hubungi Kami</span>
                                 </Link>
                                 <a
-                                    href={brosurUrl || 'brosurUrl.pdf'}
-                                    download={selectedProperti.brosur.name}
-                                    target="blank"
+                                    href={brosurUrl || '/default-brosur.pdf'}
+                                    download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
+                                    target="_blank"
                                     className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
                                 >
                                     Lihat Brosur
