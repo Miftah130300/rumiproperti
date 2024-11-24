@@ -208,7 +208,7 @@ export default function DetailProperti() {
                                 <p className="text-xs text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Cicilan mulai dari 2juta/bulan</p>
                             </div>
                             <div className="flex flex-col gap-3">
-                                <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
+                                <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                     <span>Hubungi Kami</span>
                                 </Link>
                                 {selectedProperti.brosur && selectedProperti.brosur.url ? (
@@ -216,11 +216,15 @@ export default function DetailProperti() {
                                         href={brosurUrl || '/default-brosur.pdf'}
                                         download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
                                         target="_blank"
-                                        className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
+                                        className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
                                     >
                                         Lihat Brosur
                                     </a>
-                                ) : null}
+                                ) : (
+                                    <span className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                        Lihat Brosur
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
