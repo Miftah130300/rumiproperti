@@ -54,8 +54,7 @@ const DeveloperDetailPage = () => {
                                 <Image
                                     src={currentDeveloper.logoDeveloper.formats.thumbnail.url}
                                     alt={currentDeveloper.nameDeveloper}
-                                    width={160}
-                                    height={160}
+                                    fill
                                     className="object-cover"
                                     loader={myLoader}
                                 />

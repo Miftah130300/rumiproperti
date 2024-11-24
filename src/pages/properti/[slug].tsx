@@ -212,7 +212,7 @@ export default function DetailProperti() {
                                     <span>Hubungi Kami</span>
                                 </Link>
                                 <a
-                                    href={brosurUrl}
+                                    href={brosurUrl || 'brosurUrl.pdf'}
                                     download={selectedProperti.brosur.name}
                                     target="blank"
                                     className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
