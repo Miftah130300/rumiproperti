@@ -185,7 +185,7 @@ export default function DetailProperti() {
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Fasilitas & Perabotan</h2>
                             <div className="w-full grid grid-cols-5 justify-center gap-5 shadow-sm border py-5 rounded-lg">
                                 {selectedProperti.fasilitasPerabot?.length ? (
-                                    selectedProperti.fasilitasPerabot.map((perabot, index) => (
+                                    selectedProperti.fasilitasPerabot.slice(0, 9).map((perabot, index) => (
                                         <div key={index} className="flex flex-col items-center gap-2">
                                             {iconMap[perabot]}
                                             <p className="text-sm">{perabot}</p>

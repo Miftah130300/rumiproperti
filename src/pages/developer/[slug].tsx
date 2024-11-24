@@ -56,7 +56,7 @@ const DeveloperDetailPage = () => {
                                     alt={currentDeveloper.nameDeveloper}
                                     width={160}
                                     height={160}
-                                    className="object-contain"
+                                    className="object-cover"
                                     loader={myLoader}
                                 />
                             </div>
