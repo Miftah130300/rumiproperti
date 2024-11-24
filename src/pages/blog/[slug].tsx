@@ -26,6 +26,15 @@ interface Article {
             large: {
                 url: string;
             };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
         };
     };
     author: {
@@ -161,7 +170,14 @@ export default function DetailBlog() {
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">{new Date(article.createdAt).toLocaleDateString()}</p>
                         </div>
                         <div className="w-full text-center">
-                            <Image loader={myLoader} src={article.cover.formats.large.url} width={100} height={100} alt='foto' className="h-[400px] w-full object-cover" />
+                            <Image
+                                loader={myLoader}
+                                src={article.cover.formats.large.url || article.cover.formats.medium.url || article.cover.formats.small.url || article.cover.formats.thumbnail.url}
+                                width={100}
+                                height={100}
+                                alt='foto'
+                                className="h-[400px] w-full object-cover"
+                            />
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Source</p>
                         </div>
                         <div className="w-full dark:text-white">

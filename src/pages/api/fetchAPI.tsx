@@ -73,7 +73,16 @@ interface Properti {
     };
     imageProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
                 url: string;
             };
         };
@@ -121,7 +130,16 @@ interface Article {
         formats: {
             large: {
                 url: string;
-            }
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
         }
     }
     category_article: {

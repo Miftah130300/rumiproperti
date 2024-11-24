@@ -211,7 +211,7 @@ export default function DetailProperti() {
                                 <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                     <span>Hubungi Kami</span>
                                 </Link>
-                                {selectedProperti.brosur ? (
+                                {selectedProperti.brosur && selectedProperti.brosur.url ? (
                                     <a
                                         href={brosurUrl || '/default-brosur.pdf'}
                                         download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
