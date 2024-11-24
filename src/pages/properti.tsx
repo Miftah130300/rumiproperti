@@ -214,7 +214,7 @@ export default function Property() {
                         </div>
                     </div>
                 </div>
-                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
+                <div className="py-[50px] px-5 md:px-10 w-full flex flex-col gap-5">
                     <h2 className="text-xl font-medium text-[#24221D] dark:text-white">Rekomendasi hunian untukmu</h2>
                     <div className="result grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                         {filteredProperties && filteredProperties.length > 0 ? (

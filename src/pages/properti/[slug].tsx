@@ -98,7 +98,7 @@ export default function DetailProperti() {
                 <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row justify-between gap-10 md:gap-10">
                     <EmblaCarousel slides={imageUrls} options={OPTIONS} loader={myLoader} />
                 </div>
-                <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
+                <div className="py-[50px] px-5 md:px-10 w-full flex flex-col md:flex-row justify-between gap-10 md:gap-5">
                     <div className="flex flex-col gap-10">
                         <div className="text-start">
                             <h1 className="text-2xl font-bold text-[#24221D] dark:text-white">{selectedProperti.title}</h1>

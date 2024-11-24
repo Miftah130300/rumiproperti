@@ -151,7 +151,7 @@ export default function DetailBlog() {
                         </div>
                     </nav>
                 </div>
-                <div className="pt-10 px-5 md:px-10 w-full flex flex-col md:flex-row gap-5">
+                <div className="py-10 px-5 md:px-10 w-full flex flex-col md:flex-row gap-5">
                     <div className="w-full md:w-3/4 flex flex-col gap-5 items-center">
                         <div className="text-center gap-2 flex flex-col">
                             <h2 className="text-xl md:text-3xl font-semibold text-green">{article.title}</h2>
@@ -175,7 +175,6 @@ export default function DetailBlog() {
                         </div>
                     </div>
                     <div className="border dark:border-none w-full md:w-1/4 bg-[#D9D9D9] md:h-[500px] flex justify-center items-center relative">
-                        {/* Render banner image if available */}
                         {banner && banner.bannerImage && (
                             <Image
                                 loader={myLoader}

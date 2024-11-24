@@ -198,7 +198,7 @@ export default function Home() {
                   navigation
                   breakpoints={{
                     340: {
-                      slidesPerView: 3,
+                      slidesPerView: 2,
                       spaceBetween: 5,
                     },
                     768: {
@@ -215,7 +215,7 @@ export default function Home() {
                   {city.map((city) => (
                     <SwiperSlide key={city.id} className="w-full">
                       <Link href={`/properti?search=${city.nameCity}`} className="flex flex-col items-center gap-2">
-                        <div className="h-[120px] w-[180px] md:flex hidden flex-col items-center rounded-lg overflow-hidden">
+                        <div className="h-[120px] w-[180px] flex flex-col items-center rounded-lg overflow-hidden">
                           <div className="relative w-full h-full">
                             <Image
                               className="object-cover w-full h-full"
@@ -406,11 +406,11 @@ export default function Home() {
                 navigation
                 breakpoints={{
                   340: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 5,
                   },
                   768: {
-                    slidesPerView: 6,
+                    slidesPerView: 2,
                     spaceBetween: 5,
                   },
                   1024: {
@@ -423,7 +423,7 @@ export default function Home() {
                 <div className="flex gap-5">
                   {partner.map((item) => (
                     <SwiperSlide key={item.id}>
-                      <div className="h-[120px] w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
+                      <div className="max-w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
                           src={item.imagePartner.formats.thumbnail.url}
