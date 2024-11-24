@@ -211,14 +211,16 @@ export default function DetailProperti() {
                                 <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                     <span>Hubungi Kami</span>
                                 </Link>
-                                <a
-                                    href={brosurUrl || '/default-brosur.pdf'}
-                                    download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
-                                    target="_blank"
-                                    className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
-                                >
-                                    Lihat Brosur
-                                </a>
+                                {selectedProperti.brosur ? (
+                                    <a
+                                        href={brosurUrl || '/default-brosur.pdf'}
+                                        download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
+                                        target="_blank"
+                                        className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
+                                    >
+                                        Lihat Brosur
+                                    </a>
+                                ) : null}
                             </div>
                         </div>
                     </div>
