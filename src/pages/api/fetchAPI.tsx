@@ -89,6 +89,10 @@ interface Properti {
         nameDeveloper: string;
         aboutDeveloper: string;
     }
+    brosur: {
+        name: string;
+        url: string;
+    }
 }
 
 interface Developer {

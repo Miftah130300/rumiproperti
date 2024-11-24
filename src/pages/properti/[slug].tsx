@@ -50,6 +50,10 @@ interface Properti {
         nameDeveloper: string;
         aboutDeveloper: string;
     }
+    brosur: {
+        name: string;
+        url: string;
+    }
 }
 
 interface Developer {
@@ -130,7 +134,7 @@ export default function DetailProperti() {
                                     <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                                         <Image
                                             src={developerProperti.logoDeveloper.formats.thumbnail.url}
-                                            alt={developerProperti.nameDeveloper ?? "Logo Developer"}
+                                            alt={developerProperti.nameDeveloper || "Logo Developer"}
                                             width={24}
                                             height={24}
                                             className="object-cover"
@@ -138,7 +142,17 @@ export default function DetailProperti() {
                                         />
                                     </div>
                                 )}
-                                <Link href={`/developer/${developerProperti?.nameDeveloper.toLowerCase().replace(/\s+/g, "-")}`}>{developerProperti?.nameDeveloper ?? "Developer tidak ditemukan"}</Link>
+                                {developerProperti?.nameDeveloper ? (
+                                    <Link
+                                        href={`/developer/${developerProperti.nameDeveloper
+                                            .toLowerCase()
+                                            .replace(/\s+/g, "-")}`}
+                                    >
+                                        <a className="hover:underline">{developerProperti.nameDeveloper}</a>
+                                    </Link>
+                                ) : (
+                                    <span>Developer tidak ditemukan</span>
+                                )}
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
@@ -196,7 +210,13 @@ export default function DetailProperti() {
                                 <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                     <span>Hubungi Kami</span>
                                 </Link>
-                                <span className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">Lihat Brosur</span>
+                                <a
+                                    href={selectedProperti.brosur.url}
+                                    download={selectedProperti.brosur.name}
+                                    className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
+                                >
+                                    Lihat Brosur
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -202,7 +202,7 @@ export default function Home() {
                       spaceBetween: 5,
                     },
                     768: {
-                      slidesPerView: 4,
+                      slidesPerView: 3,
                       spaceBetween: 5,
                     },
                     1024: {
