@@ -175,23 +175,24 @@ export default function DetailBlog() {
                                 src={article.cover.formats.large.url || article.cover.formats.medium.url || article.cover.formats.small.url || article.cover.formats.thumbnail.url}
                                 width={100}
                                 height={100}
-                                alt='foto'
+                                alt="foto"
                                 className="h-[400px] w-full object-cover"
                             />
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Source</p>
                         </div>
-                        <div className="w-full dark:text-white">
-                            {article.blocks.map((block) => (
-                                block.__component === "description.description" && (
-                                    <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        key={block.id}
-                                        className="prose prose-md dark:prose-invert w-full border border-black"
-                                    >
-                                        {block.text}
-                                    </ReactMarkdown>
-                                )
-                            ))}
+                        <div className="w-full md:w-full dark:text-white flex justify-center">
+                            <div className="w-full prose prose-md dark:prose-invert max-w-full">
+                                {article.blocks.map((block) => (
+                                    block.__component === "description.description" && (
+                                        <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            key={block.id}
+                                        >
+                                            {block.text}
+                                        </ReactMarkdown>
+                                    )
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="border dark:border-none w-full md:w-1/4 bg-[#D9D9D9] md:h-[500px] flex justify-center items-center relative">
