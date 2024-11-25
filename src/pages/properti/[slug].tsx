@@ -15,6 +15,7 @@ import {
     type BlocksContent,
 } from "@strapi/blocks-react-renderer";
 
+
 interface Properti {
     id: number;
     documentId: string;
@@ -93,6 +94,11 @@ export default function DetailProperti() {
         return selectedProperti?.developer?.nameDeveloper === item.nameDeveloper;
     });
     const blockContent: BlocksContent = selectedProperti?.detailDescription || [];
+    const blockMapping: Partial<Record<string, React.ComponentType<any>>> = {
+        "description.description": ({ text }: { text: string }) => (
+            <div dangerouslySetInnerHTML={{ __html: text }} />
+        ),
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -210,7 +216,7 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            <BlocksRenderer content={blockContent} />
+                            <BlocksRenderer content={blockContent} blocks={blockMapping} />
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
