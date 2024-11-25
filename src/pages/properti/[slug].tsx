@@ -208,17 +208,21 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            {selectedProperti.detailDescription.map((description) => (
-                                description.__component === "description.description" && (
-                                    <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        key={description.id}
-                                        className="prose prose-md dark:prose-invert"
-                                    >
-                                        {description.text}
-                                    </ReactMarkdown>
-                                )
-                            ))}
+                            {selectedProperti.detailDescription ? (
+                                selectedProperti.detailDescription.map((description) => (
+                                    description.__component === "description.description" && (
+                                        <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            key={description.id}
+                                            className="prose prose-md dark:prose-invert"
+                                        >
+                                            {description.text}
+                                        </ReactMarkdown>
+                                    )
+                                ))
+                            ) : (
+                                <p className="col-span-full text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100 italic">Tidak deskripsi yang ditampilkan.</p>
+                            )}
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
