@@ -208,7 +208,7 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            {selectedProperti.detailDescription ? (
+                            {selectedProperti?.detailDescription && Array.isArray(selectedProperti.detailDescription) ? (
                                 selectedProperti.detailDescription.map((description) => (
                                     description.__component === "description.description" && (
                                         <ReactMarkdown
@@ -221,7 +221,9 @@ export default function DetailProperti() {
                                     )
                                 ))
                             ) : (
-                                <p className="col-span-full text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100 italic">Tidak deskripsi yang ditampilkan.</p>
+                                <p className="col-span-full text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100 italic">
+                                    Tidak ada deskripsi yang ditampilkan.
+                                </p>
                             )}
                         </div>
                     </div>
