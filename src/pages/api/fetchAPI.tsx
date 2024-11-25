@@ -103,7 +103,11 @@ interface Properti {
         name: string;
         url: string;
     }
-    detailDescription: BlocksContent;
+    detailDescription: {
+        __component: string;
+        id: number;
+        text: string;
+    }[];
 }
 
 interface Developer {

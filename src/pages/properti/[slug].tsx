@@ -8,6 +8,8 @@ import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { iconMap } from "src/component/icon";
 import Image from "next/image";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 import {
@@ -57,7 +59,11 @@ interface Properti {
         name: string;
         url: string;
     }
-    detailDescription: BlocksContent;
+    detailDescription: {
+        __component: string;
+        id: number;
+        text: string;
+    }[];
 }
 
 interface Developer {
@@ -202,6 +208,17 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
+                            {selectedProperti.detailDescription.map((description) => (
+                                description.__component === "description.description" && (
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        key={description.id}
+                                        className="prose prose-lg dark:prose-invert"
+                                    >
+                                        {description.text}
+                                    </ReactMarkdown>
+                                )
+                            ))}
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
