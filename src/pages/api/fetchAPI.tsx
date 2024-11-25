@@ -1,3 +1,4 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { useEffect, useState } from "react";
 
 interface City {
@@ -102,6 +103,7 @@ interface Properti {
         name: string;
         url: string;
     }
+    detailDescription: BlocksContent;
 }
 
 interface Developer {

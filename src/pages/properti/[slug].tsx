@@ -10,6 +10,10 @@ import { iconMap } from "src/component/icon";
 import Image from "next/image";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
+import {
+    BlocksRenderer,
+    type BlocksContent,
+} from "@strapi/blocks-react-renderer";
 
 interface Properti {
     id: number;
@@ -54,6 +58,7 @@ interface Properti {
         name: string;
         url: string;
     }
+    detailDescription: BlocksContent;
 }
 
 interface Developer {
@@ -87,6 +92,7 @@ export default function DetailProperti() {
     const developerProperti = developer?.find((item: Developer) => {
         return selectedProperti?.developer?.nameDeveloper === item.nameDeveloper;
     });
+    const blockContent: BlocksContent = selectedProperti?.detailDescription || [];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -198,7 +204,7 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            <p className="dark:text-[#CCCCCC]">{selectedProperti.description}</p>
+                            <BlocksRenderer content={blockContent} />
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
