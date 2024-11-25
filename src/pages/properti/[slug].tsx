@@ -213,7 +213,7 @@ export default function DetailProperti() {
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
                                         key={description.id}
-                                        className="prose prose-lg dark:prose-invert"
+                                        className="prose prose-md dark:prose-invert"
                                     >
                                         {description.text}
                                     </ReactMarkdown>
