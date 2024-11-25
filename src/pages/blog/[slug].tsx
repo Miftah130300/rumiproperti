@@ -186,7 +186,7 @@ export default function DetailBlog() {
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
                                         key={block.id}
-                                        className="prose prose-md dark:prose-invert"
+                                        className="prose prose-md dark:prose-invert w-full border border-black"
                                     >
                                         {block.text}
                                     </ReactMarkdown>
