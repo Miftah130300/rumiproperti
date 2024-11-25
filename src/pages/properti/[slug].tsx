@@ -15,7 +15,11 @@ import {
     type BlocksContent,
 } from "@strapi/blocks-react-renderer";
 
-
+interface DetailBlock {
+    id: number;
+    __component: string;
+    content: string;
+}
 interface Properti {
     id: number;
     documentId: string;
@@ -59,7 +63,7 @@ interface Properti {
         name: string;
         url: string;
     }
-    detailDescription: BlocksContent;
+    detailDescription: DetailBlock[];
 }
 
 interface Developer {
@@ -204,13 +208,15 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            {selectedProperti.detailDescription ? (
-                                <BlocksRenderer content={selectedProperti.detailDescription} />
-                            ) : (
-                                <p className="text-black text-opacity-70 dark:text-[#CCCCCC] italic">
-                                    Deskripsi tidak tersedia.
-                                </p>
-                            )}
+                            <div className="rich-text">
+                                {selectedProperti.detailDescription.map((block) => (
+                                    <div key={block.id ?? Math.random()}>
+                                        {block.__component === "description.description" && block.content && (
+                                            <div dangerouslySetInnerHTML={{ __html: block.content }} />
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">
