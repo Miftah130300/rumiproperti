@@ -278,7 +278,7 @@ export default function Home() {
                           />
                         </div>
                         <div className="px-4 py-4 flex flex-col gap-2 flex-grow">
-                          <div className="bg-green text-white w-[5rem] text-center text-sm rounded">
+                          <div className="bg-green text-white px-3 py-2 text-center text-sm rounded">
                             {item.category_properti?.nameCategory || 'Kategori tidak tersedia'}
                           </div>
                           <div className="text-black">
