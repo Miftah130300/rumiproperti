@@ -91,7 +91,6 @@ export default function DetailProperti() {
     const developerProperti = developer?.find((item: Developer) => {
         return selectedProperti?.developer?.nameDeveloper === item.nameDeveloper;
     });
-    const blockContent = selectedProperti?.detailDescription;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -112,8 +111,6 @@ export default function DetailProperti() {
 
         fetchData();
     }, [slug, properti]);
-
-    console.log(blockContent)
 
     if (loading) {
         return <p>Loading...</p>;
@@ -205,20 +202,6 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            {blockContent ? (
-                                <BlocksRenderer
-                                    content={blockContent}
-                                    blocks={{
-                                        paragraph: ({ children }) => (
-                                            <p className="text-neutral900 max-w-prose">{children}</p>
-                                        ),
-                                    }}
-                                />
-                            ) : (
-                                <p className="italic text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">
-                                    Tidak ada deskripsi yang tersedia.
-                                </p>
-                            )}
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">

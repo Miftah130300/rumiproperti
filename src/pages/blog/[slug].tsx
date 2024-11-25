@@ -181,9 +181,13 @@ export default function DetailBlog() {
                             <p className="text-sm text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Source</p>
                         </div>
                         <div className="w-full dark:text-white">
-                            {article.blocks.map(block => (
+                            {article.blocks.map((block) => (
                                 block.__component === "description.description" && (
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]} key={block.id}>
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        key={block.id}
+                                        className="prose prose-lg dark:prose-invert"
+                                    >
                                         {block.text}
                                     </ReactMarkdown>
                                 )
