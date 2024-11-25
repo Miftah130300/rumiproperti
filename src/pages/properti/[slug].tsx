@@ -8,7 +8,6 @@ import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { iconMap } from "src/component/icon";
 import Image from "next/image";
-import Typography from '@mui/material/Typography';
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 import {
@@ -94,7 +93,6 @@ export default function DetailProperti() {
     const developerProperti = developer?.find((item: Developer) => {
         return selectedProperti?.developer?.nameDeveloper === item.nameDeveloper;
     });
-    const blockContent: BlocksContent = selectedProperti?.detailDescription || [];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -115,12 +113,6 @@ export default function DetailProperti() {
 
         fetchData();
     }, [slug, properti]);
-
-    useEffect(() => {
-        if (blockContent) {
-            console.log("blockContent:", blockContent || selectedProperti?.detailDescription);
-        }
-    }, [blockContent]);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -212,34 +204,13 @@ export default function DetailProperti() {
                         </div>
                         <div className="flex flex-col">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Deskripsi</h2>
-                            <BlocksRenderer content={blockContent}
-                                blocks={{
-                                    paragraph: ({ children }) => <p className="text-neutral900 max-w-prose">{children}</p>,
-                                    heading: ({ children, level }) => {
-                                        switch (level) {
-                                            case 1:
-                                                return <Typography variant="h1">{children}</Typography>
-                                            case 2:
-                                                return <Typography variant="h2">{children}</Typography>
-                                            case 3:
-                                                return <Typography variant="h3">{children}</Typography>
-                                            case 4:
-                                                return <Typography variant="h4">{children}</Typography>
-                                            case 5:
-                                                return <Typography variant="h5">{children}</Typography>
-                                            case 6:
-                                                return <Typography variant="h6">{children}</Typography>
-                                            default:
-                                                return <Typography variant="h1">{children}</Typography>
-                                        }
-                                    },
-                                    link: ({ children, url }) => <Link href={url}>{children}</Link>,
-                                }}
-                                modifiers={{
-                                    bold: ({ children }) => <strong>{children}</strong>,
-                                    italic: ({ children }) => <span className="italic">{children}</span>,
-                                }}
-                            />
+                            {selectedProperti.detailDescription ? (
+                                <BlocksRenderer content={selectedProperti.detailDescription} />
+                            ) : (
+                                <p className="text-black text-opacity-70 dark:text-[#CCCCCC] italic">
+                                    Deskripsi tidak tersedia.
+                                </p>
+                            )}
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center shadow py-5 px-10 border rounded-md max-w-[500px] h-[250px] dark:border-none dark:bg-[#252525]">

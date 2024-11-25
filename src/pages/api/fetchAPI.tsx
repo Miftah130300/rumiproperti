@@ -168,9 +168,9 @@ export const useCities = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`https://cms.rumiproperti.com/api/city-lists?populate=*`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/city-lists?populate=*`, {
                     headers: {
-                        Authorization: `Bearer 327a930bd59b3807235fe3581acb490e90ed1c9002c7baf62e2101706930e21447ec1c39bf065ebd48dd8aa132b89f3cb1eceaa390c24ae7242e86a52a8547cc2688825a477d97925a439a0af687dc24a617f86bd6b1c04814816dc4544c843cdb00264a40e8dd6132d93e294f08d9d6ad2110da994f9e5592466bc3f4d636fd`,
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
                 });
                 if (!res.ok) {
