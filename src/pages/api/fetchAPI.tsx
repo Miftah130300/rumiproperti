@@ -51,12 +51,6 @@ interface Banner {
     }
 }
 
-interface DetailBlock {
-    id: number;
-    __component: string;
-    content: string;
-}
-
 interface Properti {
     id: number;
     documentId: string;
@@ -109,7 +103,7 @@ interface Properti {
         name: string;
         url: string;
     }
-    detailDescription: DetailBlock[];
+    detailDescription: BlocksContent;
 }
 
 interface Developer {
