@@ -114,6 +114,12 @@ export default function DetailProperti() {
         fetchData();
     }, [slug, properti]);
 
+    useEffect(() => {
+        if (blockContent) {
+            console.log("blockContent:", blockContent || selectedProperti?.detailDescription);
+        }
+    }, [blockContent]);
+
     if (loading) {
         return <p>Loading...</p>;
     }
