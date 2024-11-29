@@ -174,35 +174,35 @@ export default function DetailProperti() {
                         <div className="flex flex-col gap-3">
                             <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Informasi Properti</h2>
                             <div className="flex flex-col md:flex-row gap-5 dark:text-[#CCCCCC]">
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p>{selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
                                     <div className="flex gap-2">
                                         <LandscapeIcon />
                                         <p>Luas Tanah</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p>{selectedProperti.luasBangunan ?? 'Tidak tersedia'}</p>
                                     <div className="flex gap-2">
                                         <HouseIcon />
                                         <p>Luas Bangunan</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p>{selectedProperti.jumlahKamarTidur ?? 'Tidak tersedia'}</p>
                                     <div className="flex gap-2">
                                         <BedroomBabyIcon />
                                         <p>Kamar Tidur</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p>{selectedProperti.jumlahKamarMandi ?? 'Tidak tersedia'}</p>
                                     <div className="flex gap-2">
                                         <ShowerIcon />
                                         <p>Kamar Mandi</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p>{selectedProperti.jenisSertifikat ?? 'Tidak tersedia'}</p>
                                     <div className="flex gap-2">
                                         <HistoryEduIcon />
