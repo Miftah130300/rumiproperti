@@ -267,9 +267,9 @@ export default function DetailProperti() {
                                         Lihat Brosur
                                     </a>
                                 ) : (
-                                    <span className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                    <a href={'#'} className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
                                         Lihat Brosur
-                                    </span>
+                                    </a>
                                 )}
                             </div>
                         </div>
