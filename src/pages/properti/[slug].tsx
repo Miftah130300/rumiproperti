@@ -6,6 +6,11 @@ import dynamic from "next/dynamic";
 import { useProperti, useDeveloper } from "../api/fetchAPI";
 import Link from "next/link";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import HouseIcon from '@mui/icons-material/House';
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
+import ShowerIcon from '@mui/icons-material/Shower';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import { iconMap } from "src/component/icon";
 import Image from "next/image";
 import ReactMarkdown from 'react-markdown';
@@ -171,23 +176,38 @@ export default function DetailProperti() {
                             <div className="flex flex-col md:flex-row gap-5 dark:text-[#CCCCCC]">
                                 <div>
                                     <p>{selectedProperti.luasTanah ?? 'Tidak tersedia'}</p>
-                                    <div>Luas Tanah</div>
+                                    <div className="flex gap-2">
+                                        <LandscapeIcon />
+                                        <p>Luas Tanah</p>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>{selectedProperti.luasBangunan ?? 'Tidak tersedia'}</p>
-                                    <div>Luas Bangunan</div>
+                                    <div className="flex gap-2">
+                                        <HouseIcon />
+                                        <p>Luas Bangunan</p>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>{selectedProperti.jumlahKamarTidur ?? 'Tidak tersedia'}</p>
-                                    <div>Kamar Tidur</div>
+                                    <div className="flex gap-2">
+                                        <BedroomBabyIcon />
+                                        <p>Kamar Tidur</p>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>{selectedProperti.jumlahKamarMandi ?? 'Tidak tersedia'}</p>
-                                    <div>Kamar Mandi</div>
+                                    <div className="flex gap-2">
+                                        <ShowerIcon />
+                                        <p>Kamar Mandi</p>
+                                    </div>
                                 </div>
                                 <div>
                                     <p>{selectedProperti.jenisSertifikat ?? 'Tidak tersedia'}</p>
-                                    <div>Jenis Sertifikat</div>
+                                    <div className="flex gap-2">
+                                        <HistoryEduIcon />
+                                        <p>Jenis Sertifikat</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -270,8 +290,8 @@ export default function DetailProperti() {
                         ></iframe>
                     </div>
                 </div>
-            </main>
+            </main >
             <Footer />
-        </div>
+        </div >
     );
 }
