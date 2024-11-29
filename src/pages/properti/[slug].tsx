@@ -132,7 +132,9 @@ export default function DetailProperti() {
     }
 
     const imageUrls = selectedProperti.imageProperty?.map(image => image.formats.medium.url) || [];
-    const brosurUrl = `${process.env.NEXT_PUBLIC_API_URL}${selectedProperti.brosur.url}`;
+    const brosurUrl = selectedProperti.brosur?.url
+        ? `${process.env.NEXT_PUBLIC_API_URL}${selectedProperti.brosur.url}`
+        : null;
 
     return (
         <div>
@@ -257,9 +259,9 @@ export default function DetailProperti() {
                                 <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">
                                     <span>Hubungi Kami</span>
                                 </Link>
-                                {selectedProperti.brosur && selectedProperti.brosur.url ? (
+                                {brosurUrl ? (
                                     <a
-                                        href={brosurUrl || '/default-brosur.pdf'}
+                                        href={brosurUrl}
                                         download={selectedProperti.brosur?.name || 'brosur-default.pdf'}
                                         target="_blank"
                                         className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70"
@@ -267,9 +269,9 @@ export default function DetailProperti() {
                                         Lihat Brosur
                                     </a>
                                 ) : (
-                                    <a href={'#'} className="inline-block text-center bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
-                                        Lihat Brosur
-                                    </a>
+                                    <span className="inline-block text-center bg-[#D9D9D9] rounded-lg px-3 py-3 text-xs font-semibold text-black text-opacity-70">
+                                        Brosur tidak tersedia
+                                    </span>
                                 )}
                             </div>
                         </div>
