@@ -3,10 +3,9 @@ import Image from 'next/image';
 import home from "/public/asset/1.webp";
 import logo from '/public/asset/logo.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules"
+import { Pagination, Scrollbar, A11y } from "swiper/modules"
 import { Autoplay } from "swiper/modules"
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useCities, usePartner, useProperti, useBlog, useBannerHome } from 'src/pages/api/fetchAPI';
@@ -127,7 +126,6 @@ export default function Home() {
                   spaceBetween={30}
                   pagination={{ clickable: true }}
                   loop={true}
-                  navigation
                   autoplay={{
                     delay: 1000,
                     disableOnInteraction: false,
@@ -192,10 +190,9 @@ export default function Home() {
               <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Pilih kota hunian impianmu</h2>
               <div className="flex">
                 <Swiper
-                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  modules={[Pagination, Scrollbar, A11y]}
                   spaceBetween={5}
                   slidesPerView={6}
-                  navigation
                   breakpoints={{
                     340: {
                       slidesPerView: 1,
@@ -240,10 +237,9 @@ export default function Home() {
               <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Rekomendasi hunian untukmu</h2>
               <div className="flex md:flex-row flex-col gap-5">
                 <Swiper
-                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  modules={[Pagination, Scrollbar, A11y]}
                   spaceBetween={30}
                   slidesPerView={3}
-                  navigation
                   breakpoints={{
                     340: {
                       slidesPerView: 1,
@@ -400,10 +396,9 @@ export default function Home() {
             <div className='flex flex-col gap-4'>
               <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Partner Kami</h2>
               <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                modules={[Pagination, Scrollbar, A11y]}
                 spaceBetween={5}
                 slidesPerView={6}
-                navigation
                 breakpoints={{
                   340: {
                     slidesPerView: 1,

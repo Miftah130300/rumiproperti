@@ -123,6 +123,12 @@ interface Developer {
     }
 }
 
+interface WhyRumi {
+    id: number;
+    question: string;
+    answer: string;
+}
+
 interface Article {
     id: number;
     documentId: string;
@@ -382,3 +388,32 @@ export const useDeveloper = () => {
 
     return { developer };
 };
+
+export const useQuestion = () => {
+    const [question, setQuestion] = useState<WhyRumi[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/why-rumis?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                const data = await res.json();
+                console.log('Banner Data:', data);
+                setQuestion(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banner data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { question };
+};
+

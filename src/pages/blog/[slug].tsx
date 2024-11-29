@@ -140,7 +140,7 @@ export default function DetailBlog() {
             <Navbar />
             <main className="dark:bg-[#1E1E1E]">
                 <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
-                    <nav className="flex flex-col md:flex-row justify-between gap-5">
+                    <nav className="flex flex-col md:flex-row gap-5">
                         <ul className="flex gap-5">
                             <li className="text-sm">
                                 <Link href={'/blog/kategori/berita'}>Berita</Link>
@@ -152,12 +152,6 @@ export default function DetailBlog() {
                                 <Link href={'/blog/kategori/kamus-properti'}>Kamus properti</Link>
                             </li>
                         </ul>
-                        <div>
-                            <input
-                                className="bg-[#D9D9D9] bg-opacity-50 py-2 px-4 rounded-lg text-md flex-grow"
-                                placeholder="Cari artikel.."
-                            />
-                        </div>
                     </nav>
                 </div>
                 <div className="py-10 px-5 md:px-10 w-full flex flex-col md:flex-row gap-5">

@@ -5,11 +5,13 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
+import { useQuestion } from "./api/fetchAPI";
 const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
 const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
 const CTA = dynamic(() => import('src/component/CTA'), { ssr: false });
 
 export default function About() {
+    const { question } = useQuestion()
     return (
         <div>
             <Navbar />
@@ -27,58 +29,21 @@ export default function About() {
                         <h2 className="text-xl font-semibold dark:text-white">Kenapa harus Rumi?</h2>
                     </div>
                     <div className="flex flex-col gap-5">
-                        <Accordion className="border-0 dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1]">
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                                className="bg-[#D9D9D9]"
-                            >
-                                Platform digital untuk hunian terjangkau
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion className="border-0 dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1]">
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                                className="bg-[#D9D9D9]"
-                            >
-                                Kolaborasi dengan developer lokal dan pemiliki properti
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion className="border-0 dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1]">
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                                className="bg-[#D9D9D9]"
-                            >
-                                Layanan pengguna dan edukasi seputar properti
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion className="border-0 dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1]">
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                                className="bg-[#D9D9D9]"
-                            >
-                                Membantu mencarikan hunian terjangkau yang Anda inginkan
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                            </AccordionDetails>
-                        </Accordion>
+                        {question.map((ques) => (
+                            <Accordion key={ques.id} className="border-0 dark:text-[#24221D] dark:bg-[#D9D9D9] dark:hover:bg-[#c1c1c1]" >
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1-content"
+                                    id="panel1-header"
+                                    className="bg-[#D9D9D9]"
+                                >
+                                    {ques.question}
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    {ques.answer}
+                                </AccordionDetails>
+                            </Accordion>
+                        ))}
                     </div>
                 </div>
                 <CTA />
