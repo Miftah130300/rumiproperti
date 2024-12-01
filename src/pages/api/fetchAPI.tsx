@@ -172,6 +172,12 @@ interface BannerHome {
     }
 }
 
+interface Kamus {
+    id: number;
+    wordProperty: string;
+    description: string;
+}
+
 export const useCities = () => {
     const [city, setCity] = useState<City[]>([]);
 
@@ -415,5 +421,33 @@ export const useQuestion = () => {
     }, []);
 
     return { question };
+};
+
+export const useDictionary = () => {
+    const [dictionary, setDictionary] = useState<Kamus[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/why-rumis?populate=*`, {
+                    headers: {
+                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    },
+                });
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                const data = await res.json();
+                console.log('Banner Data:', data);
+                setDictionary(data.data || []);
+            } catch (error) {
+                console.error('Error fetching banner data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return { dictionary };
 };
 
