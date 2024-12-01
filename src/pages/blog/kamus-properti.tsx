@@ -37,7 +37,7 @@ export default function Dictionary() {
                                 <ul className="ml-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                                     {groupedDictionary[letter].map((item) => (
                                         <li key={item.id} className="my-2">
-                                            <Link href={`/blog/kategori/${item.wordProperty}`}>
+                                            <Link href={`/blog/kamus-properti/${item.wordProperty}`}>
                                                 {item.wordProperty}
                                             </Link>
                                         </li>

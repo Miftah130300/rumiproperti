@@ -67,7 +67,7 @@ export default function DetailDictionary() {
                     </div>
                 </div>
             ) : (
-                <p>No dictionary entry found</p>
+                <p>Tidak ada detail istilah yang ditampilkan</p>
             )}
         </div>
     );
