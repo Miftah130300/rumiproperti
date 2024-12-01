@@ -443,7 +443,7 @@ export default function Home() {
                 <div className="text-center md:text-start">
                   <h2 className="text-xl font-semibold text-[#24221D] dark:text-white">Apa kata mereka tentang Rumi</h2>
                   <p className="mt-2 text-md dark:text-[#CCCCCC]">
-                    Sejak [tahun], kami telah membantu puluhan orang menemukan hunian impian mereka.
+                    Sejak 2023, kami telah membantu puluhan orang menemukan hunian impian mereka.
                   </p>
                 </div>
               </div>

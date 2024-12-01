@@ -53,7 +53,7 @@ export default function Contact() {
                             <ul className="dark:text-[#CCCCCC]">
                                 <li>Email: rumamilenial@gmail.com</li>
                                 <li>Phone number: 081291964488</li>
-                                <li>Location: Gedung Sate, Bandung</li>
+                                <li>Location: Kebon Jeruk, Jakarta Barat, Indonesia</li>
                             </ul>
                         </div>
                         <div className="w-full md:w-1/2">
