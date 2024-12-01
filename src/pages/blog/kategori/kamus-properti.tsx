@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useDictionary } from "../api/fetchAPI";
+import { useDictionary } from "src/pages/api/fetchAPI";
 import Link from "next/link";
 
 const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
