@@ -98,7 +98,7 @@ export default function Blog() {
                                     <Link href={'/blog/kategori/tips & trik'}>Tips & Trik</Link>
                                 </li>
                                 <li className="text-sm">
-                                    <Link href={'/blog/kategori/kamus properti'}>Kamus properti</Link>
+                                    <Link href={'/blog/kategori/kamus'}>Kamus properti</Link>
                                 </li>
                             </ul>
                         </nav>

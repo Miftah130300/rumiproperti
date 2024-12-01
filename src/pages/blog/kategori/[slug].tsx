@@ -99,7 +99,7 @@ export default function Category() {
                                     <Link href={"/blog/kategori/tips & trik"}>Tips & Trik</Link>
                                 </li>
                                 <li className="text-sm">
-                                    <Link href={"/blog/kategori/kamus properti"}>Kamus Properti</Link>
+                                    <Link href={"/blog/kategori/kamus"}>Kamus Properti</Link>
                                 </li>
                             </ul>
                             <div>
