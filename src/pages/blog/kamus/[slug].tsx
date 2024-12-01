@@ -49,9 +49,9 @@ export default function DetailDictionary() {
                     </nav>
                 </div>
                 {selectedDictionary ? (
-                    <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                    <div className="py-10 px-5 md:px-10 w-full flex flex-col gap-5">
                         <h2 className="text-xl md:text-3xl font-semibold">{selectedDictionary.wordProperty}</h2>
-                        <div>
+                        <div className="w-full max-w-full md:max-w-[80%]">
                             <BlocksRenderer
                                 content={selectedDictionary.descriptionWord}
                                 blocks={{
