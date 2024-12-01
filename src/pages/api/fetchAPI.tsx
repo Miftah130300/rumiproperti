@@ -175,7 +175,7 @@ interface BannerHome {
 interface Kamus {
     id: number;
     wordProperty: string;
-    description: string;
+    descriptionWord: BlocksContent;
 }
 
 export const useCities = () => {
@@ -449,5 +449,4 @@ export const useDictionary = () => {
     }, []);
 
     return { dictionary };
-};
-
+}

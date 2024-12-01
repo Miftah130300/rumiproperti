@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useDictionary } from "../api/fetchAPI";
+import Link from "next/link";
 
 const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
 const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
@@ -23,10 +24,9 @@ export default function Dictionary() {
     return (
         <>
             <Navbar />
-            <main>
-                <div className="p-4">
+            <main className="dark:bg-[#1E1E1E]">
+                <div className="py-10 px-5 md:px-10 w-full flex flex-col md:flex-row gap-5">
                     <h1 className="text-xl font-bold">Kamus Properti</h1>
-                    {/* Display grouped articles */}
                     {Object.keys(groupedDictionary)
                         .sort()
                         .map((letter) => (
@@ -34,10 +34,12 @@ export default function Dictionary() {
                                 <h2 className="text-lg font-bold text-blue-500">
                                     {letter}
                                 </h2>
-                                <ul className="ml-4">
+                                <ul className="ml-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
                                     {groupedDictionary[letter].map((item) => (
                                         <li key={item.id} className="my-2">
-                                            {item.wordProperty}
+                                            <Link href={`/blog/kategori/${item.wordProperty}`}>
+                                                {item.wordProperty}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
