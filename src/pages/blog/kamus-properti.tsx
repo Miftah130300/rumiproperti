@@ -7,13 +7,16 @@ const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
 export default function Dictionary() {
     const { dictionary } = useDictionary();
 
-    // Grouping data by the first letter of wordProperty
+    // Grouping data by the first letter of wordProperty with validation
     const groupedDictionary = dictionary?.reduce((acc, item) => {
-        const firstLetter = item.wordProperty.charAt(0).toUpperCase();
-        if (!acc[firstLetter]) {
-            acc[firstLetter] = [];
+        // Validate wordProperty before using it
+        if (item.wordProperty && typeof item.wordProperty === "string") {
+            const firstLetter = item.wordProperty.charAt(0).toUpperCase();
+            if (!acc[firstLetter]) {
+                acc[firstLetter] = [];
+            }
+            acc[firstLetter].push(item);
         }
-        acc[firstLetter].push(item);
         return acc;
     }, {} as Record<string, typeof dictionary>) || {};
 
