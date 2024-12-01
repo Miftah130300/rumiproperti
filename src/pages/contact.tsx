@@ -49,7 +49,7 @@ export default function Contact() {
                                 <div className="mb-4">
                                     <input
                                         type="text"
-                                        name="user_name"
+                                        name="from_name"
                                         placeholder="Name"
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                                     />
