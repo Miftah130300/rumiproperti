@@ -1,22 +1,21 @@
-import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useDictionary } from "../api/fetchAPI";
-import { useState } from "react";
 
 const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
 const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
 
 export default function Dictionary() {
     const { dictionary } = useDictionary();
-    const [filterLetter, setFilterLetter] = useState<string>(""); // Default is no filter.
 
-    // Handle cases where dictionary is undefined or empty
-    const filteredDictionary =
-        dictionary?.filter(
-            (item) =>
-                item.wordProperty?.charAt(0).toLowerCase() ===
-                filterLetter.toLowerCase()
-        ) || [];
+    // Grouping data by the first letter of wordProperty
+    const groupedDictionary = dictionary?.reduce((acc, item) => {
+        const firstLetter = item.wordProperty.charAt(0).toUpperCase();
+        if (!acc[firstLetter]) {
+            acc[firstLetter] = [];
+        }
+        acc[firstLetter].push(item);
+        return acc;
+    }, {} as Record<string, typeof dictionary>) || {};
 
     return (
         <>
@@ -24,37 +23,23 @@ export default function Dictionary() {
             <main>
                 <div className="p-4">
                     <h1 className="text-xl font-bold">Kamus Properti</h1>
-                    {/* Dropdown or Buttons to Select Letter */}
-                    <div className="flex gap-2 my-4">
-                        {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-                            <button
-                                key={letter}
-                                onClick={() => setFilterLetter(letter)}
-                                className={`px-4 py-2 rounded ${filterLetter === letter
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-200"
-                                    }`}
-                            >
-                                {letter}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* List of Articles */}
-                    <ul>
-                        {filteredDictionary.map((item) => (
-                            <li key={item.id} className="my-2">
-                                <h2 className="text-lg font-semibold">
-                                    {item.wordProperty}
+                    {/* Display grouped articles */}
+                    {Object.keys(groupedDictionary)
+                        .sort()
+                        .map((letter) => (
+                            <div key={letter} className="mb-6">
+                                <h2 className="text-lg font-bold text-blue-500">
+                                    {letter}
                                 </h2>
-                            </li>
+                                <ul className="ml-4">
+                                    {groupedDictionary[letter].map((item) => (
+                                        <li key={item.id} className="my-2">
+                                            {item.wordProperty}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         ))}
-                    </ul>
-
-                    {/* Display message if no articles */}
-                    {filteredDictionary.length === 0 && (
-                        <p>No articles found for the selected letter.</p>
-                    )}
                 </div>
             </main>
             <Footer />
