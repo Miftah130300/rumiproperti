@@ -429,7 +429,7 @@ export const useDictionary = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/why-rumis?populate=*`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dictionary-properties?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
                     },
