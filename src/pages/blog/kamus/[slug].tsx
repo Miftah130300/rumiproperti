@@ -34,8 +34,8 @@ export default function DetailDictionary() {
             <Navbar />
             <main className="dark:bg-[#1E1E1E]">
                 {selectedDictionary ? (
-                    <div>
-                        <h1>{selectedDictionary.wordProperty}</h1>
+                    <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                        <h2 className="text-xl md:text-3xl font-semibold">{selectedDictionary.wordProperty}</h2>
                         <div>
                             <BlocksRenderer
                                 content={selectedDictionary.descriptionWord}
