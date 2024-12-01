@@ -103,7 +103,7 @@ export default function Blog() {
                             </ul>
                         </nav>
                     </div>
-                    <div className="pt-[50px] px-5 md:px-10 w-full flex flex-col gap-10">
+                    <div className="py-[50px] px-5 md:px-10 w-full flex flex-col gap-10">
                         {blog.length && blog.length > 0 ? (
                             <>
                                 {blog.length && blog.length > 0 &&

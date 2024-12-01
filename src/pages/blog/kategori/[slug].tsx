@@ -20,7 +20,16 @@ interface Article {
         formats: {
             large: {
                 url: string;
-            }
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
         }
     }
     category_article: {
@@ -128,16 +137,23 @@ export default function Category() {
                                     });
 
                                     return (
-                                        <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg hover:shadow-lg max-w-xs">
-                                            <div className="max-w-xs h-full rounded-lg overflow-hidden shadow border transform transition-all duration-300 flex flex-col">
-                                                <div className="h-36">
-                                                    <Image className="w-full h-full" width={100} height={100} src={article.cover.formats.large.url} alt={article.title} loader={myLoader} />
+                                        <Link key={article.id} href={`/blog/${article.slug}`} className="rounded-lg max-w-xs">
+                                            <div className="h-full rounded-lg overflow-hidden shadow border dark:border-none dark:bg-[#252525] transform transition-all duration-300 flex flex-col">
+                                                <div className="h-40 overflow-hidden">
+                                                    <Image
+                                                        className="w-full h-full"
+                                                        width={100}
+                                                        height={100}
+                                                        loader={myLoader}
+                                                        src={article.cover.formats.large.url || article.cover.formats.medium.url || article.cover.formats.small.url || article.cover.formats.thumbnail.url}
+                                                        alt={article.title}
+                                                    />
                                                 </div>
                                                 <div className="px-4 py-4 gap-2 flex flex-col flex-grow">
                                                     <div className="text-green text-sm rounded">{article.category_article.nameCategory}</div>
                                                     <div className="text-black flex-grow">
-                                                        <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis">{article.title}</p>
-                                                        <p className="text-xs text-black text-opacity-70">{formattedDate}</p>
+                                                        <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis dark:text-white">{article.title}</p>
+                                                        <p className="text-xs text-black text-opacity-70 dark:text-[#CCCCCC]">{formattedDate}</p>
                                                     </div>
                                                 </div>
                                             </div>
