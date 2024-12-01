@@ -13,8 +13,8 @@ export default function Contact() {
 
         if (form.current) {
             emailjs
-                .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, {
-                    publicKey: "YOUR_PUBLIC_KEY",
+                .sendForm("service_rcu415f", "template_vks5kf9", form.current, {
+                    publicKey: "HtPeCu-iL-uOrTNE0",
                 })
                 .then(
                     () => {
@@ -69,13 +69,13 @@ export default function Contact() {
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
                                     ></textarea>
                                 </div>
-                                <button
+                                <input
                                     type="submit"
                                     value="Send"
                                     className="w-full p-2 hover:bg-[#4b6645] bg-green text-white rounded-md hover:bg-green-700"
                                 >
                                     SUBMIT
-                                </button>
+                                </input>
                             </form>
                         </div>
                     </div>
