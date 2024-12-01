@@ -1,8 +1,34 @@
 import dynamic from "next/dynamic";
-const Footer = dynamic(() => import('src/component/footer'), { ssr: false });
-const Navbar = dynamic(() => import('src/component/navbar'), { ssr: false });
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+
+const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
+const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
 
 export default function Contact() {
+    const form = useRef<HTMLFormElement | null>(null);
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (form.current) {
+            emailjs
+                .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, {
+                    publicKey: "YOUR_PUBLIC_KEY",
+                })
+                .then(
+                    () => {
+                        console.log("SUCCESS!");
+                    },
+                    (error) => {
+                        console.log("FAILED...", error.text);
+                    }
+                );
+        } else {
+            console.error("Form reference is not available.");
+        }
+    };
+
     return (
         <div>
             <Navbar />
@@ -19,10 +45,11 @@ export default function Contact() {
                             </ul>
                         </div>
                         <div className="w-full md:w-1/2">
-                            <form className="max-w-lg mx-auto px-4">
+                            <form ref={form} onSubmit={sendEmail} className="max-w-lg mx-auto px-4">
                                 <div className="mb-4">
                                     <input
                                         type="text"
+                                        name="user_name"
                                         placeholder="Name"
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                                     />
@@ -30,6 +57,7 @@ export default function Contact() {
                                 <div className="mb-4">
                                     <input
                                         type="email"
+                                        name="user_email"
                                         placeholder="Email"
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                                     />
@@ -37,11 +65,13 @@ export default function Contact() {
                                 <div className="mb-4">
                                     <textarea
                                         placeholder="Message"
+                                        name="message"
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
                                     ></textarea>
                                 </div>
                                 <button
                                     type="submit"
+                                    value="Send"
                                     className="w-full p-2 hover:bg-[#4b6645] bg-green text-white rounded-md hover:bg-green-700"
                                 >
                                     SUBMIT
@@ -53,5 +83,5 @@ export default function Contact() {
             </main>
             <Footer />
         </div>
-    )
+    );
 }
