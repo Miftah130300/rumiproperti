@@ -48,6 +48,10 @@ export default function Home() {
     <>
       <Head>
         <title>Rumi Properti: Jual & Sewa Rumah, Apartemen, Tanah, Kos</title>
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Rumi Properti: Jual & Sewa Rumah, Apartemen, Tanah, Kos" />
+        <meta property="og:description" content="Rumi Properti adalah platform untuk mencari hunian idamanmu.  Dengan menampilkan pilihan properti terjangkau, Anda bisa mendapatkan hunian yang nyaman dan tentunya sesuai dengan budget Anda." />
+        <meta property="og:url" content="https://rumiproperti.com" />
       </Head>
       <div>
         <header className='dark:bg-[#1E1E1E]'>
