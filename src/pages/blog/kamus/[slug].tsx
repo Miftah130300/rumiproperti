@@ -33,6 +33,21 @@ export default function DetailDictionary() {
         <>
             <Navbar />
             <main className="dark:bg-[#1E1E1E]">
+                <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
+                    <nav className="flex flex-col md:flex-row gap-5">
+                        <ul className="flex gap-5">
+                            <li className="text-sm">
+                                <Link href={'/blog/kategori/berita'}>Berita</Link>
+                            </li>
+                            <li className="text-sm">
+                                <Link href={'/blog/kategori/tips & trik'}>Tips & Trik</Link>
+                            </li>
+                            <li className="text-sm">
+                                <Link href={'/blog/kategori/kamus'}>Kamus properti</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
                 {selectedDictionary ? (
                     <div className="pt-10 px-5 md:px-10 w-full flex flex-col gap-5">
                         <h2 className="text-xl md:text-3xl font-semibold">{selectedDictionary.wordProperty}</h2>
