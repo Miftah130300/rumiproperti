@@ -1,12 +1,14 @@
 import dynamic from "next/dynamic";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import CheckIcon from '@mui/icons-material/Check';
 
 const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
 const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
 
 export default function Contact() {
     const form = useRef<HTMLFormElement | null>(null);
+    const [send, setSend] = useState(false)
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -18,6 +20,7 @@ export default function Contact() {
                 })
                 .then(
                     () => {
+                        setSend(true)
                         console.log("SUCCESS!");
                     },
                     (error) => {
@@ -69,11 +72,12 @@ export default function Contact() {
                                         className="w-full bg-[#D9D9D9] dark:bg-opacity-50 p-2 border dark:border-none border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
                                     ></textarea>
                                 </div>
-                                <input
+                                <button
                                     type="submit"
-                                    value="Send"
-                                    className="w-full p-2 hover:bg-[#4b6645] bg-green text-white rounded-md hover:bg-green-700"
-                                />
+                                    className="w-full p-2 hover:bg-[#4b6645] bg-green text-white rounded-md hover:bg-green-700 flex items-center justify-center gap-2"
+                                >
+                                    {send ? "Send" : <CheckIcon />}
+                                </button>
                             </form>
                         </div>
                     </div>
