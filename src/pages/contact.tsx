@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import CheckIcon from '@mui/icons-material/Check';
+import PendingIcon from '@mui/icons-material/Pending';
 
 const Footer = dynamic(() => import("src/component/footer"), { ssr: false });
 const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
@@ -9,11 +10,13 @@ const Navbar = dynamic(() => import("src/component/navbar"), { ssr: false });
 export default function Contact() {
     const form = useRef<HTMLFormElement | null>(null);
     const [send, setSend] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (form.current) {
+            setLoading(true)
             emailjs
                 .sendForm("service_rcu415f", "template_vks5kf9", form.current, {
                     publicKey: "HtPeCu-iL-uOrTNE0",
@@ -22,11 +25,17 @@ export default function Contact() {
                     () => {
                         setSend(true)
                         console.log("SUCCESS!");
+                        if (form.current) {
+                            form.current.reset()
+                        }
                     },
                     (error) => {
                         console.log("FAILED...", error.text);
                     }
-                );
+                )
+                .finally(() => {
+                    setLoading(false);
+                });
         } else {
             console.error("Form reference is not available.");
         }
@@ -76,7 +85,10 @@ export default function Contact() {
                                     type="submit"
                                     className="w-full p-2 hover:bg-[#4b6645] bg-green text-white rounded-md hover:bg-green-700 flex items-center justify-center gap-2"
                                 >
-                                    {send ? "Send" : <CheckIcon />}
+                                    {loading ?
+                                        <PendingIcon />
+                                        :
+                                        send ? <><CheckIcon /> Message successfully sent</> : "Send"}
                                 </button>
                             </form>
                         </div>
