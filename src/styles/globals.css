@@ -139,12 +139,6 @@ main {
   }
 }
 
-@media (min-width: 1025px) {
-  .embla-testimony {
-    --slide-size: 33.3333%;
-  }
-}
-
 .embla__viewport-testimony {
   overflow: hidden;
 }
