@@ -160,10 +160,10 @@ export default function DetailProperti() {
     }
 
     const imageUrls = selectedProperti.imageProperty?.map(image =>
-        image.formats.thumbnail.url ||
         image.formats.large.url ||
         image.formats.medium.url ||
         image.formats.small.url ||
+        image.formats.thumbnail.url ||
         ''
     ) || [];
     const brosurUrl = selectedProperti.brosur?.url
@@ -267,7 +267,7 @@ export default function DetailProperti() {
                                 <div className="w-full grid grid-cols-4 md:grid-cols-5 justify-center gap-5 shadow-sm border py-5 rounded-lg">
                                     {selectedProperti.fasilitasPerabot?.length ? (
                                         selectedProperti.fasilitasPerabot.slice(0, 9).map((perabot, index) => (
-                                            <div key={index} className="flex flex-col items-center gap-2">
+                                            <div key={index} className="flex flex-col items-center text-center gap-2">
                                                 {iconMap[perabot]}
                                                 <p className="text-sm">{perabot}</p>
                                             </div>
