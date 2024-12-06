@@ -27,14 +27,32 @@ interface Properti {
     };
     imageProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
                 url: string;
             };
         };
     }[];
     bannerProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
                 url: string;
             };
         };
@@ -238,7 +256,11 @@ export default function Property() {
                                         <div className="w-full h-[200px] overflow-hidden">
                                             <Image
                                                 className="w-full h-full object-cover hover:scale-110 transition"
-                                                src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
+                                                src={item.bannerProperty?.formats?.large.url ||
+                                                    item.bannerProperty?.formats?.medium?.url ||
+                                                    item.bannerProperty?.formats?.small.url ||
+                                                    item.bannerProperty?.formats?.thumbnail.url ||
+                                                    ''}
                                                 loader={myLoader}
                                                 alt={item.title}
                                                 width={300}

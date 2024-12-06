@@ -17,6 +17,15 @@ interface Developer {
     aboutDeveloper: string;
     logoDeveloper: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
             };
@@ -63,7 +72,16 @@ interface Properti {
     }[];
     bannerProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
                 url: string;
             };
         };
@@ -117,7 +135,12 @@ const DeveloperDetailPage = () => {
                             <div className="relative w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                                 {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
                                     <Image
-                                        src={currentDeveloper.logoDeveloper.formats.thumbnail.url}
+                                        src={currentDeveloper.logoDeveloper.formats.large.url ||
+                                            currentDeveloper.logoDeveloper.formats.medium.url ||
+                                            currentDeveloper.logoDeveloper.formats.small.url ||
+                                            currentDeveloper.logoDeveloper.formats.thumbnail.url ||
+                                            ''
+                                        }
                                         alt={currentDeveloper.nameDeveloper}
                                         fill
                                         className="object-cover"
@@ -147,7 +170,11 @@ const DeveloperDetailPage = () => {
                                     <div className="w-full h-[200px] overflow-hidden">
                                         <Image
                                             className="w-full h-full object-cover hover:scale-110 transition"
-                                            src={item.bannerProperty?.formats?.medium?.url ?? '/default-image.jpg'}
+                                            src={item.bannerProperty?.formats?.large?.url ||
+                                                item.bannerProperty?.formats?.medium?.url ||
+                                                item.bannerProperty?.formats?.small?.url ||
+                                                item.bannerProperty?.formats?.thumbnail?.url ||
+                                                '/default-image.jpg'}
                                             loader={myLoader}
                                             alt={item.title}
                                             width={300}

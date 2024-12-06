@@ -45,17 +45,35 @@ interface Properti {
     };
     imageProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
                 url: string;
             };
-        };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
+        }
     }[];
     bannerProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
                 url: string;
             };
-        };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
+        }
     };
     developer: {
         nameDeveloper: string;
@@ -78,9 +96,18 @@ interface Developer {
     aboutDeveloper: string;
     logoDeveloper: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
-            }
+            };
         }
     }
 }
@@ -132,7 +159,13 @@ export default function DetailProperti() {
         return <p>Property not found</p>;
     }
 
-    const imageUrls = selectedProperti.imageProperty?.map(image => image.formats.medium.url) || [];
+    const imageUrls = selectedProperti.imageProperty?.map(image =>
+        image.formats.large.url ||
+        image.formats.medium.url ||
+        image.formats.small.url ||
+        image.formats.thumbnail.url ||
+        ''
+    ) || [];
     const brosurUrl = selectedProperti.brosur?.url
         ? `${process.env.NEXT_PUBLIC_API_URL}${selectedProperti.brosur.url}`
         : null;
@@ -161,7 +194,12 @@ export default function DetailProperti() {
                                     {developerProperti?.logoDeveloper?.formats?.thumbnail?.url && (
                                         <div className="relative w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                                             <Image
-                                                src={developerProperti.logoDeveloper.formats.thumbnail.url}
+                                                src={developerProperti.logoDeveloper.formats.large.url ||
+                                                    developerProperti.logoDeveloper.formats.medium.url ||
+                                                    developerProperti.logoDeveloper.formats.small.url ||
+                                                    developerProperti.logoDeveloper.formats.thumbnail.url ||
+                                                    ''
+                                                }
                                                 alt={developerProperti.nameDeveloper || "Logo Developer"}
                                                 fill
                                                 className="object-cover"
@@ -225,7 +263,7 @@ export default function DetailProperti() {
                             </div>
                             <div className="flex flex-col gap-5">
                                 <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Fasilitas & Perabotan</h2>
-                                <div className="w-full grid grid-cols-5 justify-center gap-5 shadow-sm border py-5 rounded-lg">
+                                <div className="w-full grid grid-cols-4 md:grid-cols-5 justify-center gap-5 shadow-sm border py-5 rounded-lg">
                                     {selectedProperti.fasilitasPerabot?.length ? (
                                         selectedProperti.fasilitasPerabot.slice(0, 9).map((perabot, index) => (
                                             <div key={index} className="flex flex-col items-center gap-2">

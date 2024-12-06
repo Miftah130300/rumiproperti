@@ -270,7 +270,11 @@ export default function Home() {
                         <div className="w-full h-[200px] overflow-hidden">
                           <Image
                             className="w-full h-full object-cover hover:scale-110 transition"
-                            src={item.bannerProperty?.formats?.medium?.url || '/default-image.jpg'}
+                            src={item.bannerProperty?.formats?.large.url ||
+                              item.bannerProperty?.formats?.medium?.url ||
+                              item.bannerProperty?.formats?.small.url ||
+                              item.bannerProperty?.formats?.thumbnail.url ||
+                              ''}
                             loader={myLoader}
                             alt={item.title}
                             width={300}
@@ -322,7 +326,12 @@ export default function Home() {
                     {blog[blog.length - 1] && blog[blog.length - 1].cover && blog[blog.length - 1].cover.formats && blog[blog.length - 1].cover.formats.large && (
                       <Link className="relative w-full md:w-1/2 group" href={`/blog/${blog[blog.length - 1].slug}`}>
                         <Image
-                          src={blog[blog.length - 1].cover.formats.large.url}
+                          src={blog[blog.length - 1].cover.formats.large.url ||
+                            blog[blog.length - 1].cover.formats.medium?.url ||
+                            blog[blog.length - 1].cover.formats.small?.url ||
+                            blog[blog.length - 1].cover.formats.thumbnail?.url ||
+                            ''
+                          }
                           loader={myLoader}
                           width={100}
                           height={100}
@@ -341,7 +350,12 @@ export default function Home() {
                       {blog[blog.length - 2] && (
                         <Link className="relative w-full group" href={`/blog/${blog[blog.length - 2].slug}`}>
                           <Image
-                            src={blog[blog.length - 2].cover.formats.large.url}
+                            src={blog[blog.length - 2].cover.formats.large.url ||
+                              blog[blog.length - 2].cover.formats.medium?.url ||
+                              blog[blog.length - 2].cover.formats.small?.url ||
+                              blog[blog.length - 2].cover.formats.thumbnail?.url ||
+                              ''
+                            }
                             loader={myLoader}
                             width={100}
                             height={100}
@@ -358,7 +372,12 @@ export default function Home() {
                         {blog[blog.length - 3] && (
                           <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 3].slug}`}>
                             <Image
-                              src={blog[blog.length - 3].cover.formats.large.url}
+                              src={blog[blog.length - 3].cover.formats.large.url ||
+                                blog[blog.length - 3].cover.formats.medium?.url ||
+                                blog[blog.length - 3].cover.formats.small?.url ||
+                                blog[blog.length - 3].cover.formats.thumbnail?.url ||
+                                ''
+                              }
                               loader={myLoader}
                               width={100}
                               height={100}
@@ -376,7 +395,12 @@ export default function Home() {
                         {blog[blog.length - 4] && (
                           <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 4].slug}`}>
                             <Image
-                              src={blog[blog.length - 4].cover.formats.large.url}
+                              src={blog[blog.length - 4].cover.formats.large.url ||
+                                blog[blog.length - 4].cover.formats.medium?.url ||
+                                blog[blog.length - 4].cover.formats.small?.url ||
+                                blog[blog.length - 4].cover.formats.thumbnail?.url ||
+                                ''
+                              }
                               loader={myLoader}
                               width={100}
                               height={100}
@@ -425,7 +449,12 @@ export default function Home() {
                       <div className="h-[120px] max-w-[180px] p-3 dark:border-none dark:bg-[#252525] shadow border rounded-lg flex items-center justify-center">
                         <Image
                           loader={myLoader}
-                          src={item.imagePartner.formats.thumbnail.url}
+                          src={item.imagePartner.formats.large.url ||
+                            item.imagePartner.formats.medium.url ||
+                            item.imagePartner.formats.small.url ||
+                            item.imagePartner.formats.thumbnail.url ||
+                            ''
+                          }
                           alt={item.namePartner}
                           width={100}
                           height={100}

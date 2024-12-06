@@ -139,7 +139,7 @@ main {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .embla-testimony {
     --slide-size: 33.3333%;
   }

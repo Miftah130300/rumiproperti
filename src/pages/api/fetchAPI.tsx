@@ -6,10 +6,19 @@ interface City {
     nameCity: string;
     imageCity: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
-            }
-        }
+            };
+        };
     }
 }
 
@@ -18,10 +27,19 @@ interface Partner {
     namePartner: string;
     imagePartner: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
-            }
-        }
+            };
+        };
     }
 }
 
@@ -32,10 +50,19 @@ interface Testimony {
     message: string;
     imageClient: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
-            }
-        }
+            };
+        };
     }
 }
 
@@ -44,10 +71,19 @@ interface Banner {
     title: string;
     bannerImage: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
                 url: string;
-            }
-        }
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
+                url: string;
+            };
+        };
     }
 }
 
@@ -90,7 +126,16 @@ interface Properti {
     }[];
     bannerProperty: {
         formats: {
+            large: {
+                url: string;
+            };
             medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
+            thumbnail: {
                 url: string;
             };
         };
@@ -116,10 +161,19 @@ interface Developer {
     aboutDeveloper: string;
     logoDeveloper: {
         formats: {
+            large: {
+                url: string;
+            };
+            medium: {
+                url: string;
+            };
+            small: {
+                url: string;
+            };
             thumbnail: {
                 url: string;
-            }
-        }
+            };
+        };
     }
 }
 

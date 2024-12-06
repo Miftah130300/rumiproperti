@@ -56,6 +56,21 @@ interface Banner {
                 width: number;
                 height: number;
             };
+            medium: {
+                url: string;
+                width: number;
+                height: number;
+            };
+            small: {
+                url: string;
+                width: number;
+                height: number;
+            };
+            thumbnail: {
+                url: string;
+                width: number;
+                height: number;
+            };
         };
     };
 }
@@ -202,7 +217,12 @@ export default function DetailBlog() {
                             {banner && banner.bannerImage && (
                                 <Image
                                     loader={myLoader}
-                                    src={banner.bannerImage.formats.large.url}
+                                    src={banner.bannerImage.formats.large.url ||
+                                        banner.bannerImage.formats.medium.url ||
+                                        banner.bannerImage.formats.small.url ||
+                                        banner.bannerImage.formats.thumbnail.url ||
+                                        ''
+                                    }
                                     width={100}
                                     height={100}
                                     alt="Banner"
