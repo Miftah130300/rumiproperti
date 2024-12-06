@@ -160,10 +160,10 @@ export default function DetailProperti() {
     }
 
     const imageUrls = selectedProperti.imageProperty?.map(image =>
-        image.formats.large.url ||
         image.formats.medium.url ||
         image.formats.small.url ||
         image.formats.thumbnail.url ||
+        image.formats.large.url ||
         ''
     ) || [];
     const brosurUrl = selectedProperti.brosur?.url
