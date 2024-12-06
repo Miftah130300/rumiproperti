@@ -256,10 +256,10 @@ export default function Property() {
                                         <div className="w-full h-[200px] overflow-hidden">
                                             <Image
                                                 className="w-full h-full object-cover hover:scale-110 transition"
-                                                src={item.bannerProperty?.formats?.large.url ||
+                                                src={item.bannerProperty?.formats?.thumbnail.url ||
+                                                    item.bannerProperty?.formats?.large.url ||
                                                     item.bannerProperty?.formats?.medium?.url ||
                                                     item.bannerProperty?.formats?.small.url ||
-                                                    item.bannerProperty?.formats?.thumbnail.url ||
                                                     ''}
                                                 loader={myLoader}
                                                 alt={item.title}

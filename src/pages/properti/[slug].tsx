@@ -160,10 +160,10 @@ export default function DetailProperti() {
     }
 
     const imageUrls = selectedProperti.imageProperty?.map(image =>
+        image.formats.thumbnail.url ||
         image.formats.large.url ||
         image.formats.medium.url ||
         image.formats.small.url ||
-        image.formats.thumbnail.url ||
         ''
     ) || [];
     const brosurUrl = selectedProperti.brosur?.url
@@ -194,10 +194,11 @@ export default function DetailProperti() {
                                     {developerProperti?.logoDeveloper?.formats?.thumbnail?.url && (
                                         <div className="relative w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                                             <Image
-                                                src={developerProperti.logoDeveloper.formats.large.url ||
+                                                src={
+                                                    developerProperti.logoDeveloper.formats.thumbnail.url ||
+                                                    developerProperti.logoDeveloper.formats.large.url ||
                                                     developerProperti.logoDeveloper.formats.medium.url ||
                                                     developerProperti.logoDeveloper.formats.small.url ||
-                                                    developerProperti.logoDeveloper.formats.thumbnail.url ||
                                                     ''
                                                 }
                                                 alt={developerProperti.nameDeveloper || "Logo Developer"}
