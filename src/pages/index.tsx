@@ -329,8 +329,8 @@ export default function Home() {
                     {blog[blog.length - 1] && blog[blog.length - 1].cover && blog[blog.length - 1].cover.formats && blog[blog.length - 1].cover.formats.large && (
                       <Link className="relative w-full md:w-1/2 group" href={`/blog/${blog[blog.length - 1].slug}`}>
                         <Image
-                          src={blog[blog.length - 1].cover.formats.thumbnail?.url ||
-                            blog[blog.length - 1].cover.formats.large?.url ||
+                          src={blog[blog.length - 1].cover.formats.large?.url ||
+                            blog[blog.length - 1].cover.formats.thumbnail?.url ||
                             blog[blog.length - 1].cover.formats.medium?.url ||
                             blog[blog.length - 1].cover.formats.small?.url ||
                             ''
@@ -353,8 +353,8 @@ export default function Home() {
                       {blog[blog.length - 2] && (
                         <Link className="relative w-full group" href={`/blog/${blog[blog.length - 2].slug}`}>
                           <Image
-                            src={blog[blog.length - 2].cover.formats.thumbnail?.url ||
-                              blog[blog.length - 2].cover.formats.large?.url ||
+                            src={blog[blog.length - 2].cover.formats.large?.url ||
+                              blog[blog.length - 2].cover.formats.thumbnail?.url ||
                               blog[blog.length - 2].cover.formats.medium?.url ||
                               blog[blog.length - 2].cover.formats.small?.url ||
                               ''
@@ -375,8 +375,8 @@ export default function Home() {
                         {blog[blog.length - 3] && (
                           <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 3].slug}`}>
                             <Image
-                              src={blog[blog.length - 3].cover.formats.thumbnail?.url ||
-                                blog[blog.length - 3].cover.formats.large?.url ||
+                              src={blog[blog.length - 3].cover.formats.large?.url ||
+                                blog[blog.length - 3].cover.formats.thumbnail?.url ||
                                 blog[blog.length - 3].cover.formats.medium?.url ||
                                 blog[blog.length - 3].cover.formats.small?.url ||
                                 ''
@@ -398,8 +398,8 @@ export default function Home() {
                         {blog[blog.length - 4] && (
                           <Link className="relative w-1/2 group" href={`/blog/${blog[blog.length - 4].slug}`}>
                             <Image
-                              src={blog[blog.length - 4].cover.formats.thumbnail?.url ||
-                                blog[blog.length - 4].cover.formats.large?.url ||
+                              src={blog[blog.length - 4].cover.formats.large?.url ||
+                                blog[blog.length - 4].cover.formats.thumbnail?.url ||
                                 blog[blog.length - 4].cover.formats.medium?.url ||
                                 blog[blog.length - 4].cover.formats.small?.url ||
                                 ''
