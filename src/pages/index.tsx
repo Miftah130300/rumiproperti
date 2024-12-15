@@ -531,7 +531,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold">Hubungi Kami</h3>
               <p className="mt-2 text-sm dark:text-[#CCCCCC]">Email: rumamilenial@gmail.com</p>
               <p className="mt-2 text-sm dark:text-[#CCCCCC]">Phone: 081291964488</p>
-              <p className="mt-2 text-sm dark:text-[#CCCCCC]"><a className='hover:underline' href='https://bit.ly/SurveyRumi'>Feedback</a></p>
+              <p className="mt-2 text-sm dark:text-[#CCCCCC]"><a className='hover:underline' ref='_blank' href='https://bit.ly/SurveyRumi'>Feedback</a></p>
             </div>
             <div>
               <h3 className="text-xl font-semibold">Tentang Kami</h3>
