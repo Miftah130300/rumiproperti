@@ -76,7 +76,10 @@ export default function Home() {
                       <Link href="/">Home</Link>
                     </li>
                     <li className="text-sm hover:text-green">
-                      <Link href="/properti">Tipe Properti</Link>
+                      <Link href="/beli">Beli</Link>
+                    </li>
+                    <li className="text-sm hover:text-green">
+                      <Link href="/sewa">Sewa</Link>
                     </li>
                     <li className="text-sm hover:text-green">
                       <Link href="/blog">Blog</Link>
