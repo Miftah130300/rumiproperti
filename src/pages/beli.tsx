@@ -98,7 +98,7 @@ export default function Property() {
                 });
                 const data = await res.json();
                 setProperti(data.data || []);
-                setFilteredProperties(data.data || []);
+                setFilteredProperties((data.data || []).filter((item: Properti) => item.tipeProperti === "Beli"));
             } catch (error) {
                 console.error("Error fetching properties:", error);
             } finally {
