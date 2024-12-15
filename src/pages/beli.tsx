@@ -176,7 +176,7 @@ export default function Property() {
     useEffect(() => {
         if (search) {
             const filtered = properti.filter((item) => {
-                const category = properti.find((item) => item.tipeProperti === 'beli')
+                const category = properti.find((item) => item.tipeProperti === 'Beli')
                 return (
                     (item.title && category && item.title.toLowerCase().includes(search.toString().toLowerCase())) ||
                     (item.address && category && item.address.toLowerCase().includes(search.toString().toLowerCase()))
