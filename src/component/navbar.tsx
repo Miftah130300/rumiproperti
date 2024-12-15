@@ -63,8 +63,11 @@ export default function Navbar() {
                         <li className="text-lg hover:text-green">
                             <Link href="/">Home</Link>
                         </li>
-                        <li className="text-lg hover:text-green">
-                            <Link href="/properti">Tipe Properti</Link>
+                        <li className="text-sm hover:text-green">
+                            <Link href="/beli">Beli</Link>
+                        </li>
+                        <li className="text-sm hover:text-green">
+                            <Link href="/sewa">Sewa</Link>
                         </li>
                         <li className="text-lg hover:text-green">
                             <Link href="/blog">Blog</Link>
@@ -77,7 +80,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                     <div className="flex flex-col gap-5 mt-5">
-                        <Link className="text-sm px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href="https://bit.ly/SurveyRumi" target="_blank" role="button">Feedback</Link>
+                        <Link className="text-sm px-6 py-2 bg-[#D9D9D9] hover:bg-[#c1c1c1] rounded-2xl text-[#24221D] flex justify-center items-center" href="https://form.jotform.com/243384851890062" target="_blank" role="button">Pasang Iklan Gratis</Link>
                         <Link className="text-sm px-6 py-2 hover:bg-[#4b6645] bg-green rounded-2xl text-white flex justify-center items-center" href="https://wa.me/6281291964488" target="_blank" role="button">Hubungi Kami</Link>
                     </div>
                 </div>
