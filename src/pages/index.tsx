@@ -105,10 +105,10 @@ export default function Home() {
                 <li className="text-lg hover:text-green">
                   <Link href="/">Home</Link>
                 </li>
-                <li className="text-sm hover:text-green">
+                <li className="text-lg hover:text-green">
                   <Link href="/beli">Beli</Link>
                 </li>
-                <li className="text-sm hover:text-green">
+                <li className="text-lg hover:text-green">
                   <Link href="/sewa">Sewa</Link>
                 </li>
                 <li className="text-lg hover:text-green">
