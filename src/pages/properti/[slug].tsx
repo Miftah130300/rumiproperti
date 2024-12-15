@@ -88,6 +88,7 @@ interface Properti {
         id: number;
         text: string;
     }[];
+    hargaCicilan: string;
 }
 
 interface Developer {
@@ -302,7 +303,7 @@ export default function DetailProperti() {
                             <div className="flex flex-col gap-4">
                                 <div className="text-center">
                                     <h2 className="text-xl font-bold text-[#24221D] dark:text-white">Rp {selectedProperti.price.toLocaleString()}</h2>
-                                    <p className="text-xs text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Cicilan mulai dari 2juta/bulan</p>
+                                    <p className="text-xs text-black text-opacity-70 dark:text-[#CCCCCC] dark:text-opacity-100">Cicilan mulai dari {selectedProperti.hargaCicilan}</p>
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <Link href={"https://wa.me/6281291964488"} target='blank' className="inline-block text-center hover:bg-[#4b6645] bg-green rounded-lg px-3 py-3 text-xs font-semibold text-white">

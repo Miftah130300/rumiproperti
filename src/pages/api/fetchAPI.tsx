@@ -154,6 +154,7 @@ interface Properti {
         text: string;
     }[];
     tipeProperti: string;
+    hargaCicilan: string;
 }
 
 interface Developer {
