@@ -41,7 +41,7 @@ export default function Home() {
   const router = useRouter();
   const [keyword, setKeyword] = useState("");
   const handleSearch = () => {
-    router.push(`/properti?search=${keyword}`);
+    router.push(`/beli?search=${keyword}`);
   };
 
   return (
