@@ -150,6 +150,7 @@ export default function Property() {
     // Filter logic
     const handleFilter = () => {
         const filtered = properti.filter(item => {
+            const isForSale = item.tipeProperti === "Beli"; // Filter by type
             const matchKeyword = keyword
                 ? (item.title && item.title.toLowerCase().includes(keyword.toLowerCase())) ||
                 (item.address && item.address.toLowerCase().includes(keyword.toLowerCase()))
@@ -163,7 +164,8 @@ export default function Property() {
                     selectedPrice === "medium" ? item.price >= 500000000 && item.price < 1000000000 :
                         item.price >= 1000000000
                 : true;
-            return matchKeyword && matchCategory && matchArea && matchPrice;
+
+            return isForSale && matchKeyword && matchCategory && matchArea && matchPrice;
         });
         setFilteredProperties(filtered);
     };
@@ -175,13 +177,12 @@ export default function Property() {
     // Filter the properties based on the search query from the URL
     useEffect(() => {
         if (search) {
-            const filtered = properti.filter((item) => {
-                const category = properti.find((item) => item.tipeProperti === 'Beli')
-                return (
-                    (item.title && category && item.title.toLowerCase().includes(search.toString().toLowerCase())) ||
-                    (item.address && category && item.address.toLowerCase().includes(search.toString().toLowerCase()))
-                );
-            });
+            const filtered = properti.filter(item =>
+                item.tipeProperti === "Beli" && (
+                    (item.title && item.title.toLowerCase().includes(search.toString().toLowerCase())) ||
+                    (item.address && item.address.toLowerCase().includes(search.toString().toLowerCase()))
+                )
+            );
             setFilteredProperties(filtered);
         }
     }, [search, properti]);
