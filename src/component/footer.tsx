@@ -29,7 +29,7 @@ export default function Footer() {
                     <h3 className="text-xl font-semibold">Hubungi Kami</h3>
                     <p className="mt-2 text-sm dark:text-[#CCCCCC]">Email: rumamilenial@gmail.com</p>
                     <p className="mt-2 text-sm dark:text-[#CCCCCC]">Phone: 081291964488</p>
-                    <a href='https://bit.ly/SurveyRumi' className="mt-2 text-sm dark:text-[#CCCCCC]">Feedback</a>
+                    <p className="mt-2 text-sm dark:text-[#CCCCCC]"><a href='https://bit.ly/SurveyRumi'>Feedback</a></p>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold">Tentang Kami</h3>
