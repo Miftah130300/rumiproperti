@@ -453,8 +453,8 @@ export default function Home() {
                         <Image
                           loader={myLoader}
                           src={
-                            item.imagePartner.formats.thumbnail.url ||
                             item.imagePartner.formats.large.url ||
+                            item.imagePartner.formats.thumbnail.url ||
                             item.imagePartner.formats.medium.url ||
                             item.imagePartner.formats.small.url ||
                             ''
