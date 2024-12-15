@@ -77,7 +77,7 @@ interface Banner {
 
 const myLoader = ({ src }: { src: string }) => {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-    console.log('Loading image from:', `${baseUrl}${src}`); // Debug the full image URL
+    console.log('Loading image from:', `${baseUrl}${src}`);
     return `${baseUrl}${src}`;
 };
 
@@ -89,7 +89,6 @@ export default function DetailBlog() {
     const [loading, setLoading] = useState(true);
     const [banner, setBanner] = useState<Banner | null>(null);
 
-    // Fetch article data
     useEffect(() => {
         const fetchArticle = async () => {
             if (!slug) return;
@@ -121,7 +120,6 @@ export default function DetailBlog() {
         fetchArticle();
     }, [slug]);
 
-    // Fetch banner data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -131,7 +129,7 @@ export default function DetailBlog() {
                     },
                 });
                 const data = await res.json();
-                setBanner(data.data || []); // <-- set blog as an array
+                setBanner(data.data || []);
             } catch (error) {
                 console.error("Error fetching properties:", error);
             } finally {

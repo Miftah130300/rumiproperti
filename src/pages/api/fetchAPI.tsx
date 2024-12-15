@@ -153,6 +153,7 @@ interface Properti {
         id: number;
         text: string;
     }[];
+    tipeProperti: string;
 }
 
 interface Developer {
