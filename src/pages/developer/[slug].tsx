@@ -135,10 +135,10 @@ const DeveloperDetailPage = () => {
                             <div className="relative w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                                 {currentDeveloper.logoDeveloper?.formats?.thumbnail?.url && (
                                     <Image
-                                        src={currentDeveloper.logoDeveloper.formats.large.url ||
+                                        src={currentDeveloper.logoDeveloper.formats.thumbnail.url ||
+                                            currentDeveloper.logoDeveloper.formats.large.url ||
                                             currentDeveloper.logoDeveloper.formats.medium.url ||
                                             currentDeveloper.logoDeveloper.formats.small.url ||
-                                            currentDeveloper.logoDeveloper.formats.thumbnail.url ||
                                             ''
                                         }
                                         alt={currentDeveloper.nameDeveloper}
