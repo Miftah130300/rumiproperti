@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 type PropType = {
     slides: string[]; // Correct type for image paths
-    size: number;
+    size: number[];
     options?: EmblaOptionsType;
     loader: ({ src }: { src: string }) => string; // Loader should be a function
 }
@@ -21,7 +21,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         dragFree: true
     })
 
-    const imageSize = size < 1200
+    const imageSize = size[0] < 1200
 
     const onThumbClick = useCallback(
         (index: number) => {
