@@ -55,9 +55,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                     src={src}
                                     alt={`Slide ${index} background`}
                                     loader={loader}
-                                    className="absolute inset-0 w-full h-full object-cover scale-110"
+                                    className="w-full h-full object-cover scale-110"
                                 />
-                                <div className="absolute inset-0 bg-white bg-opacity-70 blur-3xl"></div>
+                                <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
                             </div>
                             <Image
                                 src={src}
