@@ -57,32 +57,10 @@ main {
 }
 
 .embla__slide-property {
-  position: relative;
-  width: 100%;
-  height: var(--slide-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.embla__slide-property img {
-  position: relative;
-  z-index: 10;
-}
-
-.embla__slide-property .blur-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(10px);
-  z-index: 0;
-  display: none;
-}
-
-.embla__slide-property.portrait .blur-bg {
-  display: block;
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
 }
 
 .embla__slide__number {
