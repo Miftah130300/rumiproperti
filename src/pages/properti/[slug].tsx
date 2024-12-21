@@ -47,18 +47,21 @@ interface Properti {
         formats: {
             large: {
                 url: string;
+                width: number;
             };
             medium: {
                 url: string;
+                width: number;
             };
             small: {
                 url: string;
+                width: number;
             };
             thumbnail: {
                 url: string;
+                width: number;
             };
         }
-        size: number;
     }[];
     bannerProperty: {
         formats: {
@@ -186,7 +189,7 @@ export default function DetailProperti() {
                 <Navbar />
                 <main className="dark:bg-[#1E1E1E]">
                     <div className="pt-10 px-5 md:px-10 w-full h-full flex flex-col md:flex-row justify-between gap-10 md:gap-10">
-                        <EmblaCarousel size={selectedProperti.imageProperty.map((size) => size?.size || 0)} slides={imageUrls} options={OPTIONS} loader={myLoader} />
+                        <EmblaCarousel slides={imageUrls} options={OPTIONS} loader={myLoader} />
                     </div>
                     <div className="py-[50px] px-5 md:px-10 w-full flex flex-col lg:flex-row justify-between gap-10 md:gap-5">
                         <div className="flex flex-col gap-10">

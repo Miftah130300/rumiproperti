@@ -7,21 +7,18 @@ import Image from 'next/image'
 
 type PropType = {
     slides: string[]; // Correct type for image paths
-    size: number[];
     options?: EmblaOptionsType;
     loader: ({ src }: { src: string }) => string; // Loader should be a function
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-    const { slides, size, options, loader } = props
+    const { slides, options, loader } = props
     const [selectedIndex, setSelectedIndex] = useState(0)
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
     const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
         containScroll: 'keepSnaps',
         dragFree: true
     })
-
-    const imageSize = size[0] < 1200
 
     const onThumbClick = useCallback(
         (index: number) => {
@@ -62,9 +59,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                             />
 
                             {/* Overlay blur */}
-                            {imageSize && (
-                                <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0"></div>
-                            )}
+                            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0"></div>
                         </div>
                     ))}
                 </div>

@@ -112,18 +112,21 @@ interface Properti {
         formats: {
             large: {
                 url: string;
+                width: number;
             };
             medium: {
                 url: string;
+                width: number;
             };
             small: {
                 url: string;
+                width: number;
             };
             thumbnail: {
                 url: string;
+                width: number;
             };
-        };
-        size: number;
+        }
     }[];
     bannerProperty: {
         formats: {
