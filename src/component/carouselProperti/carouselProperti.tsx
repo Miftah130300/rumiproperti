@@ -50,19 +50,21 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                             className="embla__slide-property flex items-center justify-center w-full h-full relative overflow-hidden"
                             key={index}
                         >
+                            <div className="absolute inset-0 w-full h-full">
+                                <Image
+                                    src={src}
+                                    alt={`Slide ${index} background`}
+                                    loader={loader}
+                                    className="absolute inset-0 w-full h-full object-cover scale-110"
+                                />
+                                <div className="absolute inset-0 bg-white/70 backdrop-blur-3xl"></div>
+                            </div>
                             <Image
                                 src={src}
                                 alt={`Slide ${index}`}
                                 loader={loader}
                                 className="h-auto w-auto max-h-full max-w-full object-contain z-10"
                             />
-                            <Image
-                                src={src}
-                                alt={`Slide ${index} background`}
-                                loader={loader}
-                                className="absolute inset-0 w-full h-full object-cover scale-110"
-                            />
-                            <div className="absolute inset-0 bg-white/70 backdrop-blur-3xl z-[5]"></div>
                         </div>
                     ))}
                 </div>
