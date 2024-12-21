@@ -62,7 +62,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                 loader={loader}
                                 className="absolute inset-0 w-full h-full object-cover scale-110"
                             />
-                            <div className="absolute inset-0 bg-white/30 backdrop-blur-md z-[5]"></div>
+                            <div className="absolute inset-0 bg-white/70 backdrop-blur-3xl z-[5]"></div>
                         </div>
                     ))}
                 </div>
