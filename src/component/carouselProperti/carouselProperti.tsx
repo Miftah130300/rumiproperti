@@ -44,21 +44,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     return (
         <div className="embla embla-property">
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                    <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                        <div className="embla__container-property aspect-[1024/768]">
-                            {slides.map((src, index) => (
-                                <div className="embla__slide-property flex items-center w-full h-full" key={index}>
-                                    <Image
-                                        src={src}
-                                        alt={`Slide ${index}`}
-                                        loader={loader}
-                                        className="h-auto w-full object-contain"
-                                    />
-                                </div>
-                            ))}
+                <div className="embla__container-property">
+                    {slides.map((src, index) => (
+                        <div className="embla__slide-property" key={index}>
+                            <Image
+                                src={src}
+                                alt={`Slide ${index}`}
+                                loader={loader}
+                                className="w-full h-auto object-contain"
+                            />
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
             <div className="embla-thumbs-property">
