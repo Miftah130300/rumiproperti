@@ -20,6 +20,20 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         dragFree: true
     })
 
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+        const checkScreenWidth = () => {
+            setIsSmallScreen(window.innerWidth < 550);
+        };
+
+        checkScreenWidth();
+        window.addEventListener('resize', checkScreenWidth);
+
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', checkScreenWidth);
+    }, []);
+
     const onThumbClick = useCallback(
         (index: number) => {
             if (!emblaMainApi || !emblaThumbsApi) return
@@ -58,8 +72,10 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                 className="h-auto w-auto max-h-full max-w-full object-contain z-10"
                             />
 
-                            {/* Overlay blur */}
-                            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0"></div>
+                            {/* Overlay blur hanya diterapkan jika lebar gambar lebih kecil dari 550 */}
+                            {isSmallScreen && (
+                                <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0"></div>
+                            )}
                         </div>
                     ))}
                 </div>
