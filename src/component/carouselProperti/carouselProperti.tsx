@@ -7,12 +7,13 @@ import Image from 'next/image'
 
 type PropType = {
     slides: string[]; // Correct type for image paths
+    size: number;
     options?: EmblaOptionsType;
     loader: ({ src }: { src: string }) => string; // Loader should be a function
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-    const { slides, options, loader } = props
+    const { slides, size, options, loader } = props
     const [selectedIndex, setSelectedIndex] = useState(0)
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
     const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
@@ -20,19 +21,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         dragFree: true
     })
 
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-    useEffect(() => {
-        const checkScreenWidth = () => {
-            setIsSmallScreen(window.innerWidth < 550);
-        };
-
-        checkScreenWidth();
-        window.addEventListener('resize', checkScreenWidth);
-
-        // Cleanup event listener on component unmount
-        return () => window.removeEventListener('resize', checkScreenWidth);
-    }, []);
+    const imageSize = size < 1200
 
     const onThumbClick = useCallback(
         (index: number) => {
@@ -72,8 +61,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                                 className="h-auto w-auto max-h-full max-w-full object-contain z-10"
                             />
 
-                            {/* Overlay blur hanya diterapkan jika lebar gambar lebih kecil dari 550 */}
-                            {isSmallScreen && (
+                            {/* Overlay blur */}
+                            {imageSize && (
                                 <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0"></div>
                             )}
                         </div>

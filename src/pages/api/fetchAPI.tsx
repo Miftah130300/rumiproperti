@@ -123,6 +123,7 @@ interface Properti {
                 url: string;
             };
         };
+        size: number;
     }[];
     bannerProperty: {
         formats: {
