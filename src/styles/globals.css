@@ -27,7 +27,6 @@ main {
 /* Carousel for Properti  */
 .embla-property {
   width: 100%;
-  max-height: 500px;
   margin: auto;
   --slide-height: 10rem;
   --slide-spacing: 1rem;

@@ -44,7 +44,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     return (
         <div className="embla embla-property aspect-[1024/768]">
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                <div className="embla__container-property">
+                <div className="embla__container-property max-h-[300px]">
                     {slides.map((src, index) => (
                         <div
                             className="embla__slide-property flex items-center justify-center w-full relative overflow-hidden"
