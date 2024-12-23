@@ -44,17 +44,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     return (
         <div className="embla embla-property aspect-[1024/768]">
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                <div className="embla__container-property max-h-[300px]">
+                <div className="embla__container-property">
                     {slides.map((src, index) => (
                         <div
-                            className="embla__slide-property flex items-center justify-center w-full relative overflow-hidden"
+                            className="embla__slide-property flex items-center justify-center w-full h-[300px] relative overflow-hidden"
                             key={index}
                         >
                             <Image
                                 src={src}
                                 alt={`Slide ${index}`}
                                 loader={loader}
-                                className="h-auto w-full max-h-full object-contain z-10"
+                                className="h-full w-full max-h-full object-contain z-10"
                             />
                         </div>
                     ))}
