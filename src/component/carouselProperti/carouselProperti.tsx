@@ -42,12 +42,12 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, [emblaMainApi, onSelect])
 
     return (
-        <div className="embla embla-property">
+        <div className="embla embla-property aspect-[1024/768]">
             <div className="embla__viewport embla__viewport-property rounded-lg" ref={emblaMainRef}>
-                <div className="embla__container-property aspect-[1024/768]">
+                <div className="embla__container-property">
                     {slides.map((src, index) => (
                         <div
-                            className="embla__slide-property flex items-center justify-center w-full h-[768px] relative overflow-hidden"
+                            className="embla__slide-property flex items-center justify-center w-full relative overflow-hidden"
                             key={index}
                         >
                             <Image
